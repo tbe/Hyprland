@@ -8,7 +8,6 @@
 #include "../render/Renderer.hpp"
 #include "../managers/HookSystemManager.hpp"
 
-#include <hyprutils/utils/ScopeGuard.hpp>
 using namespace Hyprutils::Animation;
 
 CHyprError::CHyprError() {

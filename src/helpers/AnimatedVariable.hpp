@@ -3,7 +3,6 @@
 #include <hyprutils/animation/AnimatedVariable.hpp>
 
 #include "Color.hpp"
-#include "../defines.hpp"
 #include "../desktop/DesktopTypes.hpp"
 
 enum eAVarDamagePolicy : int8_t {
@@ -33,7 +32,7 @@ struct STypeToAnimatedVarType_t<float> {
 };
 
 template <>
-struct STypeToAnimatedVarType_t<Vector2D> {
+struct STypeToAnimatedVarType_t<Hyprutils::Math::Vector2D> {
     static constexpr eAnimatedVarType value = AVARTYPE_VECTOR;
 };
 
@@ -53,7 +52,7 @@ concept OneOf = (... or std::same_as<T, U>);
 // This is mainly to get better errors if we put a type that's not supported
 // Otherwise template errors are ugly
 template <class T>
-concept Animable = OneOf<T, Vector2D, float, CHyprColor>;
+concept Animable = OneOf<T, Hyprutils::Math::Vector2D, float, CHyprColor>;
 
 struct SAnimationContext {
     PHLWINDOWREF      pWindow;

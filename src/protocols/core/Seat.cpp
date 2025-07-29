@@ -8,8 +8,6 @@
 #include "../../config/ConfigValue.hpp"
 #include <algorithm>
 
-#include <fcntl.h>
-
 CWLTouchResource::CWLTouchResource(SP<CWlTouch> resource_, SP<CWLSeatResource> owner_) : m_owner(owner_), m_resource(resource_) {
     if UNLIKELY (!good())
         return;

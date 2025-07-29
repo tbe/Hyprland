@@ -3,7 +3,6 @@
 #include "../../desktop/WLSurface.hpp"
 #include "../../desktop/Window.hpp"
 #include "../../protocols/core/Compositor.hpp"
-#include "../../protocols/DRMSyncobj.hpp"
 #include "../../managers/input/InputManager.hpp"
 #include "../Renderer.hpp"
 

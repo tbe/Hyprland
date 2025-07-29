@@ -1,16 +1,13 @@
 #pragma once
 
-#include <condition_variable>
 #include <map>
-#include <mutex>
-#include <thread>
 #include <wayland-server.h>
 #include "../../helpers/signal/Signal.hpp"
 #include <hyprutils/os/FileDescriptor.hpp>
 
 #include "EventLoopTimer.hpp"
 
-namespace Aquamarine {
+namespace Aquamarine { // NOLINT(*-identifier-naming)
     struct SPollFD;
 };
 

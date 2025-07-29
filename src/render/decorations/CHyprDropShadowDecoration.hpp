@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IHyprWindowDecoration.hpp"
+#include "helpers/Color.hpp"
 
 class CHyprDropShadowDecoration : public IHyprWindowDecoration {
   public:

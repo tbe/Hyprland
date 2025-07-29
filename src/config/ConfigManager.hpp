@@ -21,7 +21,6 @@
 #include "../desktop/DesktopTypes.hpp"
 #include "../helpers/memory/Memory.hpp"
 #include "../desktop/WindowRule.hpp"
-#include "../managers/XWaylandManager.hpp"
 
 #include <hyprlang.hpp>
 

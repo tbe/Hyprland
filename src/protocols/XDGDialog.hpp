@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <unordered_map>
 #include "WaylandProtocol.hpp"
 #include "xdg-dialog-v1.hpp"
 

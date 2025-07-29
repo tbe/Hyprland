@@ -4,7 +4,6 @@
 #include "../protocols/LayerShell.hpp"
 #include "../protocols/XDGShell.hpp"
 #include "../protocols/core/Compositor.hpp"
-#include "../managers/SeatManager.hpp"
 #include "../desktop/LayerSurface.hpp"
 #include "../managers/input/InputManager.hpp"
 #include "../render/Renderer.hpp"

@@ -1,10 +1,8 @@
 #pragma once
 
-#include "../defines.hpp"
 #include "../helpers/Monitor.hpp"
 #include "../helpers/Color.hpp"
 #include "../helpers/time/Timer.hpp"
-#include "../helpers/math/Math.hpp"
 #include "../helpers/Format.hpp"
 #include "../helpers/sync/SyncTimeline.hpp"
 #include <GLES3/gl32.h>

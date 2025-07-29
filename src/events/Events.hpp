@@ -1,5 +1,5 @@
 #pragma once
-#include "../defines.hpp"
+#include "../macros.hpp"
 
 // NOLINTNEXTLINE(readability-identifier-naming)
 namespace Events {

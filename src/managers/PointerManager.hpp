@@ -7,7 +7,6 @@
 #include "../desktop/WLSurface.hpp"
 #include "../helpers/sync/SyncTimeline.hpp"
 #include "../helpers/time/Time.hpp"
-#include <tuple>
 
 class CMonitor;
 class IHID;

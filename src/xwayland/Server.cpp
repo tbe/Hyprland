@@ -22,7 +22,6 @@
 #include "XWayland.hpp"
 #include "config/ConfigValue.hpp"
 #include "debug/Log.hpp"
-#include "../defines.hpp"
 #include "../Compositor.hpp"
 #include "../managers/CursorManager.hpp"
 using namespace Hyprutils::OS;

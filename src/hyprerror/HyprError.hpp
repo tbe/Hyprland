@@ -1,10 +1,7 @@
 #pragma once
 
-#include "../defines.hpp"
 #include "../render/Texture.hpp"
 #include "../helpers/AnimatedVariable.hpp"
-
-#include <cairo/cairo.h>
 
 class CHyprError {
   public:

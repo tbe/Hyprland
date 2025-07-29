@@ -1,10 +1,8 @@
 #pragma once
 
-#include <fstream>
 #include "../helpers/MiscFunctions.hpp"
 #include "../helpers/defer/Promise.hpp"
 #include "../desktop/Window.hpp"
-#include <functional>
 #include <sys/types.h>
 #include <hyprutils/os/FileDescriptor.hpp>
 

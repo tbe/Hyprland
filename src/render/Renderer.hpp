@@ -1,13 +1,12 @@
 #pragma once
 
-#include "../defines.hpp"
-#include <list>
+#include <cstdint>
+
 #include "../helpers/Monitor.hpp"
 #include "../desktop/LayerSurface.hpp"
 #include "OpenGL.hpp"
 #include "Renderbuffer.hpp"
 #include "../helpers/time/Timer.hpp"
-#include "../helpers/math/Math.hpp"
 #include "../helpers/time/Time.hpp"
 
 struct SMonitorRule;

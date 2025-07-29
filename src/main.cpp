@@ -6,15 +6,10 @@
 #include "debug/HyprCtl.hpp"
 
 #include <cstdio>
-#include <hyprutils/string/String.hpp>
 #include <print>
-using namespace Hyprutils::String;
-
 #include <fcntl.h>
-#include <iostream>
 #include <iterator>
 #include <vector>
-#include <stdexcept>
 #include <string>
 #include <filesystem>
 

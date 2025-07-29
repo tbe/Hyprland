@@ -5,7 +5,6 @@
 
 #include <any>
 #include <bit>
-#include <string_view>
 #include "Window.hpp"
 #include "../Compositor.hpp"
 #include "../render/decorations/CHyprDropShadowDecoration.hpp"
@@ -29,6 +28,7 @@
 #include "../managers/HookSystemManager.hpp"
 #include "../managers/EventManager.hpp"
 #include "../managers/input/InputManager.hpp"
+#include "../xwayland/XSurface.hpp"
 
 #include <hyprutils/string/String.hpp>
 

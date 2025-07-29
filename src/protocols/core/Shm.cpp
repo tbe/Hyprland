@@ -3,7 +3,6 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <drm_fourcc.h>
-#include "../../render/Texture.hpp"
 #include "../types/WLBuffer.hpp"
 #include "../../helpers/Format.hpp"
 #include "../../render/Renderer.hpp"

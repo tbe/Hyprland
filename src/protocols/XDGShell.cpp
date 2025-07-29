@@ -9,7 +9,6 @@
 #include "core/Compositor.hpp"
 #include "protocols/core/Output.hpp"
 #include <cstring>
-#include <ranges>
 
 void SXDGPositionerState::setAnchor(xdgPositionerAnchor edges) {
     anchor.setTop(edges == XDG_POSITIONER_ANCHOR_TOP || edges == XDG_POSITIONER_ANCHOR_TOP_LEFT || edges == XDG_POSITIONER_ANCHOR_TOP_RIGHT);

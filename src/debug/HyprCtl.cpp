@@ -47,7 +47,6 @@ using namespace Hyprutils::OS;
 
 #include "../Compositor.hpp"
 #include "../managers/input/InputManager.hpp"
-#include "../managers/XWaylandManager.hpp"
 #include "../managers/LayoutManager.hpp"
 #include "../plugins/PluginSystem.hpp"
 #include "../managers/AnimationManager.hpp"

@@ -1,9 +1,10 @@
 #pragma once
 
+#include <cstdint>
 #include <any>
-#include "../../defines.hpp"
 #include "../../helpers/math/Math.hpp"
 #include "DecorationPositioner.hpp"
+#include "SharedDefs.hpp"
 
 enum eDecorationType : int8_t {
     DECORATION_NONE = -1,

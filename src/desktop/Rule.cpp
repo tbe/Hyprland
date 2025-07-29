@@ -1,7 +1,9 @@
 #include <re2/re2.h>
-#include "../helpers/memory/Memory.hpp"
+#include <hyprutils/memory/WeakPtr.hpp>
 #include "Rule.hpp"
 #include "../debug/Log.hpp"
+
+using namespace Hyprutils::Memory;
 
 CRuleRegexContainer::CRuleRegexContainer(const std::string& regex_) {
     const bool NEGATIVE = regex_.starts_with("negative:");

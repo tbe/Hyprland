@@ -1,7 +1,6 @@
 #include "VersionKeeperManager.hpp"
 #include "../debug/Log.hpp"
 #include "../macros.hpp"
-#include "../version.h"
 #include "../helpers/MiscFunctions.hpp"
 #include "../helpers/varlist/VarList.hpp"
 #include "eventLoop/EventLoopManager.hpp"
@@ -10,7 +9,6 @@
 
 #include <filesystem>
 #include <fstream>
-#include <hyprutils/string/String.hpp>
 #include <hyprutils/os/Process.hpp>
 
 using namespace Hyprutils::String;

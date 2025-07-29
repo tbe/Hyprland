@@ -1,7 +1,6 @@
 #include "WLBuffer.hpp"
 #include "Buffer.hpp"
 #include "../core/Compositor.hpp"
-#include "../DRMSyncobj.hpp"
 #include "../../helpers/sync/SyncTimeline.hpp"
 #include <xf86drm.h>
 

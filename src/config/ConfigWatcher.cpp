@@ -1,7 +1,6 @@
 #include "ConfigWatcher.hpp"
 #include <sys/inotify.h>
 #include "../debug/Log.hpp"
-#include <ranges>
 #include <fcntl.h>
 #include <unistd.h>
 #include <filesystem>

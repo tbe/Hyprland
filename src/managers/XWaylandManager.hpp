@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../defines.hpp"
-#include <optional>
 
 class CWindow; // because clangd
 using PHLWINDOW = SP<CWindow>;

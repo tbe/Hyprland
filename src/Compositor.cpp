@@ -16,6 +16,7 @@
 #include "managers/ANRManager.hpp"
 #include "managers/eventLoop/EventLoopManager.hpp"
 #include "managers/permissions/DynamicPermissionManager.hpp"
+#include "xwayland/XSurface.hpp"
 #include <algorithm>
 #include <aquamarine/output/Output.hpp>
 #include <bit>
@@ -39,7 +40,6 @@
 #include "protocols/SecurityContext.hpp"
 #include "protocols/ColorManagement.hpp"
 #include "protocols/core/Compositor.hpp"
-#include "protocols/core/Subcompositor.hpp"
 #include "desktop/LayerSurface.hpp"
 #include "render/Renderer.hpp"
 #include "xwayland/XWayland.hpp"

@@ -69,7 +69,6 @@
 #include "../Compositor.hpp"
 #include "content-type-v1.hpp"
 
-#include <aquamarine/buffer/Buffer.hpp>
 #include <xf86drm.h>
 #include <aquamarine/backend/Backend.hpp>
 #include <hyprutils/memory/UniquePtr.hpp>

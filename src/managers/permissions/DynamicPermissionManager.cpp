@@ -7,7 +7,6 @@
 #include "../../Compositor.hpp"
 #include "../../config/ConfigValue.hpp"
 
-#include <hyprutils/string/String.hpp>
 using namespace Hyprutils::String;
 
 #if defined(__DragonFly__) || defined(__FreeBSD__) || defined(__NetBSD__)

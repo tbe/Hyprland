@@ -8,7 +8,6 @@
 #include "../render/Renderer.hpp"
 #include "../managers/input/InputManager.hpp"
 #include "../managers/LayoutManager.hpp"
-#include "../managers/EventManager.hpp"
 
 SMasterNodeData* CHyprMasterLayout::getNodeFromWindow(PHLWINDOW pWindow) {
     for (auto& nd : m_masterNodesData) {

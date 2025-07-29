@@ -11,8 +11,10 @@
 #include <algorithm>
 #include <unordered_map>
 #include <xcb/xcb_icccm.h>
+#include <xcb/composite.h>
 
 #include "XWayland.hpp"
+#include "XSurface.hpp"
 #include "../Compositor.hpp"
 #include "../protocols/core/Seat.hpp"
 #include "../managers/eventLoop/EventLoopManager.hpp"

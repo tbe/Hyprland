@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <set>
-#include <array>
 #include <cstdint>
 #include <hyprutils/math/Vector2D.hpp>
 #include "helpers/memory/Memory.hpp"

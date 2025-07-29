@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../defines.hpp"
+#include <cstdint>
 #include "../helpers/Format.hpp"
 #include "Texture.hpp"
 

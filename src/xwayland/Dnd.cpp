@@ -2,10 +2,9 @@
 #ifndef NO_XWAYLAND
 #include "XWM.hpp"
 #include "XWayland.hpp"
-#include "Server.hpp"
+#include "XSurface.hpp"
 #endif
 #include "../managers/XWaylandManager.hpp"
-#include "../desktop/WLSurface.hpp"
 #include "../protocols/core/Compositor.hpp"
 
 using namespace Hyprutils::OS;

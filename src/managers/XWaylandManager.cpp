@@ -6,6 +6,7 @@
 #include "../protocols/XDGShell.hpp"
 #include "../protocols/core/Compositor.hpp"
 #include "../xwayland/XWayland.hpp"
+#include "../xwayland/XSurface.hpp"
 #include <hyprutils/math/Vector2D.hpp>
 
 #define OUTPUT_MANAGER_VERSION                   3

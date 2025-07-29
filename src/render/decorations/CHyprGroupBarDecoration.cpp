@@ -2,7 +2,6 @@
 #include "../../Compositor.hpp"
 #include "../../config/ConfigValue.hpp"
 #include "managers/LayoutManager.hpp"
-#include <ranges>
 #include <pango/pangocairo.h>
 #include "../pass/TexPassElement.hpp"
 #include "../pass/RectPassElement.hpp"

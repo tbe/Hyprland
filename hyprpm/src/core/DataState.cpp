@@ -1,5 +1,4 @@
 #include "DataState.hpp"
-#include <sys/stat.h>
 #include <toml++/toml.hpp>
 #include <print>
 #include <sstream>

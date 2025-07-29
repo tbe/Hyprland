@@ -8,7 +8,6 @@
 #include "./managers/input/InputManager.hpp"
 #include "./managers/eventLoop/EventLoopManager.hpp"
 #include <algorithm>
-#include <ranges>
 
 SSessionLockSurface::SSessionLockSurface(SP<CSessionLockSurface> surface_) : surface(surface_) {
     pWlrSurface = surface->surface();

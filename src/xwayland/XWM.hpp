@@ -8,10 +8,8 @@
 #include <xcb/xcb.h>
 #include <xcb/res.h>
 #include <xcb/xfixes.h>
-#include <xcb/composite.h>
 #include <xcb/xcb_errors.h>
 #include <hyprutils/os/FileDescriptor.hpp>
-#include <cinttypes> // for PRIxPTR
 #include <cstdint>
 
 struct wl_event_source;

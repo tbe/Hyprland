@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 enum eSurfaceRole : uint8_t {
     SURFACE_ROLE_UNASSIGNED = 0,
     SURFACE_ROLE_XDG_SHELL,

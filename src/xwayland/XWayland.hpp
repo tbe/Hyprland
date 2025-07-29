@@ -4,8 +4,6 @@
 #include "../helpers/memory/Memory.hpp"
 #include "../macros.hpp"
 
-#include "XSurface.hpp"
-
 #ifndef NO_XWAYLAND
 #include "Server.hpp"
 #include "XWM.hpp"

@@ -23,7 +23,6 @@
 #include <optional>
 #include <iterator>
 #include <string>
-#include <string_view>
 #include <cstring>
 
 #include <hyprutils/string/String.hpp>

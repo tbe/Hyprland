@@ -2,7 +2,6 @@
 
 #include <cstdint>
 #include <optional>
-#include <vector>
 #include <functional>
 #include <hyprutils/os/FileDescriptor.hpp>
 #include "../memory/Memory.hpp"

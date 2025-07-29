@@ -1,11 +1,14 @@
 #pragma once
 
-#include "../defines.hpp"
+#include "helpers/memory/Memory.hpp"
+#include "protocols/LinuxDMABUF.hpp"
+
 #include <aquamarine/buffer/Buffer.hpp>
+#include <hyprutils/math/Vector2D.hpp>
 #include <hyprutils/math/Misc.hpp>
 
 class IHLBuffer;
-HYPRUTILS_FORWARD(Math, CRegion);
+HYPRUTILS_FORWARD(Hyprutils::Math, CRegion);
 
 enum eTextureType : int8_t {
     TEXTURE_INVALID = -1, // Invalid
@@ -23,7 +26,7 @@ class CTexture {
     CTexture(const CTexture&&) = delete;
     CTexture(const CTexture&)  = delete;
 
-    CTexture(uint32_t drmFormat, uint8_t* pixels, uint32_t stride, const Vector2D& size, bool keepDataCopy = false);
+    CTexture(uint32_t drmFormat, uint8_t* pixels, uint32_t stride, const Hyprutils::Math::Vector2D& size, bool keepDataCopy = false);
 
     CTexture(const SP<Aquamarine::IBuffer> buffer, bool keepDataCopy = false);
     // this ctor takes ownership of the eglImage.
@@ -32,7 +35,7 @@ class CTexture {
 
     void                        destroyTexture();
     void                        allocate();
-    void                        update(uint32_t drmFormat, uint8_t* pixels, uint32_t stride, const CRegion& damage);
+    void                        update(uint32_t drmFormat, uint8_t* pixels, uint32_t stride, const Hyprutils::Math::CRegion& damage);
     const std::vector<uint8_t>& dataCopy();
     void                        bind();
     void                        unbind();

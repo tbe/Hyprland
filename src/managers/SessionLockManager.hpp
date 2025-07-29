@@ -5,7 +5,6 @@
 #include "../helpers/signal/Signal.hpp"
 #include "./eventLoop/EventLoopTimer.hpp"
 #include <cstdint>
-#include <unordered_map>
 #include <unordered_set>
 
 class CSessionLockSurface;

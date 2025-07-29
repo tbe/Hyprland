@@ -20,7 +20,6 @@
 #include "../desktop/LayerSurface.hpp"
 #include "../managers/LayoutManager.hpp"
 #include "../managers/EventManager.hpp"
-#include "../managers/AnimationManager.hpp"
 
 #include <hyprutils/string/String.hpp>
 using namespace Hyprutils::String;

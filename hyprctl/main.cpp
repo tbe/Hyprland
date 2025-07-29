@@ -2,7 +2,6 @@
 
 #include <cctype>
 #include <netdb.h>
-#include <netinet/in.h>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -24,7 +23,6 @@
 #include <fstream>
 #include <vector>
 #include <filesystem>
-#include <cstdarg>
 #include <hyprutils/string/String.hpp>
 using namespace Hyprutils::String;
 

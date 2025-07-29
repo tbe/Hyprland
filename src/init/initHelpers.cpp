@@ -1,4 +1,5 @@
 #include "initHelpers.hpp"
+#include "../defines.hpp"
 
 bool NInit::isSudo() {
     return getuid() != geteuid() || !geteuid();

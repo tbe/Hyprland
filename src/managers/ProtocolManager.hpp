@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../defines.hpp"
 #include "../helpers/memory/Memory.hpp"
 #include "../helpers/signal/Signal.hpp"
+#include "desktop/DesktopTypes.hpp"
+#include <wayland.hpp>
 #include <unordered_map>
 
 class CProtocolManager {

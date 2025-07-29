@@ -4,7 +4,6 @@
 #include "../desktop/DesktopTypes.hpp"
 #include <chrono>
 #include <hyprutils/os/Process.hpp>
-#include <hyprutils/os/FileDescriptor.hpp>
 #include "./eventLoop/EventLoopTimer.hpp"
 #include "../helpers/signal/Signal.hpp"
 #include "../helpers/AsyncDialogBox.hpp"

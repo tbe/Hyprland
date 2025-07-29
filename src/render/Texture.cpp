@@ -1,7 +1,6 @@
 #include "Texture.hpp"
 #include "Renderer.hpp"
 #include "../Compositor.hpp"
-#include "../protocols/types/Buffer.hpp"
 #include "../helpers/Format.hpp"
 #include <cstring>
 

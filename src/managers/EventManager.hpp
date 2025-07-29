@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <hyprutils/os/FileDescriptor.hpp>
-#include "../defines.hpp"
+#include <wayland.hpp>
 #include "../helpers/memory/Memory.hpp"
 
 struct SHyprIPCEvent {

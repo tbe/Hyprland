@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../defines.hpp"
 #include <array>
 #include <variant>
+#include <GLES3/gl32.h>
 
 enum eShaderUniform : uint8_t {
     SHADER_PROJ = 0,

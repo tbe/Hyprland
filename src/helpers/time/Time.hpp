@@ -3,7 +3,6 @@
 #include <chrono>
 #include <cstdint>
 #include <utility>
-#include <ctime>
 
 //NOLINTNEXTLINE
 namespace Time {

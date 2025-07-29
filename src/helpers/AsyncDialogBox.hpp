@@ -5,7 +5,6 @@
 #include "./defer/Promise.hpp"
 
 #include <vector>
-#include <functional>
 
 #include <hyprutils/os/Process.hpp>
 #include <hyprutils/os/FileDescriptor.hpp>

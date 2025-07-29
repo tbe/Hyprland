@@ -1,8 +1,6 @@
 #pragma once
 
 #include "../defines.hpp"
-#include "../desktop/Subsurface.hpp"
-#include "../desktop/Popup.hpp"
 #include "../desktop/WLSurface.hpp"
 #include "../macros.hpp"
 #include "../desktop/DesktopTypes.hpp"
