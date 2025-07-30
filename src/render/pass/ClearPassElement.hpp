@@ -10,13 +10,13 @@ class CClearPassElement : public IPassElement {
     CClearPassElement(const SClearData& data);
     virtual ~CClearPassElement() = default;
 
-    virtual void                draw(const CRegion& damage);
-    virtual bool                needsLiveBlur();
-    virtual bool                needsPrecomputeBlur();
-    virtual std::optional<CBox> boundingBox();
-    virtual CRegion             opaqueRegion();
+    virtual void                                 draw(const Hyprutils::Math::CRegion& damage);
+    virtual bool                                 needsLiveBlur();
+    virtual bool                                 needsPrecomputeBlur();
+    virtual std::optional<Hyprutils::Math::CBox> boundingBox();
+    virtual Hyprutils::Math::CRegion             opaqueRegion();
 
-    virtual const char*         passName() {
+    virtual const char*                          passName() {
         return "CClearPassElement";
     }
 

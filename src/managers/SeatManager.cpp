@@ -13,6 +13,8 @@
 #include <algorithm>
 #include <ranges>
 
+using namespace Hyprutils::Math;
+
 CSeatManager::CSeatManager() {
     m_listeners.newSeatResource = PROTO::seat->m_events.newSeatResource.listen([this](const auto& resource) { onNewSeatResource(resource); });
 }

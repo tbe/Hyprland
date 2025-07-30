@@ -6,6 +6,7 @@
 #include "protocols/types/ColorManagement.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 using namespace NColorManagement;
 
 static wpColorManagerV1TransferFunction getWPTransferFunction(frogColorManagedSurfaceTransferFunction tf) {

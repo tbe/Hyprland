@@ -7,6 +7,8 @@
 #include "../../protocols/InputMethodV2.hpp"
 #include "../../protocols/core/Compositor.hpp"
 
+using namespace Hyprutils::Math;
+
 CTextInput::CTextInput(WP<CTextInputV1> ti) : m_v1Input(ti) {
     initCallbacks();
 }

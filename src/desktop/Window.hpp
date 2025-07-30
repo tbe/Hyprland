@@ -77,49 +77,49 @@ struct SAlphaValue {
 };
 
 struct SWindowData {
-    CWindowOverridableVar<SAlphaValue>        alpha           = SAlphaValue{.alpha = 1.f, .overridden = false};
-    CWindowOverridableVar<SAlphaValue>        alphaInactive   = SAlphaValue{.alpha = 1.f, .overridden = false};
-    CWindowOverridableVar<SAlphaValue>        alphaFullscreen = SAlphaValue{.alpha = 1.f, .overridden = false};
+    CWindowOverridableVar<SAlphaValue>               alpha           = SAlphaValue{.alpha = 1.f, .overridden = false};
+    CWindowOverridableVar<SAlphaValue>               alphaInactive   = SAlphaValue{.alpha = 1.f, .overridden = false};
+    CWindowOverridableVar<SAlphaValue>               alphaFullscreen = SAlphaValue{.alpha = 1.f, .overridden = false};
 
-    CWindowOverridableVar<bool>               allowsInput        = false;
-    CWindowOverridableVar<bool>               dimAround          = false;
-    CWindowOverridableVar<bool>               decorate           = true;
-    CWindowOverridableVar<bool>               focusOnActivate    = false;
-    CWindowOverridableVar<bool>               keepAspectRatio    = false;
-    CWindowOverridableVar<bool>               nearestNeighbor    = false;
-    CWindowOverridableVar<bool>               noAnim             = false;
-    CWindowOverridableVar<bool>               noBorder           = false;
-    CWindowOverridableVar<bool>               noBlur             = false;
-    CWindowOverridableVar<bool>               noDim              = false;
-    CWindowOverridableVar<bool>               noFocus            = false;
-    CWindowOverridableVar<bool>               noMaxSize          = false;
-    CWindowOverridableVar<bool>               noRounding         = false;
-    CWindowOverridableVar<bool>               noShadow           = false;
-    CWindowOverridableVar<bool>               noShortcutsInhibit = false;
-    CWindowOverridableVar<bool>               opaque             = false;
-    CWindowOverridableVar<bool>               RGBX               = false;
-    CWindowOverridableVar<bool>               syncFullscreen     = true;
-    CWindowOverridableVar<bool>               tearing            = false;
-    CWindowOverridableVar<bool>               xray               = false;
-    CWindowOverridableVar<bool>               renderUnfocused    = false;
-    CWindowOverridableVar<bool>               noFollowMouse      = false;
-    CWindowOverridableVar<bool>               noScreenShare      = false;
+    CWindowOverridableVar<bool>                      allowsInput        = false;
+    CWindowOverridableVar<bool>                      dimAround          = false;
+    CWindowOverridableVar<bool>                      decorate           = true;
+    CWindowOverridableVar<bool>                      focusOnActivate    = false;
+    CWindowOverridableVar<bool>                      keepAspectRatio    = false;
+    CWindowOverridableVar<bool>                      nearestNeighbor    = false;
+    CWindowOverridableVar<bool>                      noAnim             = false;
+    CWindowOverridableVar<bool>                      noBorder           = false;
+    CWindowOverridableVar<bool>                      noBlur             = false;
+    CWindowOverridableVar<bool>                      noDim              = false;
+    CWindowOverridableVar<bool>                      noFocus            = false;
+    CWindowOverridableVar<bool>                      noMaxSize          = false;
+    CWindowOverridableVar<bool>                      noRounding         = false;
+    CWindowOverridableVar<bool>                      noShadow           = false;
+    CWindowOverridableVar<bool>                      noShortcutsInhibit = false;
+    CWindowOverridableVar<bool>                      opaque             = false;
+    CWindowOverridableVar<bool>                      RGBX               = false;
+    CWindowOverridableVar<bool>                      syncFullscreen     = true;
+    CWindowOverridableVar<bool>                      tearing            = false;
+    CWindowOverridableVar<bool>                      xray               = false;
+    CWindowOverridableVar<bool>                      renderUnfocused    = false;
+    CWindowOverridableVar<bool>                      noFollowMouse      = false;
+    CWindowOverridableVar<bool>                      noScreenShare      = false;
 
-    CWindowOverridableVar<Hyprlang::INT>      borderSize = {std::string("general:border_size"), Hyprlang::INT(0), std::nullopt};
-    CWindowOverridableVar<Hyprlang::INT>      rounding   = {std::string("decoration:rounding"), Hyprlang::INT(0), std::nullopt};
+    CWindowOverridableVar<Hyprlang::INT>             borderSize = {std::string("general:border_size"), Hyprlang::INT(0), std::nullopt};
+    CWindowOverridableVar<Hyprlang::INT>             rounding   = {std::string("decoration:rounding"), Hyprlang::INT(0), std::nullopt};
 
-    CWindowOverridableVar<Hyprlang::FLOAT>    roundingPower  = {std::string("decoration:rounding_power")};
-    CWindowOverridableVar<Hyprlang::FLOAT>    scrollMouse    = {std::string("input:scroll_factor")};
-    CWindowOverridableVar<Hyprlang::FLOAT>    scrollTouchpad = {std::string("input:touchpad:scroll_factor")};
+    CWindowOverridableVar<Hyprlang::FLOAT>           roundingPower  = {std::string("decoration:rounding_power")};
+    CWindowOverridableVar<Hyprlang::FLOAT>           scrollMouse    = {std::string("input:scroll_factor")};
+    CWindowOverridableVar<Hyprlang::FLOAT>           scrollTouchpad = {std::string("input:touchpad:scroll_factor")};
 
-    CWindowOverridableVar<std::string>        animationStyle;
-    CWindowOverridableVar<Vector2D>           maxSize;
-    CWindowOverridableVar<Vector2D>           minSize;
+    CWindowOverridableVar<std::string>               animationStyle;
+    CWindowOverridableVar<Hyprutils::Math::Vector2D> maxSize;
+    CWindowOverridableVar<Hyprutils::Math::Vector2D> minSize;
 
-    CWindowOverridableVar<CGradientValueData> activeBorderColor;
-    CWindowOverridableVar<CGradientValueData> inactiveBorderColor;
+    CWindowOverridableVar<CGradientValueData>        activeBorderColor;
+    CWindowOverridableVar<CGradientValueData>        inactiveBorderColor;
 
-    CWindowOverridableVar<bool>               persistentSize;
+    CWindowOverridableVar<bool>                      persistentSize;
 };
 
 struct SInitialWorkspaceToken {
@@ -154,48 +154,48 @@ class CWindow {
     WP<CXWaylandSurface>    m_xwaylandSurface;
 
     // this is the position and size of the "bounding box"
-    Vector2D m_position = Vector2D(0, 0);
-    Vector2D m_size     = Vector2D(0, 0);
+    Hyprutils::Math::Vector2D m_position = Hyprutils::Math::Vector2D(0, 0);
+    Hyprutils::Math::Vector2D m_size     = Hyprutils::Math::Vector2D(0, 0);
 
     // this is the real position and size used to draw the thing
-    PHLANIMVAR<Vector2D> m_realPosition;
-    PHLANIMVAR<Vector2D> m_realSize;
+    PHLANIMVAR<Hyprutils::Math::Vector2D> m_realPosition;
+    PHLANIMVAR<Hyprutils::Math::Vector2D> m_realSize;
 
     // for not spamming the protocols
-    Vector2D                                     m_reportedPosition;
-    Vector2D                                     m_reportedSize;
-    Vector2D                                     m_pendingReportedSize;
-    std::optional<std::pair<uint32_t, Vector2D>> m_pendingSizeAck;
-    std::vector<std::pair<uint32_t, Vector2D>>   m_pendingSizeAcks;
+    Hyprutils::Math::Vector2D                                     m_reportedPosition;
+    Hyprutils::Math::Vector2D                                     m_reportedSize;
+    Hyprutils::Math::Vector2D                                     m_pendingReportedSize;
+    std::optional<std::pair<uint32_t, Hyprutils::Math::Vector2D>> m_pendingSizeAck;
+    std::vector<std::pair<uint32_t, Hyprutils::Math::Vector2D>>   m_pendingSizeAcks;
 
     // for restoring floating statuses
-    Vector2D m_lastFloatingSize;
-    Vector2D m_lastFloatingPosition;
+    Hyprutils::Math::Vector2D m_lastFloatingSize;
+    Hyprutils::Math::Vector2D m_lastFloatingPosition;
 
     // for floating window offset in workspace animations
-    Vector2D m_floatingOffset = Vector2D(0, 0);
+    Hyprutils::Math::Vector2D m_floatingOffset = Hyprutils::Math::Vector2D(0, 0);
 
     // this is used for pseudotiling
-    bool     m_isPseudotiled = false;
-    Vector2D m_pseudoSize    = Vector2D(1280, 720);
+    bool                      m_isPseudotiled = false;
+    Hyprutils::Math::Vector2D m_pseudoSize    = Hyprutils::Math::Vector2D(1280, 720);
 
     // for recovering relative cursor position
-    Vector2D         m_relativeCursorCoordsOnLastWarp = Vector2D(-1, -1);
+    Hyprutils::Math::Vector2D m_relativeCursorCoordsOnLastWarp = Hyprutils::Math::Vector2D(-1, -1);
 
-    bool             m_firstMap        = false; // for layouts
-    bool             m_isFloating      = false;
-    bool             m_draggingTiled   = false; // for dragging around tiled windows
-    SFullscreenState m_fullscreenState = {.internal = FSMODE_NONE, .client = FSMODE_NONE};
-    std::string      m_title           = "";
-    std::string      m_class           = "";
-    std::string      m_initialTitle    = "";
-    std::string      m_initialClass    = "";
-    PHLWORKSPACE     m_workspace;
-    PHLMONITORREF    m_monitor;
+    bool                      m_firstMap        = false; // for layouts
+    bool                      m_isFloating      = false;
+    bool                      m_draggingTiled   = false; // for dragging around tiled windows
+    SFullscreenState          m_fullscreenState = {.internal = FSMODE_NONE, .client = FSMODE_NONE};
+    std::string               m_title           = "";
+    std::string               m_class           = "";
+    std::string               m_initialTitle    = "";
+    std::string               m_initialClass    = "";
+    PHLWORKSPACE              m_workspace;
+    PHLMONITORREF             m_monitor;
 
-    bool             m_isMapped = false;
+    bool                      m_isMapped = false;
 
-    bool             m_requestsFloat = false;
+    bool                      m_requestsFloat = false;
 
     // This is for fullscreen apps
     bool m_createdOverFullscreen = false;
@@ -228,13 +228,13 @@ class CWindow {
     PHLANIMVAR<float>  m_borderAngleAnimationProgress;
 
     // Fade in-out
-    PHLANIMVAR<float> m_alpha;
-    bool              m_fadingOut     = false;
-    bool              m_readyToDelete = false;
-    Vector2D          m_originalClosedPos;  // these will be used for calculations later on in
-    Vector2D          m_originalClosedSize; // drawing the closing animations
-    SBoxExtents       m_originalClosedExtents;
-    bool              m_animatingIn = false;
+    PHLANIMVAR<float>            m_alpha;
+    bool                         m_fadingOut     = false;
+    bool                         m_readyToDelete = false;
+    Hyprutils::Math::Vector2D    m_originalClosedPos;  // these will be used for calculations later on in
+    Hyprutils::Math::Vector2D    m_originalClosedSize; // drawing the closing animations
+    Hyprutils::Math::SBoxExtents m_originalClosedExtents;
+    bool                         m_animatingIn = false;
 
     // For pinned (sticky) windows
     bool m_pinned = false;
@@ -320,99 +320,99 @@ class CWindow {
     }
 
     // methods
-    CBox                       getFullWindowBoundingBox();
-    SBoxExtents                getFullWindowExtents();
-    CBox                       getWindowBoxUnified(uint64_t props);
-    SBoxExtents                getWindowExtentsUnified(uint64_t props);
-    CBox                       getWindowIdealBoundingBoxIgnoreReserved();
-    void                       addWindowDeco(UP<IHyprWindowDecoration> deco);
-    void                       updateWindowDecos();
-    void                       removeWindowDeco(IHyprWindowDecoration* deco);
-    void                       uncacheWindowDecos();
-    bool                       checkInputOnDecos(const eInputType, const Vector2D&, std::any = {});
-    pid_t                      getPID();
-    IHyprWindowDecoration*     getDecorationByType(eDecorationType);
-    void                       updateToplevel();
-    void                       updateSurfaceScaleTransformDetails(bool force = false);
-    void                       moveToWorkspace(PHLWORKSPACE);
-    PHLWINDOW                  x11TransientFor();
-    void                       onUnmap();
-    void                       onMap();
-    void                       setHidden(bool hidden);
-    bool                       isHidden();
-    void                       applyDynamicRule(const SP<CWindowRule>& r);
-    void                       updateDynamicRules();
-    SBoxExtents                getFullWindowReservedArea();
-    Vector2D                   middle();
-    bool                       opaque();
-    float                      rounding();
-    float                      roundingPower();
-    bool                       canBeTorn();
-    void                       setSuspended(bool suspend);
-    bool                       visibleOnMonitor(PHLMONITOR pMonitor);
-    WORKSPACEID                workspaceID();
-    MONITORID                  monitorID();
-    bool                       onSpecialWorkspace();
-    void                       activate(bool force = false);
-    int                        surfacesCount();
-    void                       clampWindowSize(const std::optional<Vector2D> minSize, const std::optional<Vector2D> maxSize);
-    bool                       isFullscreen();
-    bool                       isEffectiveInternalFSMode(const eFullscreenMode);
-    int                        getRealBorderSize();
-    float                      getScrollMouse();
-    float                      getScrollTouchpad();
-    void                       updateWindowData();
-    void                       updateWindowData(const struct SWorkspaceRule&);
-    void                       onBorderAngleAnimEnd(WP<Hyprutils::Animation::CBaseAnimatedVariable> pav);
-    bool                       isInCurvedCorner(double x, double y);
-    bool                       hasPopupAt(const Vector2D& pos);
-    int                        popupsCount();
-    void                       applyGroupRules();
-    void                       createGroup();
-    void                       destroyGroup();
-    PHLWINDOW                  getGroupHead();
-    PHLWINDOW                  getGroupTail();
-    PHLWINDOW                  getGroupCurrent();
-    PHLWINDOW                  getGroupPrevious();
-    PHLWINDOW                  getGroupWindowByIndex(int);
-    int                        getGroupSize();
-    bool                       canBeGroupedInto(PHLWINDOW pWindow);
-    void                       setGroupCurrent(PHLWINDOW pWindow);
-    void                       insertWindowToGroup(PHLWINDOW pWindow);
-    void                       updateGroupOutputs();
-    void                       switchWithWindowInGroup(PHLWINDOW pWindow);
-    void                       setAnimationsToMove();
-    void                       onWorkspaceAnimUpdate();
-    void                       onFocusAnimUpdate();
-    void                       onUpdateState();
-    void                       onUpdateMeta();
-    void                       onX11ConfigureRequest(CBox box);
-    void                       onResourceChangeX11();
-    std::string                fetchTitle();
-    std::string                fetchClass();
-    void                       warpCursor(bool force = false);
-    PHLWINDOW                  getSwallower();
-    void                       unsetWindowData(eOverridePriority priority);
-    bool                       isX11OverrideRedirect();
-    bool                       isModal();
-    Vector2D                   requestedMinSize();
-    Vector2D                   requestedMaxSize();
-    Vector2D                   realToReportSize();
-    Vector2D                   realToReportPosition();
-    Vector2D                   xwaylandSizeToReal(Vector2D size);
-    Vector2D                   xwaylandPositionToReal(Vector2D size);
-    void                       updateX11SurfaceScale();
-    void                       sendWindowSize(bool force = false);
-    NContentType::eContentType getContentType();
-    void                       setContentType(NContentType::eContentType contentType);
-    void                       deactivateGroupMembers();
-    bool                       isNotResponding();
-    std::optional<std::string> xdgTag();
-    std::optional<std::string> xdgDescription();
-    PHLWINDOW                  parent();
-    bool                       priorityFocus();
+    Hyprutils::Math::CBox        getFullWindowBoundingBox();
+    Hyprutils::Math::SBoxExtents getFullWindowExtents();
+    Hyprutils::Math::CBox        getWindowBoxUnified(uint64_t props);
+    Hyprutils::Math::SBoxExtents getWindowExtentsUnified(uint64_t props);
+    Hyprutils::Math::CBox        getWindowIdealBoundingBoxIgnoreReserved();
+    void                         addWindowDeco(UP<IHyprWindowDecoration> deco);
+    void                         updateWindowDecos();
+    void                         removeWindowDeco(IHyprWindowDecoration* deco);
+    void                         uncacheWindowDecos();
+    bool                         checkInputOnDecos(const eInputType, const Hyprutils::Math::Vector2D&, std::any = {});
+    pid_t                        getPID();
+    IHyprWindowDecoration*       getDecorationByType(eDecorationType);
+    void                         updateToplevel();
+    void                         updateSurfaceScaleTransformDetails(bool force = false);
+    void                         moveToWorkspace(PHLWORKSPACE);
+    PHLWINDOW                    x11TransientFor();
+    void                         onUnmap();
+    void                         onMap();
+    void                         setHidden(bool hidden);
+    bool                         isHidden();
+    void                         applyDynamicRule(const SP<CWindowRule>& r);
+    void                         updateDynamicRules();
+    Hyprutils::Math::SBoxExtents getFullWindowReservedArea();
+    Hyprutils::Math::Vector2D    middle();
+    bool                         opaque();
+    float                        rounding();
+    float                        roundingPower();
+    bool                         canBeTorn();
+    void                         setSuspended(bool suspend);
+    bool                         visibleOnMonitor(PHLMONITOR pMonitor);
+    WORKSPACEID                  workspaceID();
+    MONITORID                    monitorID();
+    bool                         onSpecialWorkspace();
+    void                         activate(bool force = false);
+    int                          surfacesCount();
+    void                         clampWindowSize(const std::optional<Hyprutils::Math::Vector2D> minSize, const std::optional<Hyprutils::Math::Vector2D> maxSize);
+    bool                         isFullscreen();
+    bool                         isEffectiveInternalFSMode(const eFullscreenMode);
+    int                          getRealBorderSize();
+    float                        getScrollMouse();
+    float                        getScrollTouchpad();
+    void                         updateWindowData();
+    void                         updateWindowData(const struct SWorkspaceRule&);
+    void                         onBorderAngleAnimEnd(WP<Hyprutils::Animation::CBaseAnimatedVariable> pav);
+    bool                         isInCurvedCorner(double x, double y);
+    bool                         hasPopupAt(const Hyprutils::Math::Vector2D& pos);
+    int                          popupsCount();
+    void                         applyGroupRules();
+    void                         createGroup();
+    void                         destroyGroup();
+    PHLWINDOW                    getGroupHead();
+    PHLWINDOW                    getGroupTail();
+    PHLWINDOW                    getGroupCurrent();
+    PHLWINDOW                    getGroupPrevious();
+    PHLWINDOW                    getGroupWindowByIndex(int);
+    int                          getGroupSize();
+    bool                         canBeGroupedInto(PHLWINDOW pWindow);
+    void                         setGroupCurrent(PHLWINDOW pWindow);
+    void                         insertWindowToGroup(PHLWINDOW pWindow);
+    void                         updateGroupOutputs();
+    void                         switchWithWindowInGroup(PHLWINDOW pWindow);
+    void                         setAnimationsToMove();
+    void                         onWorkspaceAnimUpdate();
+    void                         onFocusAnimUpdate();
+    void                         onUpdateState();
+    void                         onUpdateMeta();
+    void                         onX11ConfigureRequest(Hyprutils::Math::CBox box);
+    void                         onResourceChangeX11();
+    std::string                  fetchTitle();
+    std::string                  fetchClass();
+    void                         warpCursor(bool force = false);
+    PHLWINDOW                    getSwallower();
+    void                         unsetWindowData(eOverridePriority priority);
+    bool                         isX11OverrideRedirect();
+    bool                         isModal();
+    Hyprutils::Math::Vector2D    requestedMinSize();
+    Hyprutils::Math::Vector2D    requestedMaxSize();
+    Hyprutils::Math::Vector2D    realToReportSize();
+    Hyprutils::Math::Vector2D    realToReportPosition();
+    Hyprutils::Math::Vector2D    xwaylandSizeToReal(Hyprutils::Math::Vector2D size);
+    Hyprutils::Math::Vector2D    xwaylandPositionToReal(Hyprutils::Math::Vector2D size);
+    void                         updateX11SurfaceScale();
+    void                         sendWindowSize(bool force = false);
+    NContentType::eContentType   getContentType();
+    void                         setContentType(NContentType::eContentType contentType);
+    void                         deactivateGroupMembers();
+    bool                         isNotResponding();
+    std::optional<std::string>   xdgTag();
+    std::optional<std::string>   xdgDescription();
+    PHLWINDOW                    parent();
+    bool                         priorityFocus();
 
-    CBox                       getWindowMainSurfaceBox() const {
+    Hyprutils::Math::CBox        getWindowMainSurfaceBox() const {
         return {m_realPosition->value().x, m_realPosition->value().y, m_realSize->value().x, m_realSize->value().y};
     }
 

@@ -118,7 +118,7 @@ class CXWM {
     SP<IDataOffer>     createX11DataOffer(SP<CWLSurfaceResource> surf, SP<IDataSource> source);
 
   private:
-    void                 setCursor(unsigned char* pixData, uint32_t stride, const Vector2D& size, const Vector2D& hotspot);
+    void                 setCursor(unsigned char* pixData, uint32_t stride, const Hyprutils::Math::Vector2D& size, const Hyprutils::Math::Vector2D& hotspot);
 
     void                 gatherResources();
     void                 getVisual();

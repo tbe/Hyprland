@@ -1,6 +1,8 @@
 #include "PreBlurElement.hpp"
 #include "../OpenGL.hpp"
 
+using namespace Hyprutils::Math;
+
 CPreBlurElement::CPreBlurElement() = default;
 
 void CPreBlurElement::draw(const CRegion& damage) {

@@ -1,6 +1,8 @@
 #include "TextureMatteElement.hpp"
 #include "../OpenGL.hpp"
 
+using namespace Hyprutils::Math;
+
 CTextureMatteElement::CTextureMatteElement(const CTextureMatteElement::STextureMatteData& data_) : m_data(data_) {
     ;
 }

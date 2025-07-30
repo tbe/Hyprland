@@ -12,6 +12,8 @@
 #include "../managers/HookSystemManager.hpp"
 #include "../managers/EventManager.hpp"
 
+using namespace Hyprutils::Math;
+
 PHLLS CLayerSurface::create(SP<CLayerShellResource> resource) {
     PHLLS pLS = SP<CLayerSurface>(new CLayerSurface(resource));
 

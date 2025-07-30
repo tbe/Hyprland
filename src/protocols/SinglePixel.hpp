@@ -14,7 +14,7 @@ class CSinglePixelBuffer : public IHLBuffer {
     virtual Aquamarine::eBufferCapability          caps();
     virtual Aquamarine::eBufferType                type();
     virtual bool                                   isSynchronous();
-    virtual void                                   update(const CRegion& damage);
+    virtual void                                   update(const Hyprutils::Math::CRegion& damage);
     virtual Aquamarine::SDMABUFAttrs               dmabuf();
     virtual std::tuple<uint8_t*, uint32_t, size_t> beginDataPtr(uint32_t flags);
     virtual void                                   endDataPtr();

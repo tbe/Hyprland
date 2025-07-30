@@ -96,13 +96,13 @@ class IHyprLayout {
         Vector2D holds pixel values
         Optional pWindow for a specific window
     */
-    virtual void resizeActiveWindow(const Vector2D&, eRectCorner corner = CORNER_NONE, PHLWINDOW pWindow = nullptr) = 0;
+    virtual void resizeActiveWindow(const Hyprutils::Math::Vector2D&, eRectCorner corner = CORNER_NONE, PHLWINDOW pWindow = nullptr) = 0;
     /*
         Called when a user requests a move of the current window by a vec
         Vector2D holds pixel values
         Optional pWindow for a specific window
     */
-    virtual void moveActiveWindow(const Vector2D&, PHLWINDOW pWindow = nullptr);
+    virtual void moveActiveWindow(const Hyprutils::Math::Vector2D&, PHLWINDOW pWindow = nullptr);
     /*
         Called when a window is ended being dragged
         (mouse up)
@@ -113,7 +113,7 @@ class IHyprLayout {
         do anything with it.
         Useful for dragging.
     */
-    virtual void onMouseMove(const Vector2D&);
+    virtual void onMouseMove(const Hyprutils::Math::Vector2D&);
 
     /*
         Called when a window / the user requests to toggle the fullscreen state of a window
@@ -197,13 +197,13 @@ class IHyprLayout {
         Called to predict the size of a newly opened window to send it a configure.
         Return 0,0 if unpredictable
     */
-    virtual Vector2D predictSizeForNewWindowTiled() = 0;
+    virtual Hyprutils::Math::Vector2D predictSizeForNewWindowTiled() = 0;
 
     /*
         Prefer not overriding, use predictSizeForNewWindowTiled.
     */
-    virtual Vector2D predictSizeForNewWindow(PHLWINDOW pWindow);
-    virtual Vector2D predictSizeForNewWindowFloating(PHLWINDOW pWindow);
+    virtual Hyprutils::Math::Vector2D predictSizeForNewWindow(PHLWINDOW pWindow);
+    virtual Hyprutils::Math::Vector2D predictSizeForNewWindowFloating(PHLWINDOW pWindow);
 
     /*
         Called to try to pick up window for dragging.
@@ -215,16 +215,17 @@ class IHyprLayout {
     /*
         Triggers a window snap event
     */
-    virtual void performSnap(Vector2D& sourcePos, Vector2D& sourceSize, PHLWINDOW DRAGGINGWINDOW, const eMouseBindMode MODE, const int CORNER, const Vector2D& BEGINSIZE);
+    virtual void performSnap(Hyprutils::Math::Vector2D& sourcePos, Hyprutils::Math::Vector2D& sourceSize, PHLWINDOW DRAGGINGWINDOW, const eMouseBindMode MODE, const int CORNER,
+                             const Hyprutils::Math::Vector2D& BEGINSIZE);
 
   private:
-    int          m_mouseMoveEventCount;
-    Vector2D     m_beginDragXY;
-    Vector2D     m_lastDragXY;
-    Vector2D     m_beginDragPositionXY;
-    Vector2D     m_beginDragSizeXY;
-    Vector2D     m_draggingWindowOriginalFloatSize;
-    eRectCorner  m_grabbedCorner = CORNER_TOPLEFT;
+    int                       m_mouseMoveEventCount;
+    Hyprutils::Math::Vector2D m_beginDragXY;
+    Hyprutils::Math::Vector2D m_lastDragXY;
+    Hyprutils::Math::Vector2D m_beginDragPositionXY;
+    Hyprutils::Math::Vector2D m_beginDragSizeXY;
+    Hyprutils::Math::Vector2D m_draggingWindowOriginalFloatSize;
+    eRectCorner               m_grabbedCorner = CORNER_TOPLEFT;
 
-    PHLWINDOWREF m_lastTiledWindow;
+    PHLWINDOWREF              m_lastTiledWindow;
 };

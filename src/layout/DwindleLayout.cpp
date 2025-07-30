@@ -7,6 +7,8 @@
 #include "../managers/input/InputManager.hpp"
 #include "../managers/LayoutManager.hpp"
 
+using namespace Hyprutils::Math;
+
 void SDwindleNodeData::recalcSizePosRecursive(bool force, bool horizontalOverride, bool verticalOverride) {
     if (children[0]) {
         static auto PSMARTSPLIT    = CConfigValue<Hyprlang::INT>("dwindle:smart_split");

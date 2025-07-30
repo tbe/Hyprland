@@ -26,6 +26,7 @@ using Hyprutils::Memory::CUniquePointer;
 
 using namespace Hyprutils::OS;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 #define XCB_EVENT_RESPONSE_TYPE_MASK 0x7f
 constexpr size_t INCR_CHUNK_SIZE = 64ul * 1024;

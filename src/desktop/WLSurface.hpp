@@ -26,20 +26,20 @@ class CWLSurface {
     void assign(SP<CWLSurfaceResource> pSurface, CPopup* pOwner);
     void unassign();
 
-    CWLSurface(const CWLSurface&)                       = delete;
-    CWLSurface(CWLSurface&&)                            = delete;
-    CWLSurface&            operator=(const CWLSurface&) = delete;
-    CWLSurface&            operator=(CWLSurface&&)      = delete;
+    CWLSurface(const CWLSurface&)                          = delete;
+    CWLSurface(CWLSurface&&)                               = delete;
+    CWLSurface&               operator=(const CWLSurface&) = delete;
+    CWLSurface&               operator=(CWLSurface&&)      = delete;
 
-    SP<CWLSurfaceResource> resource() const;
-    bool                   exists() const;
-    bool                   small() const;              // means surface is smaller than the requested size
-    Vector2D               correctSmallVec() const;    // returns a corrective vector for small() surfaces
-    Vector2D               correctSmallVecBuf() const; // returns a corrective vector for small() surfaces, in BL coords
-    Vector2D               getViewporterCorrectedSize() const;
-    CRegion                computeDamage() const; // logical coordinates. May be wrong if the surface is unassigned
-    bool                   visible();
-    bool                   keyboardFocusable() const;
+    SP<CWLSurfaceResource>    resource() const;
+    bool                      exists() const;
+    bool                      small() const;              // means surface is smaller than the requested size
+    Hyprutils::Math::Vector2D correctSmallVec() const;    // returns a corrective vector for small() surfaces
+    Hyprutils::Math::Vector2D correctSmallVecBuf() const; // returns a corrective vector for small() surfaces, in BL coords
+    Hyprutils::Math::Vector2D getViewporterCorrectedSize() const;
+    Hyprutils::Math::CRegion  computeDamage() const; // logical coordinates. May be wrong if the surface is unassigned
+    bool                      visible();
+    bool                      keyboardFocusable() const;
 
     // getters for owners.
     PHLWINDOW    getWindow() const;
@@ -48,9 +48,9 @@ class CWLSurface {
     CSubsurface* getSubsurface() const;
 
     // desktop components misc utils
-    std::optional<CBox>    getSurfaceBoxGlobal() const;
-    void                   appendConstraint(WP<CPointerConstraint> constraint);
-    SP<CPointerConstraint> constraint() const;
+    std::optional<Hyprutils::Math::CBox> getSurfaceBoxGlobal() const;
+    void                                 appendConstraint(WP<CPointerConstraint> constraint);
+    SP<CPointerConstraint>               constraint() const;
 
     // allow stretching. Useful for plugins.
     bool m_fillIgnoreSmall = false;
@@ -87,8 +87,8 @@ class CWLSurface {
     float m_alphaModifier = 1.F;
 
     // used by the hyprland-surface protocol
-    float   m_overallOpacity = 1.F;
-    CRegion m_visibleRegion;
+    float                    m_overallOpacity = 1.F;
+    Hyprutils::Math::CRegion m_visibleRegion;
 
     struct {
         CSignalT<> destroy;

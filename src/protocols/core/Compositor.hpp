@@ -51,7 +51,7 @@ class CWLRegionResource {
 
     bool                         good();
 
-    CRegion                      m_region;
+    Hyprutils::Math::CRegion     m_region;
     WP<CWLRegionResource>        m_self;
 
   private:
@@ -77,7 +77,7 @@ class CWLSurfaceResource {
     void                          unmap();
     void                          error(int code, const std::string& str);
     SP<CWlSurface>                getResource();
-    CBox                          extends();
+    Hyprutils::Math::CBox         extends();
     void                          resetRole();
 
     struct {
@@ -106,7 +106,7 @@ class CWLSurfaceResource {
     WP<CColorManagementSurface>            m_colorManagement;
     WP<CContentType>                       m_contentType;
 
-    void                                   breadthfirst(std::function<void(SP<CWLSurfaceResource>, const Vector2D&, void*)> fn, void* data);
+    void                                   breadthfirst(std::function<void(SP<CWLSurfaceResource>, const Hyprutils::Math::Vector2D&, void*)> fn, void* data);
     SP<CWLSurfaceResource>                 findFirstPreorder(std::function<bool(SP<CWLSurfaceResource>)> fn);
     void                                   presentFeedback(const Time::steady_tp& when, PHLMONITOR pMonitor, bool discarded = false);
     void                                   commitState(SSurfaceState& state);
@@ -115,19 +115,19 @@ class CWLSurfaceResource {
 
     // returns a pair: found surface (null if not found) and surface local coords.
     // localCoords param is relative to 0,0 of this surface
-    std::pair<SP<CWLSurfaceResource>, Vector2D> at(const Vector2D& localCoords, bool allowsInput = false);
+    std::pair<SP<CWLSurfaceResource>, Hyprutils::Math::Vector2D> at(const Hyprutils::Math::Vector2D& localCoords, bool allowsInput = false);
 
   private:
-    SP<CWlSurface>         m_resource;
-    wl_client*             m_client = nullptr;
+    SP<CWlSurface> m_resource;
+    wl_client*     m_client = nullptr;
 
-    void                   destroy();
-    void                   releaseBuffers(bool onlyCurrent = true);
-    void                   dropPendingBuffer();
-    void                   dropCurrentBuffer();
-    void                   bfHelper(std::vector<SP<CWLSurfaceResource>> const& nodes, std::function<void(SP<CWLSurfaceResource>, const Vector2D&, void*)> fn, void* data);
+    void           destroy();
+    void           releaseBuffers(bool onlyCurrent = true);
+    void           dropPendingBuffer();
+    void           dropCurrentBuffer();
+    void           bfHelper(std::vector<SP<CWLSurfaceResource>> const& nodes, std::function<void(SP<CWLSurfaceResource>, const Hyprutils::Math::Vector2D&, void*)> fn, void* data);
     SP<CWLSurfaceResource> findFirstPreorderHelper(SP<CWLSurfaceResource> root, std::function<bool(SP<CWLSurfaceResource>)> fn);
-    void                   updateCursorShm(CRegion damage = CBox{0, 0, INT16_MAX, INT16_MAX});
+    void                   updateCursorShm(Hyprutils::Math::CRegion damage = Hyprutils::Math::CBox{0, 0, INT16_MAX, INT16_MAX});
 
     friend class CWLPointerResource;
 };

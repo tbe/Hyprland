@@ -5,6 +5,8 @@
 #include "../../managers/HookSystemManager.hpp"
 #include "../../render/Renderer.hpp"
 
+using namespace Hyprutils::Math;
+
 void CInputManager::onSwipeBegin(IPointer::SSwipeBeginEvent e) {
     static auto PSWIPE           = CConfigValue<Hyprlang::INT>("gestures:workspace_swipe");
     static auto PSWIPEFINGERS    = CConfigValue<Hyprlang::INT>("gestures:workspace_swipe_fingers");

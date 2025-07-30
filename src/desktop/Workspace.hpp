@@ -36,7 +36,7 @@ class CWorkspace {
     wl_array        m_wlrCoordinateArr;
 
     // for animations
-    PHLANIMVAR<Vector2D> m_renderOffset;
+    PHLANIMVAR<Hyprutils::Math::Vector2D> m_renderOffset;
     PHLANIMVAR<float>    m_alpha;
     bool                 m_forceRendering = false;
 

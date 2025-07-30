@@ -19,6 +19,7 @@
 #include <functional>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CScreencopyFrame::CScreencopyFrame(SP<CZwlrScreencopyFrameV1> resource_, int32_t overlay_cursor, wl_resource* output, CBox box_) : m_resource(resource_) {
     if UNLIKELY (!good())

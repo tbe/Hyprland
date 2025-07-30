@@ -50,15 +50,15 @@ struct SRenderModifData {
     enum eRenderModifType : uint8_t {
         RMOD_TYPE_SCALE,        /* scale by a float */
         RMOD_TYPE_SCALECENTER,  /* scale by a float from the center */
-        RMOD_TYPE_TRANSLATE,    /* translate by a Vector2D */
+        RMOD_TYPE_TRANSLATE,    /* translate by a Hyprutils::Math::Vector2D */
         RMOD_TYPE_ROTATE,       /* rotate by a float in rad from top left */
         RMOD_TYPE_ROTATECENTER, /* rotate by a float in rad from center */
     };
 
     std::vector<std::pair<eRenderModifType, std::any>> modifs;
 
-    void                                               applyToBox(CBox& box);
-    void                                               applyToRegion(CRegion& rg);
+    void                                               applyToBox(Hyprutils::Math::CBox& box);
+    void                                               applyToRegion(Hyprutils::Math::CRegion& rg);
     float                                              combinedScale();
 
     bool                                               enabled = true;
@@ -113,39 +113,39 @@ struct SMonitorRenderData {
 };
 
 struct SCurrentRenderData {
-    PHLMONITORREF pMonitor;
-    Mat3x3        projection;
-    Mat3x3        savedProjection;
-    Mat3x3        monitorProjection;
+    PHLMONITORREF           pMonitor;
+    Hyprutils::Math::Mat3x3 projection;
+    Hyprutils::Math::Mat3x3 savedProjection;
+    Hyprutils::Math::Mat3x3 monitorProjection;
 
     // FIXME: raw pointer galore!
-    SMonitorRenderData*    pCurrentMonData = nullptr;
-    CFramebuffer*          currentFB       = nullptr; // current rendering to
-    CFramebuffer*          mainFB          = nullptr; // main to render to
-    CFramebuffer*          outFB           = nullptr; // out to render to (if offloaded, etc)
+    SMonitorRenderData*       pCurrentMonData = nullptr;
+    CFramebuffer*             currentFB       = nullptr; // current rendering to
+    CFramebuffer*             mainFB          = nullptr; // main to render to
+    CFramebuffer*             outFB           = nullptr; // out to render to (if offloaded, etc)
 
-    CRegion                damage;
-    CRegion                finalDamage; // damage used for funal off -> main
+    Hyprutils::Math::CRegion  damage;
+    Hyprutils::Math::CRegion  finalDamage; // damage used for funal off -> main
 
-    SRenderModifData       renderModif;
-    float                  mouseZoomFactor    = 1.f;
-    bool                   mouseZoomUseMouse  = true; // true by default
-    bool                   useNearestNeighbor = false;
-    bool                   blockScreenShader  = false;
-    bool                   simplePass         = false;
+    SRenderModifData          renderModif;
+    float                     mouseZoomFactor    = 1.f;
+    bool                      mouseZoomUseMouse  = true; // true by default
+    bool                      useNearestNeighbor = false;
+    bool                      blockScreenShader  = false;
+    bool                      simplePass         = false;
 
-    Vector2D               primarySurfaceUVTopLeft     = Vector2D(-1, -1);
-    Vector2D               primarySurfaceUVBottomRight = Vector2D(-1, -1);
+    Hyprutils::Math::Vector2D primarySurfaceUVTopLeft     = Hyprutils::Math::Vector2D(-1, -1);
+    Hyprutils::Math::Vector2D primarySurfaceUVBottomRight = Hyprutils::Math::Vector2D(-1, -1);
 
-    CBox                   clipBox = {}; // scaled coordinates
-    CRegion                clipRegion;
+    Hyprutils::Math::CBox     clipBox = {}; // scaled coordinates
+    Hyprutils::Math::CRegion  clipRegion;
 
-    uint32_t               discardMode    = DISCARD_OPAQUE;
-    float                  discardOpacity = 0.f;
+    uint32_t                  discardMode    = DISCARD_OPAQUE;
+    float                     discardOpacity = 0.f;
 
-    PHLLSREF               currentLS;
-    PHLWINDOWREF           currentWindow;
-    WP<CWLSurfaceResource> surface;
+    PHLLSREF                  currentLS;
+    PHLWINDOWREF              currentWindow;
+    WP<CWLSurfaceResource>    surface;
 };
 
 class CEGLSync {
@@ -175,24 +175,24 @@ class CHyprOpenGLImpl {
     CHyprOpenGLImpl();
     ~CHyprOpenGLImpl();
 
-    void begin(PHLMONITOR, const CRegion& damage, CFramebuffer* fb = nullptr, std::optional<CRegion> finalDamage = {});
-    void beginSimple(PHLMONITOR, const CRegion& damage, SP<CRenderbuffer> rb = nullptr, CFramebuffer* fb = nullptr);
+    void begin(PHLMONITOR, const Hyprutils::Math::CRegion& damage, CFramebuffer* fb = nullptr, std::optional<Hyprutils::Math::CRegion> finalDamage = {});
+    void beginSimple(PHLMONITOR, const Hyprutils::Math::CRegion& damage, SP<CRenderbuffer> rb = nullptr, CFramebuffer* fb = nullptr);
     void end();
 
-    void renderRect(const CBox&, const CHyprColor&, int round = 0, float roundingPower = 2.0f);
-    void renderRectWithBlur(const CBox&, const CHyprColor&, int round = 0, float roundingPower = 2.0f, float blurA = 1.f, bool xray = false);
-    void renderRectWithDamage(const CBox&, const CHyprColor&, const CRegion& damage, int round = 0, float roundingPower = 2.0f);
-    void renderTexture(SP<CTexture>, const CBox&, float a, int round = 0, float roundingPower = 2.0f, bool discardActive = false, bool allowCustomUV = false,
+    void renderRect(const Hyprutils::Math::CBox&, const CHyprColor&, int round = 0, float roundingPower = 2.0f);
+    void renderRectWithBlur(const Hyprutils::Math::CBox&, const CHyprColor&, int round = 0, float roundingPower = 2.0f, float blurA = 1.f, bool xray = false);
+    void renderRectWithDamage(const Hyprutils::Math::CBox&, const CHyprColor&, const Hyprutils::Math::CRegion& damage, int round = 0, float roundingPower = 2.0f);
+    void renderTexture(SP<CTexture>, const Hyprutils::Math::CBox&, float a, int round = 0, float roundingPower = 2.0f, bool discardActive = false, bool allowCustomUV = false,
                        GLenum wrapX = GL_CLAMP_TO_EDGE, GLenum wrapY = GL_CLAMP_TO_EDGE);
-    void renderTextureWithDamage(SP<CTexture>, const CBox&, const CRegion& damage, float a, int round = 0, float roundingPower = 2.0f, bool discardActive = false,
-                                 bool allowCustomUV = false);
-    void renderTextureWithBlur(SP<CTexture>, const CBox&, float a, SP<CWLSurfaceResource> pSurface, int round = 0, float roundingPower = 2.0f, bool blockBlurOptimization = false,
-                               float blurA = 1.f, float overallA = 1.f, GLenum wrapX = GL_CLAMP_TO_EDGE, GLenum wrapY = GL_CLAMP_TO_EDGE);
-    void renderRoundedShadow(const CBox&, int round, float roundingPower, int range, const CHyprColor& color, float a = 1.0);
-    void renderBorder(const CBox&, const CGradientValueData&, int round, float roundingPower, int borderSize, float a = 1.0, int outerRound = -1 /* use round */);
-    void renderBorder(const CBox&, const CGradientValueData&, const CGradientValueData&, float lerp, int round, float roundingPower, int borderSize, float a = 1.0,
+    void renderTextureWithDamage(SP<CTexture>, const Hyprutils::Math::CBox&, const Hyprutils::Math::CRegion& damage, float a, int round = 0, float roundingPower = 2.0f,
+                                 bool discardActive = false, bool allowCustomUV = false);
+    void renderTextureWithBlur(SP<CTexture>, const Hyprutils::Math::CBox&, float a, SP<CWLSurfaceResource> pSurface, int round = 0, float roundingPower = 2.0f,
+                               bool blockBlurOptimization = false, float blurA = 1.f, float overallA = 1.f, GLenum wrapX = GL_CLAMP_TO_EDGE, GLenum wrapY = GL_CLAMP_TO_EDGE);
+    void renderRoundedShadow(const Hyprutils::Math::CBox&, int round, float roundingPower, int range, const CHyprColor& color, float a = 1.0);
+    void renderBorder(const Hyprutils::Math::CBox&, const CGradientValueData&, int round, float roundingPower, int borderSize, float a = 1.0, int outerRound = -1 /* use round */);
+    void renderBorder(const Hyprutils::Math::CBox&, const CGradientValueData&, const CGradientValueData&, float lerp, int round, float roundingPower, int borderSize, float a = 1.0,
                       int outerRound = -1 /* use round */);
-    void renderTextureMatte(SP<CTexture> tex, const CBox& pBox, CFramebuffer& matte);
+    void renderTextureMatte(SP<CTexture> tex, const Hyprutils::Math::CBox& pBox, CFramebuffer& matte);
 
     void pushMonitorTransformEnabled(bool enabled);
     void popMonitorTransformEnabled();
@@ -202,7 +202,7 @@ class CHyprOpenGLImpl {
     void setCapStatus(int cap, bool status);
 
     void saveMatrix();
-    void setMatrixScaleTranslate(const Vector2D& translate, const float& scale);
+    void setMatrixScaleTranslate(const Hyprutils::Math::Vector2D& translate, const float& scale);
     void restoreMatrix();
 
     void blend(bool enabled);
@@ -211,7 +211,7 @@ class CHyprOpenGLImpl {
 
     void clear(const CHyprColor&);
     void clearWithTex();
-    void scissor(const CBox&, bool transform = true);
+    void scissor(const Hyprutils::Math::CBox&, bool transform = true);
     void scissor(const pixman_box32*, bool transform = true);
     void scissor(const int x, const int y, const int w, const int h, bool transform = true);
 
@@ -223,7 +223,7 @@ class CHyprOpenGLImpl {
     bool preBlurQueued();
     void preRender(PHLMONITOR);
 
-    void saveBufferForMirror(const CBox&);
+    void saveBufferForMirror(const Hyprutils::Math::CBox&);
     void renderMirrored();
 
     void applyScreenShader(const std::string& path);
@@ -235,7 +235,7 @@ class CHyprOpenGLImpl {
     SP<CTexture> loadAsset(const std::string& file);
     SP<CTexture> renderText(const std::string& text, CHyprColor col, int pt, bool italic = false, const std::string& fontFamily = "", int maxWidth = 0, int weight = 400);
 
-    void         setDamage(const CRegion& damage, std::optional<CRegion> finalDamage = {});
+    void         setDamage(const Hyprutils::Math::CRegion& damage, std::optional<Hyprutils::Math::CRegion> finalDamage = {});
 
     void         ensureBackgroundTexturePresence();
 
@@ -355,16 +355,17 @@ class CHyprOpenGLImpl {
     std::optional<std::vector<uint64_t>> getModsForFormat(EGLint format);
 
     // returns the out FB, can be either Mirror or MirrorSwap
-    CFramebuffer* blurMainFramebufferWithDamage(float a, CRegion* damage);
-    CFramebuffer* blurFramebufferWithDamage(float a, CRegion* damage, CFramebuffer& source);
+    CFramebuffer* blurMainFramebufferWithDamage(float a, Hyprutils::Math::CRegion* damage);
+    CFramebuffer* blurFramebufferWithDamage(float a, Hyprutils::Math::CRegion* damage, CFramebuffer& source);
 
     void          passCMUniforms(SShader&, const NColorManagement::SImageDescription& imageDescription, const NColorManagement::SImageDescription& targetImageDescription,
                                  bool modifySDR = false, float sdrMinLuminance = -1.0f, int sdrMaxLuminance = -1);
     void          passCMUniforms(SShader&, const NColorManagement::SImageDescription& imageDescription);
-    void renderTextureInternalWithDamage(SP<CTexture>, const CBox& box, float a, const CRegion& damage, int round = 0, float roundingPower = 2.0f, bool discardOpaque = false,
-                                         bool noAA = false, bool allowCustomUV = false, bool allowDim = false, GLenum wrapX = GL_CLAMP_TO_EDGE, GLenum wrapY = GL_CLAMP_TO_EDGE);
-    void renderTexturePrimitive(SP<CTexture> tex, const CBox& box);
-    void renderSplash(cairo_t* const, cairo_surface_t* const, double offset, const Vector2D& size);
+    void renderTextureInternalWithDamage(SP<CTexture>, const Hyprutils::Math::CBox& box, float a, const Hyprutils::Math::CRegion& damage, int round = 0, float roundingPower = 2.0f,
+                                         bool discardOpaque = false, bool noAA = false, bool allowCustomUV = false, bool allowDim = false, GLenum wrapX = GL_CLAMP_TO_EDGE,
+                                         GLenum wrapY = GL_CLAMP_TO_EDGE);
+    void renderTexturePrimitive(SP<CTexture> tex, const Hyprutils::Math::CBox& box);
+    void renderSplash(cairo_t* const, cairo_surface_t* const, double offset, const Hyprutils::Math::Vector2D& size);
 
     void preBlurForCurrentMonitor();
 

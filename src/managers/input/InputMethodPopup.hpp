@@ -14,9 +14,9 @@ class CInputPopup {
     void                   damageEntire();
     void                   damageSurface();
 
-    bool                   isVecInPopup(const Vector2D& point);
+    bool                   isVecInPopup(const Hyprutils::Math::Vector2D& point);
 
-    CBox                   globalBox();
+    Hyprutils::Math::CBox                   globalBox();
     SP<CWLSurfaceResource> getSurface();
 
     void                   onCommit();
@@ -31,7 +31,7 @@ class CInputPopup {
 
     WP<CInputMethodPopupV2> m_popup;
     SP<CWLSurface>          m_surface;
-    CBox                    m_lastBoxLocal;
+    Hyprutils::Math::CBox                    m_lastBoxLocal;
     MONITORID               m_lastMonitor = MONITOR_INVALID;
 
     struct {

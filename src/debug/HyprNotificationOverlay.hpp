@@ -46,8 +46,8 @@ class CHyprNotificationOverlay {
     bool hasAny();
 
   private:
-    CBox                           drawNotifications(PHLMONITOR pMonitor);
-    CBox                           m_lastDamage;
+    Hyprutils::Math::CBox          drawNotifications(PHLMONITOR pMonitor);
+    Hyprutils::Math::CBox          m_lastDamage;
 
     std::vector<UP<SNotification>> m_notifications;
 
@@ -55,7 +55,7 @@ class CHyprNotificationOverlay {
     cairo_t*                       m_cairo        = nullptr;
 
     PHLMONITORREF                  m_lastMonitor;
-    Vector2D                       m_lastSize = Vector2D(-1, -1);
+    Hyprutils::Math::Vector2D      m_lastSize = Hyprutils::Math::Vector2D(-1, -1);
 
     SP<CTexture>                   m_texture;
 };

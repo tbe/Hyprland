@@ -77,6 +77,7 @@
 
 using namespace Hyprutils::String;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 using namespace Aquamarine;
 using enum NContentType::eContentType;
 using namespace NColorManagement;

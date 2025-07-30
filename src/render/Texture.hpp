@@ -44,9 +44,9 @@ class CTexture {
     eTextureType                m_type          = TEXTURE_RGBA;
     GLenum                      m_target        = GL_TEXTURE_2D;
     GLuint                      m_texID         = 0;
-    Vector2D                    m_size          = {};
+    Hyprutils::Math::Vector2D   m_size          = {};
     void*                       m_eglImage      = nullptr;
-    eTransform                  m_transform     = HYPRUTILS_TRANSFORM_NORMAL;
+    Hyprutils::Math::eTransform m_transform     = Hyprutils::Math::HYPRUTILS_TRANSFORM_NORMAL;
     bool                        m_opaque        = false;
     uint32_t                    m_drmFormat     = 0; // for shm
     bool                        m_isSynchronous = false;
@@ -62,7 +62,7 @@ class CTexture {
         TEXTURE_PAR_LAST,
     };
 
-    void                                               createFromShm(uint32_t drmFormat, uint8_t* pixels, uint32_t stride, const Vector2D& size);
+    void                                               createFromShm(uint32_t drmFormat, uint8_t* pixels, uint32_t stride, const Hyprutils::Math::Vector2D& size);
     void                                               createFromDma(const Aquamarine::SDMABUFAttrs&, void* image);
     inline constexpr std::optional<size_t>             getCacheStateIndex(GLenum pname);
 

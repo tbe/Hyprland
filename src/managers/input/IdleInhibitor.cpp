@@ -5,6 +5,7 @@
 #include "../../protocols/core/Compositor.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 void CInputManager::newIdleInhibitor(std::any inhibitor) {
     const auto PINHIBIT = m_idleInhibitors.emplace_back(makeUnique<SIdleInhibitor>()).get();

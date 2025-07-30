@@ -3,6 +3,7 @@
 #include "core/Compositor.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CTextInputV1::~CTextInputV1() {
     m_events.destroy.emit();

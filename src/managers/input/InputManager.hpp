@@ -55,11 +55,11 @@ enum eBorderIconDirection : uint8_t {
 };
 
 struct STouchData {
-    WP<SSessionLockSurface> touchFocusLockSurface;
-    PHLWINDOWREF            touchFocusWindow;
-    PHLLSREF                touchFocusLS;
-    WP<CWLSurfaceResource>  touchFocusSurface;
-    Vector2D                touchSurfaceOrigin;
+    WP<SSessionLockSurface>   touchFocusLockSurface;
+    PHLWINDOWREF              touchFocusWindow;
+    PHLLSREF                  touchFocusLS;
+    WP<CWLSurfaceResource>    touchFocusSurface;
+    Hyprutils::Math::Vector2D touchSurfaceOrigin;
 };
 
 // The third row is always 0 0 1 and is not expected by `libinput_device_config_calibration_set_matrix`
@@ -87,65 +87,65 @@ class CInputManager {
     CInputManager();
     ~CInputManager();
 
-    void               onMouseMoved(IPointer::SMotionEvent);
-    void               onMouseWarp(IPointer::SMotionAbsoluteEvent);
-    void               onMouseButton(IPointer::SButtonEvent);
-    void               onMouseWheel(IPointer::SAxisEvent);
-    void               onKeyboardKey(const IKeyboard::SKeyEvent&, SP<IKeyboard>);
-    void               onKeyboardMod(SP<IKeyboard>);
+    void                      onMouseMoved(IPointer::SMotionEvent);
+    void                      onMouseWarp(IPointer::SMotionAbsoluteEvent);
+    void                      onMouseButton(IPointer::SButtonEvent);
+    void                      onMouseWheel(IPointer::SAxisEvent);
+    void                      onKeyboardKey(const IKeyboard::SKeyEvent&, SP<IKeyboard>);
+    void                      onKeyboardMod(SP<IKeyboard>);
 
-    void               newKeyboard(SP<Aquamarine::IKeyboard>);
-    void               newVirtualKeyboard(SP<CVirtualKeyboardV1Resource>);
-    void               newMouse(SP<Aquamarine::IPointer>);
-    void               newVirtualMouse(SP<CVirtualPointerV1Resource>);
-    void               newTouchDevice(SP<Aquamarine::ITouch>);
-    void               newSwitch(SP<Aquamarine::ISwitch>);
-    void               newTabletPad(SP<Aquamarine::ITabletPad>);
-    void               newTablet(SP<Aquamarine::ITablet>);
-    void               destroyTouchDevice(SP<ITouch>);
-    void               destroyKeyboard(SP<IKeyboard>);
-    void               destroyPointer(SP<IPointer>);
-    void               destroyTablet(SP<CTablet>);
-    void               destroyTabletTool(SP<CTabletTool>);
-    void               destroyTabletPad(SP<CTabletPad>);
-    void               destroySwitch(SSwitchDevice*);
+    void                      newKeyboard(SP<Aquamarine::IKeyboard>);
+    void                      newVirtualKeyboard(SP<CVirtualKeyboardV1Resource>);
+    void                      newMouse(SP<Aquamarine::IPointer>);
+    void                      newVirtualMouse(SP<CVirtualPointerV1Resource>);
+    void                      newTouchDevice(SP<Aquamarine::ITouch>);
+    void                      newSwitch(SP<Aquamarine::ISwitch>);
+    void                      newTabletPad(SP<Aquamarine::ITabletPad>);
+    void                      newTablet(SP<Aquamarine::ITablet>);
+    void                      destroyTouchDevice(SP<ITouch>);
+    void                      destroyKeyboard(SP<IKeyboard>);
+    void                      destroyPointer(SP<IPointer>);
+    void                      destroyTablet(SP<CTablet>);
+    void                      destroyTabletTool(SP<CTabletTool>);
+    void                      destroyTabletPad(SP<CTabletPad>);
+    void                      destroySwitch(SSwitchDevice*);
 
-    void               unconstrainMouse();
-    bool               isConstrained();
-    bool               isLocked();
+    void                      unconstrainMouse();
+    bool                      isConstrained();
+    bool                      isLocked();
 
-    Vector2D           getMouseCoordsInternal();
-    void               refocus();
-    bool               refocusLastWindow(PHLMONITOR pMonitor);
-    void               simulateMouseMovement();
-    void               sendMotionEventsToFocused();
+    Hyprutils::Math::Vector2D getMouseCoordsInternal();
+    void                      refocus();
+    bool                      refocusLastWindow(PHLMONITOR pMonitor);
+    void                      simulateMouseMovement();
+    void                      sendMotionEventsToFocused();
 
-    void               setKeyboardLayout();
-    void               setPointerConfigs();
-    void               setTouchDeviceConfigs(SP<ITouch> dev = nullptr);
-    void               setTabletConfigs();
+    void                      setKeyboardLayout();
+    void                      setPointerConfigs();
+    void                      setTouchDeviceConfigs(SP<ITouch> dev = nullptr);
+    void                      setTabletConfigs();
 
-    void               updateCapabilities();
-    void               updateKeyboardsLeds(SP<IKeyboard>);
+    void                      updateCapabilities();
+    void                      updateKeyboardsLeds(SP<IKeyboard>);
 
-    void               setClickMode(eClickBehaviorMode);
-    eClickBehaviorMode getClickMode();
-    void               processMouseRequest(const CSeatManager::SSetCursorEvent& event);
+    void                      setClickMode(eClickBehaviorMode);
+    eClickBehaviorMode        getClickMode();
+    void                      processMouseRequest(const CSeatManager::SSetCursorEvent& event);
 
-    void               onTouchDown(ITouch::SDownEvent);
-    void               onTouchUp(ITouch::SUpEvent);
-    void               onTouchMove(ITouch::SMotionEvent);
+    void                      onTouchDown(ITouch::SDownEvent);
+    void                      onTouchUp(ITouch::SUpEvent);
+    void                      onTouchMove(ITouch::SMotionEvent);
 
-    void               onSwipeBegin(IPointer::SSwipeBeginEvent);
-    void               onSwipeEnd(IPointer::SSwipeEndEvent);
-    void               onSwipeUpdate(IPointer::SSwipeUpdateEvent);
+    void                      onSwipeBegin(IPointer::SSwipeBeginEvent);
+    void                      onSwipeEnd(IPointer::SSwipeEndEvent);
+    void                      onSwipeUpdate(IPointer::SSwipeUpdateEvent);
 
-    void               onTabletAxis(CTablet::SAxisEvent);
-    void               onTabletProximity(CTablet::SProximityEvent);
-    void               onTabletTip(CTablet::STipEvent);
-    void               onTabletButton(CTablet::SButtonEvent);
+    void                      onTabletAxis(CTablet::SAxisEvent);
+    void                      onTabletProximity(CTablet::SProximityEvent);
+    void                      onTabletTip(CTablet::STipEvent);
+    void                      onTabletButton(CTablet::SButtonEvent);
 
-    STouchData         m_touchData;
+    STouchData                m_touchData;
 
     // for dragging floating windows
     PHLWINDOWREF   m_currentlyDraggedWindow;
@@ -228,27 +228,27 @@ class CInputManager {
     eBorderIconDirection m_borderIconDirection   = BORDERICON_NONE;
 
     // for click behavior override
-    eClickBehaviorMode m_clickBehavior        = CLICKMODE_DEFAULT;
-    Vector2D           m_lastCursorPosFloored = Vector2D();
+    eClickBehaviorMode        m_clickBehavior        = CLICKMODE_DEFAULT;
+    Hyprutils::Math::Vector2D m_lastCursorPosFloored = {};
 
-    void               setupKeyboard(SP<IKeyboard> keeb);
-    void               setupMouse(SP<IPointer> mauz);
+    void                      setupKeyboard(SP<IKeyboard> keeb);
+    void                      setupMouse(SP<IPointer> mauz);
 
-    void               processMouseDownNormal(const IPointer::SButtonEvent& e);
-    void               processMouseDownKill(const IPointer::SButtonEvent& e);
+    void                      processMouseDownNormal(const IPointer::SButtonEvent& e);
+    void                      processMouseDownKill(const IPointer::SButtonEvent& e);
 
-    bool               cursorImageUnlocked();
+    bool                      cursorImageUnlocked();
 
-    void               disableAllKeyboards(bool virt = false);
+    void                      disableAllKeyboards(bool virt = false);
 
-    uint32_t           m_capabilities = 0;
+    uint32_t                  m_capabilities = 0;
 
-    void               mouseMoveUnified(uint32_t, bool refocus = false, bool mouse = false);
-    void               recheckMouseWarpOnMouseInput();
+    void                      mouseMoveUnified(uint32_t, bool refocus = false, bool mouse = false);
+    void                      recheckMouseWarpOnMouseInput();
 
-    SP<CTabletTool>    ensureTabletToolPresent(SP<Aquamarine::ITabletTool>);
+    SP<CTabletTool>           ensureTabletToolPresent(SP<Aquamarine::ITabletTool>);
 
-    void               applyConfigToKeyboard(SP<IKeyboard>);
+    void                      applyConfigToKeyboard(SP<IKeyboard>);
 
     // this will be set after a refocus()
     WP<CWLSurfaceResource> m_foundSurfaceToFocus;
@@ -256,9 +256,9 @@ class CInputManager {
     PHLWINDOWREF           m_foundWindowToFocus;
 
     // used for warping back after non-mouse input
-    Vector2D m_lastMousePos   = {};
-    double   m_mousePosDelta  = 0;
-    bool     m_lastInputMouse = true;
+    Hyprutils::Math::Vector2D m_lastMousePos   = {};
+    double                    m_mousePosDelta  = 0;
+    bool                      m_lastInputMouse = true;
 
     // for holding focus on buttons held
     bool m_focusHeldByButtons   = false;
@@ -290,7 +290,7 @@ class CInputManager {
     struct {
         bool           hidden = false; // null surface = hidden
         SP<CWLSurface> wlSurface;
-        Vector2D       vHotspot;
+        Hyprutils::Math::Vector2D       vHotspot;
         std::string    name; // if not empty, means set by name.
         bool           inUse = false;
     } m_cursorSurfaceInfo;

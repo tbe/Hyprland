@@ -48,11 +48,11 @@ class CPointerGesturesProtocol : public IWaylandProtocol {
     virtual void bindManager(wl_client* client, void* data, uint32_t ver, uint32_t id);
 
     void         swipeBegin(uint32_t timeMs, uint32_t fingers);
-    void         swipeUpdate(uint32_t timeMs, const Vector2D& delta);
+    void         swipeUpdate(uint32_t timeMs, const Hyprutils::Math::Vector2D& delta);
     void         swipeEnd(uint32_t timeMs, bool cancelled);
 
     void         pinchBegin(uint32_t timeMs, uint32_t fingers);
-    void         pinchUpdate(uint32_t timeMs, const Vector2D& delta, double scale, double rotation);
+    void         pinchUpdate(uint32_t timeMs, const Hyprutils::Math::Vector2D& delta, double scale, double rotation);
     void         pinchEnd(uint32_t timeMs, bool cancelled);
 
     void         holdBegin(uint32_t timeMs, uint32_t fingers);

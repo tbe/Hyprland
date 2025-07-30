@@ -1,5 +1,7 @@
 #include "DamageRing.hpp"
 
+using namespace Hyprutils::Math;
+
 void CDamageRing::setSize(const Vector2D& size_) {
     if (size_ == m_size)
         return;

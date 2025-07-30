@@ -26,25 +26,25 @@ struct SSurfaceState {
     bool rejected = false;
 
     // initial values, copied from protocol text
-    CHLBufferReference  buffer = {};                                          // The initial surface contents are void
-    CRegion             damage, bufferDamage;                                 // The initial value for pending damage is empty
-    CRegion             opaque;                                               // The initial value for an opaque region is empty
-    CRegion             input     = CBox{{}, {INT32_MAX - 1, INT32_MAX - 1}}; // The initial value for an input region is infinite
-    wl_output_transform transform = WL_OUTPUT_TRANSFORM_NORMAL;               // A newly created surface has its buffer transformation set to normal
-    int                 scale     = 1;                                        // A newly created surface has its buffer scale set to 1
+    CHLBufferReference       buffer = {};                                                           // The initial surface contents are void
+    Hyprutils::Math::CRegion damage, bufferDamage;                                                  // The initial value for pending damage is empty
+    Hyprutils::Math::CRegion opaque;                                                                // The initial value for an opaque region is empty
+    Hyprutils::Math::CRegion input     = Hyprutils::Math::CBox{{}, {INT32_MAX - 1, INT32_MAX - 1}}; // The initial value for an input region is infinite
+    wl_output_transform      transform = WL_OUTPUT_TRANSFORM_NORMAL;                                // A newly created surface has its buffer transformation set to normal
+    int                      scale     = 1;                                                         // A newly created surface has its buffer scale set to 1
 
     // these don't have well defined initial values in the protocol, but these work
-    Vector2D size, bufferSize;
-    Vector2D offset;
+    Hyprutils::Math::Vector2D size, bufferSize;
+    Hyprutils::Math::Vector2D offset;
 
     // viewporter protocol surface state
     struct {
-        bool     hasDestination = false;
-        bool     hasSource      = false;
-        Vector2D destination;
-        CBox     source;
+        bool                      hasDestination = false;
+        bool                      hasSource      = false;
+        Hyprutils::Math::Vector2D destination;
+        Hyprutils::Math::CBox     source;
     } viewport;
-    Vector2D sourceSize();
+    Hyprutils::Math::Vector2D sourceSize();
 
     // drm syncobj protocol surface state
     CDRMSyncPointState acquire;
@@ -54,7 +54,7 @@ struct SSurfaceState {
     void         updateSynchronousTexture(SP<CTexture> lastTexture);
 
     // helpers
-    CRegion accumulateBufferDamage();       // transforms state.damage and merges it into state.bufferDamage
-    void    updateFrom(SSurfaceState& ref); // updates this state based on a reference state.
-    void    reset();                        // resets pending state after commit
+    Hyprutils::Math::CRegion accumulateBufferDamage();       // transforms state.damage and merges it into state.bufferDamage
+    void                     updateFrom(SSurfaceState& ref); // updates this state based on a reference state.
+    void                     reset();                        // resets pending state after commit
 };

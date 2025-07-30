@@ -16,8 +16,8 @@ AQUAMARINE_FORWARD(IBuffer);
 
 class CCursorBuffer : public Aquamarine::IBuffer {
   public:
-    CCursorBuffer(cairo_surface_t* surf, const Vector2D& size, const Vector2D& hotspot);
-    CCursorBuffer(const uint8_t* pixelData, const Vector2D& size, const Vector2D& hotspot);
+    CCursorBuffer(cairo_surface_t* surf, const Hyprutils::Math::Vector2D& size, const Hyprutils::Math::Vector2D& hotspot);
+    CCursorBuffer(const uint8_t* pixelData, const Hyprutils::Math::Vector2D& size, const Hyprutils::Math::Vector2D& hotspot);
     ~CCursorBuffer() = default;
 
     virtual Aquamarine::eBufferCapability          caps();
@@ -30,7 +30,7 @@ class CCursorBuffer : public Aquamarine::IBuffer {
     virtual void                                   endDataPtr();
 
   private:
-    Vector2D             m_hotspot;
+    Hyprutils::Math::Vector2D             m_hotspot;
     std::vector<uint8_t> m_data;
     size_t               m_stride = 0;
 };
@@ -43,8 +43,8 @@ class CCursorManager {
     SP<Aquamarine::IBuffer> getCursorBuffer();
 
     void                    setCursorFromName(const std::string& name);
-    void                    setCursorSurface(SP<CWLSurface> surf, const Vector2D& hotspot);
-    void                    setCursorBuffer(SP<CCursorBuffer> buf, const Vector2D& hotspot, const float& scale);
+    void                    setCursorSurface(SP<CWLSurface> surf, const Hyprutils::Math::Vector2D& hotspot);
+    void                    setCursorBuffer(SP<CCursorBuffer> buf, const Hyprutils::Math::Vector2D& hotspot, const float& scale);
     void                    setAnimationTimer(const int& frame, const int& delay);
 
     bool                    changeTheme(const std::string& name, const int size);

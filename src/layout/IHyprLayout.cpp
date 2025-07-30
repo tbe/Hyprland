@@ -13,6 +13,8 @@
 #include "../managers/EventManager.hpp"
 #include "../managers/HookSystemManager.hpp"
 
+using namespace Hyprutils::Math;
+
 void IHyprLayout::onWindowCreated(PHLWINDOW pWindow, eDirection direction) {
     CBox       desiredGeometry = g_pXWaylandManager->getGeometryForWindow(pWindow);
 

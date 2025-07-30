@@ -30,7 +30,7 @@ class CTextInput {
     void                   onReset();
 
     bool                   hasCursorRectangle();
-    CBox                   cursorBox();
+    Hyprutils::Math::CBox  cursorBox();
 
     SP<CWLSurfaceResource> focusedSurface();
 

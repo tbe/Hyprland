@@ -44,24 +44,24 @@ enum eCMType : uint8_t {
 };
 
 struct SMonitorRule {
-    eAutoDirs           autoDir       = DIR_AUTO_NONE;
-    std::string         name          = "";
-    Vector2D            resolution    = Vector2D(1280, 720);
-    Vector2D            offset        = Vector2D(0, 0);
-    float               scale         = 1;
-    float               refreshRate   = 60; // Hz
-    bool                disabled      = false;
-    wl_output_transform transform     = WL_OUTPUT_TRANSFORM_NORMAL;
-    std::string         mirrorOf      = "";
-    bool                enable10bit   = false;
-    eCMType             cmType        = CM_SRGB;
-    float               sdrSaturation = 1.0f; // SDR -> HDR
-    float               sdrBrightness = 1.0f; // SDR -> HDR
+    eAutoDirs                 autoDir       = DIR_AUTO_NONE;
+    std::string               name          = "";
+    Hyprutils::Math::Vector2D resolution    = Hyprutils::Math::Vector2D(1280, 720);
+    Hyprutils::Math::Vector2D offset        = Hyprutils::Math::Vector2D(0, 0);
+    float                     scale         = 1;
+    float                     refreshRate   = 60; // Hz
+    bool                      disabled      = false;
+    wl_output_transform       transform     = WL_OUTPUT_TRANSFORM_NORMAL;
+    std::string               mirrorOf      = "";
+    bool                      enable10bit   = false;
+    eCMType                   cmType        = CM_SRGB;
+    float                     sdrSaturation = 1.0f; // SDR -> HDR
+    float                     sdrBrightness = 1.0f; // SDR -> HDR
 
-    bool                supportsWideColor = false; // false does nothing, true overrides EDID
-    bool                supportsHDR       = false; // false does nothing, true overrides EDID
-    float               sdrMinLuminance   = 0.2f;  // SDR -> HDR
-    int                 sdrMaxLuminance   = 80;    // SDR -> HDR
+    bool                      supportsWideColor = false; // false does nothing, true overrides EDID
+    bool                      supportsHDR       = false; // false does nothing, true overrides EDID
+    float                     sdrMinLuminance   = 0.2f;  // SDR -> HDR
+    int                       sdrMaxLuminance   = 80;    // SDR -> HDR
 
     // Incorrect values will result in reduced luminance range or incorrect tonemapping. Shouldn't damage the HW. Use with care in case of a faulty monitor firmware.
     float              minLuminance    = -1.0f; // >= 0 overrides EDID
@@ -96,64 +96,64 @@ class CMonitor {
     CMonitor(SP<Aquamarine::IOutput> output);
     ~CMonitor();
 
-    Vector2D                    m_position         = Vector2D(-1, -1); // means unset
-    Vector2D                    m_xwaylandPosition = Vector2D(-1, -1); // means unset
-    eAutoDirs                   m_autoDir          = DIR_AUTO_NONE;
-    Vector2D                    m_size             = Vector2D(0, 0);
-    Vector2D                    m_pixelSize        = Vector2D(0, 0);
-    Vector2D                    m_transformedSize  = Vector2D(0, 0);
+    Hyprutils::Math::Vector2D                m_position         = Hyprutils::Math::Vector2D(-1, -1); // means unset
+    Hyprutils::Math::Vector2D                m_xwaylandPosition = Hyprutils::Math::Vector2D(-1, -1); // means unset
+    eAutoDirs                                m_autoDir          = DIR_AUTO_NONE;
+    Hyprutils::Math::Vector2D                m_size             = Hyprutils::Math::Vector2D(0, 0);
+    Hyprutils::Math::Vector2D                m_pixelSize        = Hyprutils::Math::Vector2D(0, 0);
+    Hyprutils::Math::Vector2D                m_transformedSize  = Hyprutils::Math::Vector2D(0, 0);
 
-    MONITORID                   m_id                     = MONITOR_INVALID;
-    PHLWORKSPACE                m_activeWorkspace        = nullptr;
-    PHLWORKSPACE                m_activeSpecialWorkspace = nullptr;
-    float                       m_setScale               = 1; // scale set by cfg
-    float                       m_scale                  = 1; // real scale
+    MONITORID                                m_id                     = MONITOR_INVALID;
+    PHLWORKSPACE                             m_activeWorkspace        = nullptr;
+    PHLWORKSPACE                             m_activeSpecialWorkspace = nullptr;
+    float                                    m_setScale               = 1; // scale set by cfg
+    float                                    m_scale                  = 1; // real scale
 
-    std::string                 m_name             = "";
-    std::string                 m_description      = "";
-    std::string                 m_shortDescription = "";
+    std::string                              m_name             = "";
+    std::string                              m_description      = "";
+    std::string                              m_shortDescription = "";
 
-    Vector2D                    m_reservedTopLeft     = Vector2D(0, 0);
-    Vector2D                    m_reservedBottomRight = Vector2D(0, 0);
+    Hyprutils::Math::Vector2D                m_reservedTopLeft     = Hyprutils::Math::Vector2D(0, 0);
+    Hyprutils::Math::Vector2D                m_reservedBottomRight = Hyprutils::Math::Vector2D(0, 0);
 
-    drmModeModeInfo             m_customDrmMode = {};
+    drmModeModeInfo                          m_customDrmMode = {};
 
-    CMonitorState               m_state;
-    CDamageRing                 m_damage;
+    CMonitorState                            m_state;
+    CDamageRing                              m_damage;
 
-    SP<Aquamarine::IOutput>     m_output;
-    float                       m_refreshRate     = 60; // Hz
-    int                         m_forceFullFrames = 0;
-    bool                        m_scheduledRecalc = false;
-    wl_output_transform         m_transform       = WL_OUTPUT_TRANSFORM_NORMAL;
-    float                       m_xwaylandScale   = 1.f;
-    Mat3x3                      m_projMatrix;
-    std::optional<Vector2D>     m_forceSize;
-    SP<Aquamarine::SOutputMode> m_currentMode;
-    SP<Aquamarine::CSwapchain>  m_cursorSwapchain;
-    uint32_t                    m_drmFormat     = DRM_FORMAT_INVALID;
-    uint32_t                    m_prevDrmFormat = DRM_FORMAT_INVALID;
+    SP<Aquamarine::IOutput>                  m_output;
+    float                                    m_refreshRate     = 60; // Hz
+    int                                      m_forceFullFrames = 0;
+    bool                                     m_scheduledRecalc = false;
+    wl_output_transform                      m_transform       = WL_OUTPUT_TRANSFORM_NORMAL;
+    float                                    m_xwaylandScale   = 1.f;
+    Hyprutils::Math::Mat3x3                  m_projMatrix;
+    std::optional<Hyprutils::Math::Vector2D> m_forceSize;
+    SP<Aquamarine::SOutputMode>              m_currentMode;
+    SP<Aquamarine::CSwapchain>               m_cursorSwapchain;
+    uint32_t                                 m_drmFormat     = DRM_FORMAT_INVALID;
+    uint32_t                                 m_prevDrmFormat = DRM_FORMAT_INVALID;
 
-    bool                        m_dpmsStatus       = true;
-    bool                        m_vrrActive        = false; // this can be TRUE even if VRR is not active in the case that this display does not support it.
-    bool                        m_enabled10bit     = false; // as above, this can be TRUE even if 10 bit failed.
-    eCMType                     m_cmType           = CM_SRGB;
-    float                       m_sdrSaturation    = 1.0f;
-    float                       m_sdrBrightness    = 1.0f;
-    float                       m_sdrMinLuminance  = 0.2f;
-    int                         m_sdrMaxLuminance  = 80;
-    bool                        m_createdByUser    = false;
-    bool                        m_isUnsafeFallback = false;
+    bool                                     m_dpmsStatus       = true;
+    bool                                     m_vrrActive        = false; // this can be TRUE even if VRR is not active in the case that this display does not support it.
+    bool                                     m_enabled10bit     = false; // as above, this can be TRUE even if 10 bit failed.
+    eCMType                                  m_cmType           = CM_SRGB;
+    float                                    m_sdrSaturation    = 1.0f;
+    float                                    m_sdrBrightness    = 1.0f;
+    float                                    m_sdrMinLuminance  = 0.2f;
+    int                                      m_sdrMaxLuminance  = 80;
+    bool                                     m_createdByUser    = false;
+    bool                                     m_isUnsafeFallback = false;
 
-    bool                        m_pendingFrame    = false; // if we schedule a frame during rendering, reschedule it after
-    bool                        m_renderingActive = false;
+    bool                                     m_pendingFrame    = false; // if we schedule a frame during rendering, reschedule it after
+    bool                                     m_renderingActive = false;
 
-    bool                        m_ratsScheduled = false;
-    CTimer                      m_lastPresentationTimer;
+    bool                                     m_ratsScheduled = false;
+    CTimer                                   m_lastPresentationTimer;
 
-    bool                        m_isBeingLeased = false;
+    bool                                     m_isBeingLeased = false;
 
-    SMonitorRule                m_activeMonitorRule;
+    SMonitorRule                             m_activeMonitorRule;
 
     // explicit sync
     Hyprutils::OS::CFileDescriptor m_inFence; // TODO: remove when aq uses CFileDescriptor
@@ -167,8 +167,8 @@ class CMonitor {
     std::vector<PHLMONITORREF> m_mirrors;
 
     // ctm
-    Mat3x3 m_ctm        = Mat3x3::identity();
-    bool   m_ctmUpdated = false;
+    Hyprutils::Math::Mat3x3 m_ctm        = Hyprutils::Math::Mat3x3::identity();
+    bool                    m_ctmUpdated = false;
 
     // for tearing
     PHLWINDOWREF m_solitaryClient;
@@ -207,8 +207,8 @@ class CMonitor {
     void                                applyCMType(eCMType cmType);
     bool                                applyMonitorRule(SMonitorRule* pMonitorRule, bool force = false);
     void                                addDamage(const pixman_region32_t* rg);
-    void                                addDamage(const CRegion& rg);
-    void                                addDamage(const CBox& box);
+    void                                addDamage(const Hyprutils::Math::CRegion& rg);
+    void                                addDamage(const Hyprutils::Math::CBox& box);
     bool                                shouldSkipScheduleFrameOnMouseEvent();
     void                                setMirror(const std::string&);
     bool                                isMirror();
@@ -218,15 +218,15 @@ class CMonitor {
     void                                changeWorkspace(const WORKSPACEID& id, bool internal = false, bool noMouseMove = false, bool noFocus = false);
     void                                setSpecialWorkspace(const PHLWORKSPACE& pWorkspace);
     void                                setSpecialWorkspace(const WORKSPACEID& id);
-    void                                moveTo(const Vector2D& pos);
-    Vector2D                            middle();
+    void                                moveTo(const Hyprutils::Math::Vector2D& pos);
+    Hyprutils::Math::Vector2D           middle();
     void                                updateMatrix();
     WORKSPACEID                         activeWorkspaceID();
     WORKSPACEID                         activeSpecialWorkspaceID();
-    CBox                                logicalBox();
+    Hyprutils::Math::CBox               logicalBox();
     void                                scheduleDone();
     bool                                attemptDirectScanout();
-    void                                setCTM(const Mat3x3& ctm);
+    void                                setCTM(const Hyprutils::Math::Mat3x3& ctm);
     void                                onCursorMovedOnMonitor();
 
     void                                debugLastPresentation(const std::string& message);

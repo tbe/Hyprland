@@ -41,6 +41,7 @@
 using namespace Hyprutils::Utils;
 using namespace Hyprutils::OS;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 using enum NContentType::eContentType;
 using namespace NColorManagement;
 

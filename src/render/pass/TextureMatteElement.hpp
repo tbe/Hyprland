@@ -7,7 +7,7 @@ class CTexture;
 class CTextureMatteElement : public IPassElement {
   public:
     struct STextureMatteData {
-        CBox             box;
+        Hyprutils::Math::CBox             box;
         SP<CTexture>     tex;
         SP<CFramebuffer> fb;
         bool             disableTransformAndModify = false;
@@ -16,7 +16,7 @@ class CTextureMatteElement : public IPassElement {
     CTextureMatteElement(const STextureMatteData& data_);
     virtual ~CTextureMatteElement() = default;
 
-    virtual void        draw(const CRegion& damage);
+    virtual void        draw(const Hyprutils::Math::CRegion& damage);
     virtual bool        needsLiveBlur();
     virtual bool        needsPrecomputeBlur();
 

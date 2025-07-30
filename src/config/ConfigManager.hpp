@@ -119,7 +119,7 @@ struct SConfigOptionDescription {
     };
 
     struct SVectorData {
-        Vector2D vec, min, max;
+        Hyprutils::Math::Vector2D vec, min, max;
     };
 
     std::string       value; // e.g. general:gaps_in
@@ -207,7 +207,7 @@ class CConfigManager {
 
     int                                                             getDeviceInt(const std::string&, const std::string&, const std::string& fallback = "");
     float                                                           getDeviceFloat(const std::string&, const std::string&, const std::string& fallback = "");
-    Vector2D                                                        getDeviceVec(const std::string&, const std::string&, const std::string& fallback = "");
+    Hyprutils::Math::Vector2D                                       getDeviceVec(const std::string&, const std::string&, const std::string& fallback = "");
     std::string                                                     getDeviceString(const std::string&, const std::string&, const std::string& fallback = "");
     bool                                                            deviceConfigExists(const std::string&);
     Hyprlang::CConfigValue*                                         getConfigValueSafeDevice(const std::string& dev, const std::string& val, const std::string& fallback);
@@ -263,39 +263,39 @@ class CConfigManager {
     std::string                                        getErrors();
 
     // keywords
-    std::optional<std::string> handleRawExec(const std::string&, const std::string&);
-    std::optional<std::string> handleExec(const std::string&, const std::string&);
-    std::optional<std::string> handleExecOnce(const std::string&, const std::string&);
-    std::optional<std::string> handleExecRawOnce(const std::string&, const std::string&);
-    std::optional<std::string> handleExecShutdown(const std::string&, const std::string&);
-    std::optional<std::string> handleMonitor(const std::string&, const std::string&);
-    std::optional<std::string> handleBind(const std::string&, const std::string&);
-    std::optional<std::string> handleUnbind(const std::string&, const std::string&);
-    std::optional<std::string> handleWindowRule(const std::string&, const std::string&);
-    std::optional<std::string> handleLayerRule(const std::string&, const std::string&);
-    std::optional<std::string> handleWorkspaceRules(const std::string&, const std::string&);
-    std::optional<std::string> handleBezier(const std::string&, const std::string&);
-    std::optional<std::string> handleAnimation(const std::string&, const std::string&);
-    std::optional<std::string> handleSource(const std::string&, const std::string&);
-    std::optional<std::string> handleSubmap(const std::string&, const std::string&);
-    std::optional<std::string> handleBlurLS(const std::string&, const std::string&);
-    std::optional<std::string> handleBindWS(const std::string&, const std::string&);
-    std::optional<std::string> handleEnv(const std::string&, const std::string&);
-    std::optional<std::string> handlePlugin(const std::string&, const std::string&);
-    std::optional<std::string> handlePermission(const std::string&, const std::string&);
+    std::optional<std::string>               handleRawExec(const std::string&, const std::string&);
+    std::optional<std::string>               handleExec(const std::string&, const std::string&);
+    std::optional<std::string>               handleExecOnce(const std::string&, const std::string&);
+    std::optional<std::string>               handleExecRawOnce(const std::string&, const std::string&);
+    std::optional<std::string>               handleExecShutdown(const std::string&, const std::string&);
+    std::optional<std::string>               handleMonitor(const std::string&, const std::string&);
+    std::optional<std::string>               handleBind(const std::string&, const std::string&);
+    std::optional<std::string>               handleUnbind(const std::string&, const std::string&);
+    std::optional<std::string>               handleWindowRule(const std::string&, const std::string&);
+    std::optional<std::string>               handleLayerRule(const std::string&, const std::string&);
+    std::optional<std::string>               handleWorkspaceRules(const std::string&, const std::string&);
+    std::optional<std::string>               handleBezier(const std::string&, const std::string&);
+    std::optional<std::string>               handleAnimation(const std::string&, const std::string&);
+    std::optional<std::string>               handleSource(const std::string&, const std::string&);
+    std::optional<std::string>               handleSubmap(const std::string&, const std::string&);
+    std::optional<std::string>               handleBlurLS(const std::string&, const std::string&);
+    std::optional<std::string>               handleBindWS(const std::string&, const std::string&);
+    std::optional<std::string>               handleEnv(const std::string&, const std::string&);
+    std::optional<std::string>               handlePlugin(const std::string&, const std::string&);
+    std::optional<std::string>               handlePermission(const std::string&, const std::string&);
 
-    std::optional<std::string> handleMonitorv2(const std::string& output);
-    Hyprlang::CParseResult     handleMonitorv2();
+    std::optional<std::string>               handleMonitorv2(const std::string& output);
+    Hyprlang::CParseResult                   handleMonitorv2();
 
-    std::string                m_configCurrentPath;
+    std::string                              m_configCurrentPath;
 
-    bool                       m_wantsMonitorReload                  = false;
-    bool                       m_noMonitorReload                     = false;
-    bool                       m_isLaunchingExecOnce                 = false; // For exec-once to skip initial ws tracking
-    bool                       m_lastConfigVerificationWasSuccessful = true;
+    bool                                     m_wantsMonitorReload                  = false;
+    bool                                     m_noMonitorReload                     = false;
+    bool                                     m_isLaunchingExecOnce                 = false; // For exec-once to skip initial ws tracking
+    bool                                     m_lastConfigVerificationWasSuccessful = true;
 
-    void                       storeFloatingSize(PHLWINDOW window, const Vector2D& size);
-    std::optional<Vector2D>    getStoredFloatingSize(PHLWINDOW window);
+    void                                     storeFloatingSize(PHLWINDOW window, const Hyprutils::Math::Vector2D& size);
+    std::optional<Hyprutils::Math::Vector2D> getStoredFloatingSize(PHLWINDOW window);
 
   private:
     UP<Hyprlang::CConfig>                            m_config;
@@ -332,22 +332,22 @@ class CConfigManager {
     uint32_t                                         m_configValueNumber = 0;
 
     // internal methods
-    void                                      updateBlurredLS(const std::string&, const bool);
-    void                                      setDefaultAnimationVars();
-    std::optional<std::string>                resetHLConfig();
-    std::optional<std::string>                generateConfig(std::string configPath);
-    std::optional<std::string>                verifyConfigExists();
+    void                                                       updateBlurredLS(const std::string&, const bool);
+    void                                                       setDefaultAnimationVars();
+    std::optional<std::string>                                 resetHLConfig();
+    std::optional<std::string>                                 generateConfig(std::string configPath);
+    std::optional<std::string>                                 verifyConfigExists();
 
-    void                                      postConfigReload(const Hyprlang::CParseResult& result);
-    SWorkspaceRule                            mergeWorkspaceRules(const SWorkspaceRule&, const SWorkspaceRule&);
+    void                                                       postConfigReload(const Hyprlang::CParseResult& result);
+    SWorkspaceRule                                             mergeWorkspaceRules(const SWorkspaceRule&, const SWorkspaceRule&);
 
-    void                                      registerConfigVar(const char* name, const Hyprlang::INT& val);
-    void                                      registerConfigVar(const char* name, const Hyprlang::FLOAT& val);
-    void                                      registerConfigVar(const char* name, const Hyprlang::VEC2& val);
-    void                                      registerConfigVar(const char* name, const Hyprlang::STRING& val);
-    void                                      registerConfigVar(const char* name, Hyprlang::CUSTOMTYPE&& val);
+    void                                                       registerConfigVar(const char* name, const Hyprlang::INT& val);
+    void                                                       registerConfigVar(const char* name, const Hyprlang::FLOAT& val);
+    void                                                       registerConfigVar(const char* name, const Hyprlang::VEC2& val);
+    void                                                       registerConfigVar(const char* name, const Hyprlang::STRING& val);
+    void                                                       registerConfigVar(const char* name, Hyprlang::CUSTOMTYPE&& val);
 
-    std::unordered_map<SFloatCache, Vector2D> m_mStoredFloatingSizes;
+    std::unordered_map<SFloatCache, Hyprutils::Math::Vector2D> m_mStoredFloatingSizes;
 
     friend struct SConfigOptionDescription;
     friend class CMonitorRuleParser;

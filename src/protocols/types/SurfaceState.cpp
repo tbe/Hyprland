@@ -4,6 +4,7 @@
 #include "render/Texture.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 Vector2D SSurfaceState::sourceSize() {
     if UNLIKELY (!texture)

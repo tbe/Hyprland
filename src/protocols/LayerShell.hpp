@@ -31,7 +31,7 @@ class CLayerShellResource {
     ~CLayerShellResource();
 
     bool good();
-    void configure(const Vector2D& size);
+    void configure(const Hyprutils::Math::Vector2D& size);
     void sendClosed();
 
     enum eCommittedState : uint8_t {
@@ -55,7 +55,7 @@ class CLayerShellResource {
     struct SState {
         uint32_t                                anchor    = 0;
         int32_t                                 exclusive = 0;
-        Vector2D                                desiredSize;
+        Hyprutils::Math::Vector2D               desiredSize;
         zwlrLayerSurfaceV1KeyboardInteractivity interactivity = ZWLR_LAYER_SURFACE_V1_KEYBOARD_INTERACTIVITY_NONE;
         zwlrLayerShellV1Layer                   layer         = ZWLR_LAYER_SHELL_V1_LAYER_BOTTOM;
         zwlrLayerSurfaceV1Anchor                exclusiveEdge = (zwlrLayerSurfaceV1Anchor)0;
@@ -68,12 +68,12 @@ class CLayerShellResource {
         void reset();
     } m_current, m_pending;
 
-    Vector2D               m_size;
-    std::string            m_layerNamespace;
-    std::string            m_monitor = "";
-    WP<CWLSurfaceResource> m_surface;
-    bool                   m_mapped     = false;
-    bool                   m_configured = false;
+    Hyprutils::Math::Vector2D m_size;
+    std::string               m_layerNamespace;
+    std::string               m_monitor = "";
+    WP<CWLSurfaceResource>    m_surface;
+    bool                      m_mapped     = false;
+    bool                      m_configured = false;
 
   private:
     SP<CZwlrLayerSurfaceV1> m_resource;
@@ -84,9 +84,9 @@ class CLayerShellResource {
         CHyprSignalListener unmapSurface;
     } m_listeners;
 
-    bool                                       m_closed = false;
+    bool                                                        m_closed = false;
 
-    std::vector<std::pair<uint32_t, Vector2D>> m_serials;
+    std::vector<std::pair<uint32_t, Hyprutils::Math::Vector2D>> m_serials;
 };
 
 class CLayerShellProtocol : public IWaylandProtocol {

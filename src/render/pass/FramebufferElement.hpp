@@ -11,7 +11,7 @@ class CFramebufferElement : public IPassElement {
     CFramebufferElement(const SFramebufferElementData& data_);
     virtual ~CFramebufferElement() = default;
 
-    virtual void        draw(const CRegion& damage);
+    virtual void        draw(const Hyprutils::Math::CRegion& damage);
     virtual bool        needsLiveBlur();
     virtual bool        needsPrecomputeBlur();
     virtual bool        undiscardable();

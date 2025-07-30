@@ -7,6 +7,7 @@
 #include "../helpers/Monitor.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 static int cursorAnimTimer(SP<CEventLoopTimer> self, void* data) {
     const auto cursorMgr = reinterpret_cast<CCursorManager*>(data);

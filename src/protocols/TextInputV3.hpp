@@ -49,8 +49,8 @@ class CTextInputV3 {
         } contentType;
 
         struct {
-            bool updated = false;
-            CBox cursorBox;
+            bool                  updated = false;
+            Hyprutils::Math::CBox cursorBox;
         } box;
 
         struct {

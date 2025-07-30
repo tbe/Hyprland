@@ -7,6 +7,7 @@
 #include <wayland-server.h>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CHyprlandSurface::CHyprlandSurface(SP<CHyprlandSurfaceV1> resource, SP<CWLSurfaceResource> surface) : m_surface(surface) {
     setResource(std::move(resource));

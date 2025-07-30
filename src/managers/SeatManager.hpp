@@ -56,20 +56,20 @@ class CSeatManager {
     void     sendKeyboardKey(uint32_t timeMs, uint32_t key, wl_keyboard_key_state state);
     void     sendKeyboardMods(uint32_t depressed, uint32_t latched, uint32_t locked, uint32_t group);
 
-    void     setPointerFocus(SP<CWLSurfaceResource> surf, const Vector2D& local);
-    void     sendPointerMotion(uint32_t timeMs, const Vector2D& local);
+    void     setPointerFocus(SP<CWLSurfaceResource> surf, const Hyprutils::Math::Vector2D& local);
+    void     sendPointerMotion(uint32_t timeMs, const Hyprutils::Math::Vector2D& local);
     void     sendPointerButton(uint32_t timeMs, uint32_t key, wl_pointer_button_state state);
     void     sendPointerFrame();
     void     sendPointerFrame(WP<CWLSeatResource> pResource);
     void     sendPointerAxis(uint32_t timeMs, wl_pointer_axis axis, double value, int32_t discrete, int32_t value120, wl_pointer_axis_source source,
                              wl_pointer_axis_relative_direction relative);
 
-    void     sendTouchDown(SP<CWLSurfaceResource> surf, uint32_t timeMs, int32_t id, const Vector2D& local);
+    void     sendTouchDown(SP<CWLSurfaceResource> surf, uint32_t timeMs, int32_t id, const Hyprutils::Math::Vector2D& local);
     void     sendTouchUp(uint32_t timeMs, int32_t id);
-    void     sendTouchMotion(uint32_t timeMs, int32_t id, const Vector2D& local);
+    void     sendTouchMotion(uint32_t timeMs, int32_t id, const Hyprutils::Math::Vector2D& local);
     void     sendTouchFrame();
     void     sendTouchCancel();
-    void     sendTouchShape(int32_t id, const Vector2D& shape);
+    void     sendTouchShape(int32_t id, const Hyprutils::Math::Vector2D& shape);
     void     sendTouchOrientation(int32_t id, double angle);
 
     void     resendEnterEvents();
@@ -78,7 +78,7 @@ class CSeatManager {
     // pops the serial if it was valid, meaning it is consumed.
     bool                serialValid(SP<CWLSeatResource> seatResource, uint32_t serial);
 
-    void                onSetCursor(SP<CWLSeatResource> seatResource, uint32_t serial, SP<CWLSurfaceResource> surf, const Vector2D& hotspot);
+    void                onSetCursor(SP<CWLSeatResource> seatResource, uint32_t serial, SP<CWLSurfaceResource> surf, const Hyprutils::Math::Vector2D& hotspot);
 
     SP<CWLSeatResource> seatResourceForClient(wl_client* client);
 
@@ -96,8 +96,8 @@ class CSeatManager {
     } m_state;
 
     struct SSetCursorEvent {
-        SP<CWLSurfaceResource> surf = nullptr;
-        Vector2D               hotspot;
+        SP<CWLSurfaceResource>    surf = nullptr;
+        Hyprutils::Math::Vector2D hotspot;
     };
 
     struct {
@@ -155,8 +155,8 @@ class CSeatManager {
         CHyprSignalListener touchSurfaceDestroy;
     } m_listeners;
 
-    Vector2D m_lastLocalCoords;
-    int      m_touchLocks = 0; // we assume there aint like 20 touch devices at once...
+    Hyprutils::Math::Vector2D m_lastLocalCoords;
+    int                       m_touchLocks = 0; // we assume there aint like 20 touch devices at once...
 
     friend struct SSeatResourceContainer;
     friend class CSeatGrab;

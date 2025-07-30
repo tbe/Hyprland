@@ -55,7 +55,7 @@ class CInputMethodV2 {
     void       done();
     void       unavailable();
 
-    void       sendInputRectangle(const CBox& box);
+    void       sendInputRectangle(const Hyprutils::Math::CBox& box);
     bool       hasGrab();
     void       sendKey(uint32_t time, uint32_t key, wl_keyboard_key_state state);
     void       sendMods(uint32_t depressed, uint32_t latched, uint32_t locked, uint32_t group);
@@ -73,7 +73,7 @@ class CInputMethodV2 {
 
     bool                                        m_active = false;
 
-    CBox                                        m_inputRectangle;
+    Hyprutils::Math::CBox                       m_inputRectangle;
 
     friend class CInputMethodPopupV2;
     friend class CInputMethodKeyboardGrabV2;
@@ -106,7 +106,7 @@ class CInputMethodPopupV2 {
     ~CInputMethodPopupV2();
 
     bool                   good();
-    void                   sendInputRectangle(const CBox& box);
+    void                   sendInputRectangle(const Hyprutils::Math::CBox& box);
     SP<CWLSurfaceResource> surface();
 
     struct {

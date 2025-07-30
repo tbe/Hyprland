@@ -18,13 +18,13 @@ class CHyprlandSurface {
     void setResource(SP<CHyprlandSurfaceV1> resource);
 
   private:
-    SP<CHyprlandSurfaceV1> m_resource;
-    WP<CWLSurfaceResource> m_surface;
-    float                  m_opacity              = 1.0;
-    bool                   m_visibleRegionChanged = false;
-    CRegion                m_visibleRegion;
+    SP<CHyprlandSurfaceV1>   m_resource;
+    WP<CWLSurfaceResource>   m_surface;
+    float                    m_opacity              = 1.0;
+    bool                     m_visibleRegionChanged = false;
+    Hyprutils::Math::CRegion m_visibleRegion;
 
-    void                   destroy();
+    void                     destroy();
 
     struct {
         CHyprSignalListener surfaceCommitted;

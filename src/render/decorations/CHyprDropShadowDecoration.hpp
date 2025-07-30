@@ -29,16 +29,16 @@ class CHyprDropShadowDecoration : public IHyprWindowDecoration {
     void                               render(PHLMONITOR, float const& a);
 
   private:
-    SBoxExtents  m_extents;
-    SBoxExtents  m_reportedExtents;
+    Hyprutils::Math::SBoxExtents m_extents;
+    Hyprutils::Math::SBoxExtents m_reportedExtents;
 
-    PHLWINDOWREF m_window;
+    PHLWINDOWREF                 m_window;
 
-    Vector2D     m_lastWindowPos;
-    Vector2D     m_lastWindowSize;
+    Hyprutils::Math::Vector2D    m_lastWindowPos;
+    Hyprutils::Math::Vector2D    m_lastWindowSize;
 
-    void         drawShadowInternal(const CBox& box, int round, float roundingPower, int range, CHyprColor color, float a);
+    void                         drawShadowInternal(const Hyprutils::Math::CBox& box, int round, float roundingPower, int range, CHyprColor color, float a);
 
-    CBox         m_lastWindowBox          = {0};
-    CBox         m_lastWindowBoxWithDecos = {0};
+    Hyprutils::Math::CBox        m_lastWindowBox          = {0};
+    Hyprutils::Math::CBox        m_lastWindowBoxWithDecos = {0};
 };

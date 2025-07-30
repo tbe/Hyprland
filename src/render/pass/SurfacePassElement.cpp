@@ -10,6 +10,7 @@
 #include <hyprutils/math/Vector2D.hpp>
 #include <hyprutils/utils/ScopeGuard.hpp>
 using namespace Hyprutils::Utils;
+using namespace Hyprutils::Math;
 
 CSurfacePassElement::CSurfacePassElement(const CSurfacePassElement::SRenderData& data_) : m_data(data_) {
     ;

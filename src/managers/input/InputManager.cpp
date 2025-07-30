@@ -42,6 +42,8 @@
 
 #include <aquamarine/input/Input.hpp>
 
+using namespace Hyprutils::Math;
+
 CInputManager::CInputManager() {
     m_listeners.setCursorShape = PROTO::cursorShape->m_events.setShape.listen([this](const CCursorShapeProtocol::SSetShapeEvent& event) {
         if (!cursorImageUnlocked())

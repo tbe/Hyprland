@@ -68,9 +68,9 @@ class IDataDevice {
     virtual SP<CWLDataDeviceResource> getWayland()                                                                                         = 0;
     virtual SP<CX11DataDevice>        getX11()                                                                                             = 0;
     virtual void                      sendDataOffer(SP<IDataOffer> offer)                                                                  = 0;
-    virtual void                      sendEnter(uint32_t serial, SP<CWLSurfaceResource> surf, const Vector2D& local, SP<IDataOffer> offer) = 0;
+    virtual void                      sendEnter(uint32_t serial, SP<CWLSurfaceResource> surf, const Hyprutils::Math::Vector2D& local, SP<IDataOffer> offer) = 0;
     virtual void                      sendLeave()                                                                                          = 0;
-    virtual void                      sendMotion(uint32_t timeMs, const Vector2D& local)                                                   = 0;
+    virtual void                      sendMotion(uint32_t timeMs, const Hyprutils::Math::Vector2D& local)                                                   = 0;
     virtual void                      sendDrop()                                                                                           = 0;
     virtual void                      sendSelection(SP<IDataOffer> offer)                                                                  = 0;
     virtual eDataSourceType           type()                                                                                               = 0;

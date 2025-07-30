@@ -9,6 +9,8 @@
 #include "../xwayland/XSurface.hpp"
 #include <hyprutils/math/Vector2D.hpp>
 
+using namespace Hyprutils::Math;
+
 #define OUTPUT_MANAGER_VERSION                   3
 #define OUTPUT_DONE_DEPRECATED_SINCE_VERSION     3
 #define OUTPUT_DESCRIPTION_MUTABLE_SINCE_VERSION 3

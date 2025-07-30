@@ -53,7 +53,7 @@ class CTextInputV1 {
         uint32_t purpose   = 0;
     } m_pendingContentType;
 
-    CBox m_cursorRectangle = {0, 0, 0, 0};
+    Hyprutils::Math::CBox m_cursorRectangle = {0, 0, 0, 0};
 
     friend class CTextInput;
     friend class CTextInputV1Protocol;

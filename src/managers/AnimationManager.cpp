@@ -16,6 +16,8 @@
 #include <hyprutils/animation/AnimatedVariable.hpp>
 #include <hyprutils/animation/AnimationManager.hpp>
 
+using namespace Hyprutils::Math;
+
 static int wlTick(SP<CEventLoopTimer> self, void* data) {
     if (g_pAnimationManager)
         g_pAnimationManager->onTicked();

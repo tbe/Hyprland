@@ -11,6 +11,7 @@
 #include <cstring>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 void SXDGPositionerState::setAnchor(xdgPositionerAnchor edges) {
     anchor.setTop(edges == XDG_POSITIONER_ANCHOR_TOP || edges == XDG_POSITIONER_ANCHOR_TOP_LEFT || edges == XDG_POSITIONER_ANCHOR_TOP_RIGHT);

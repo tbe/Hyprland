@@ -13,7 +13,7 @@ class CShadowPassElement : public IPassElement {
     CShadowPassElement(const SShadowData& data_);
     virtual ~CShadowPassElement() = default;
 
-    virtual void        draw(const CRegion& damage);
+    virtual void        draw(const Hyprutils::Math::CRegion& damage);
     virtual bool        needsLiveBlur();
     virtual bool        needsPrecomputeBlur();
 

@@ -30,6 +30,7 @@
 using namespace Hyprutils::String;
 using namespace Hyprutils::OS;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 #include <sys/ioctl.h>
 #include <fcntl.h>

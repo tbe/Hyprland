@@ -9,6 +9,7 @@
 #include <algorithm>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CWLTouchResource::CWLTouchResource(SP<CWlTouch> resource_, SP<CWLSeatResource> owner_) : m_owner(owner_), m_resource(resource_) {
     if UNLIKELY (!good())

@@ -10,6 +10,8 @@
 #include "../render/OpenGL.hpp"
 #include <ranges>
 
+using namespace Hyprutils::Math;
+
 UP<CPopup> CPopup::create(PHLWINDOW pOwner) {
     auto popup           = UP<CPopup>(new CPopup());
     popup->m_windowOwner = pOwner;

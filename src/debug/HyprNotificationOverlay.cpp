@@ -67,7 +67,7 @@ void CHyprNotificationOverlay::dismissNotifications(const int amount) {
     }
 }
 
-CBox CHyprNotificationOverlay::drawNotifications(PHLMONITOR pMonitor) {
+Hyprutils::Math::CBox CHyprNotificationOverlay::drawNotifications(PHLMONITOR pMonitor) {
     static constexpr auto ANIM_DURATION_MS   = 600.0;
     static constexpr auto ANIM_LAG_MS        = 100.0;
     static constexpr auto NOTIF_LEFTBAR_SIZE = 5.0;
@@ -137,7 +137,7 @@ CBox CHyprNotificationOverlay::drawNotifications(PHLMONITOR pMonitor) {
         textW /= PANGO_SCALE;
         textH /= PANGO_SCALE;
 
-        const auto NOTIFSIZE = Vector2D{textW + 20.0 + iconW + 2 * ICONPADFORNOTIF, textH + 10.0};
+        const auto NOTIFSIZE = Hyprutils::Math::Vector2D{textW + 20.0 + iconW + 2 * ICONPADFORNOTIF, textH + 10.0};
 
         // draw rects
         cairo_set_source_rgba(m_cairo, notif->color.r, notif->color.g, notif->color.b, notif->color.a);
@@ -190,7 +190,7 @@ CBox CHyprNotificationOverlay::drawNotifications(PHLMONITOR pMonitor) {
     // cleanup notifs
     std::erase_if(m_notifications, [](const auto& notif) { return notif->started.getMillis() > notif->timeMs; });
 
-    return CBox{(int)(pMonitor->m_position.x + pMonitor->m_size.x - maxWidth - 20), (int)pMonitor->m_position.y, (int)maxWidth + 20, (int)offsetY + 10};
+    return Hyprutils::Math::CBox{(int)(pMonitor->m_position.x + pMonitor->m_size.x - maxWidth - 20), (int)pMonitor->m_position.y, (int)maxWidth + 20, (int)offsetY + 10};
 }
 
 void CHyprNotificationOverlay::draw(PHLMONITOR pMonitor) {
@@ -224,7 +224,7 @@ void CHyprNotificationOverlay::draw(PHLMONITOR pMonitor) {
 
     cairo_surface_flush(m_cairoSurface);
 
-    CBox damage = drawNotifications(pMonitor);
+    Hyprutils::Math::CBox damage = drawNotifications(pMonitor);
 
     g_pHyprRenderer->damageBox(damage);
     g_pHyprRenderer->damageBox(m_lastDamage);

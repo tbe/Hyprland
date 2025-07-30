@@ -8,24 +8,24 @@ class CTexture;
 
 class CRenderPass {
   public:
-    bool    empty() const;
-    bool    single() const;
+    bool                     empty() const;
+    bool                     single() const;
 
-    void    add(UP<IPassElement>&& elem);
-    void    clear();
-    void    removeAllOfType(const std::string& type);
+    void                     add(UP<IPassElement>&& elem);
+    void                     clear();
+    void                     removeAllOfType(const std::string& type);
 
-    CRegion render(const CRegion& damage_);
+    Hyprutils::Math::CRegion render(const Hyprutils::Math::CRegion& damage_);
 
   private:
-    CRegion              m_damage;
-    std::vector<CRegion> m_occludedRegions;
-    CRegion              m_totalLiveBlurRegion;
+    Hyprutils::Math::CRegion              m_damage;
+    std::vector<Hyprutils::Math::CRegion> m_occludedRegions;
+    Hyprutils::Math::CRegion              m_totalLiveBlurRegion;
 
     struct SPassElementData {
-        CRegion          elementDamage;
-        UP<IPassElement> element;
-        bool             discard = false;
+        Hyprutils::Math::CRegion elementDamage;
+        UP<IPassElement>         element;
+        bool                     discard = false;
     };
 
     std::vector<UP<SPassElementData>> m_passElements;

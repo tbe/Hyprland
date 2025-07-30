@@ -175,13 +175,13 @@ class CTabletV2Protocol : public IWaylandProtocol {
     void rotation(SP<CTabletTool> tool, double value);
     void slider(SP<CTabletTool> tool, double value);
     void wheel(SP<CTabletTool> tool, double value);
-    void tilt(SP<CTabletTool> tool, const Vector2D& value);
+    void tilt(SP<CTabletTool> tool, const Hyprutils::Math::Vector2D& value);
     void up(SP<CTabletTool> tool);
     void down(SP<CTabletTool> tool);
     void proximityIn(SP<CTabletTool> tool, SP<CTablet> tablet, SP<CWLSurfaceResource> surf);
     void proximityOut(SP<CTabletTool> tool);
     void buttonTool(SP<CTabletTool> tool, uint32_t button, uint32_t state);
-    void motion(SP<CTabletTool> tool, const Vector2D& value);
+    void motion(SP<CTabletTool> tool, const Hyprutils::Math::Vector2D& value);
 
     // Tablet pad events
     void mode(SP<CTabletPad> pad, uint32_t group, uint32_t mode, uint32_t timeMs);

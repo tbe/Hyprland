@@ -33,12 +33,12 @@ class CWLSubsurfaceResource {
     CWLSubsurfaceResource(SP<CWlSubsurface> resource_, SP<CWLSurfaceResource> surface_, SP<CWLSurfaceResource> parent_);
     ~CWLSubsurfaceResource();
 
-    Vector2D                  posRelativeToParent();
+    Hyprutils::Math::Vector2D posRelativeToParent();
     bool                      good();
     SP<CWLSurfaceResource>    t1Parent();
 
     bool                      m_sync = false;
-    Vector2D                  m_position;
+    Hyprutils::Math::Vector2D m_position;
 
     WP<CWLSurfaceResource>    m_surface;
     WP<CWLSurfaceResource>    m_parent;

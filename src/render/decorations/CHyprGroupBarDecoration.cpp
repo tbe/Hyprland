@@ -9,6 +9,7 @@
 #include "../../managers/input/InputManager.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 // shared things to conserve VRAM
 static SP<CTexture> m_tGradientActive         = makeShared<CTexture>();

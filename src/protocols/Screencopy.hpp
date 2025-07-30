@@ -45,14 +45,14 @@ class CScreencopyClient {
     SP<HOOK_CALLBACK_FN>         m_tickCallback;
     void                         onTick();
 
-    void                         captureOutput(uint32_t frame, int32_t overlayCursor, wl_resource* output, CBox box);
+    void                         captureOutput(uint32_t frame, int32_t overlayCursor, wl_resource* output, Hyprutils::Math::CBox box);
 
     friend class CScreencopyProtocol;
 };
 
 class CScreencopyFrame {
   public:
-    CScreencopyFrame(SP<CZwlrScreencopyFrameV1> resource, int32_t overlay_cursor, wl_resource* output, CBox box);
+    CScreencopyFrame(SP<CZwlrScreencopyFrameV1> resource, int32_t overlay_cursor, wl_resource* output, Hyprutils::Math::CBox box);
 
     bool                  good();
 
@@ -71,7 +71,7 @@ class CScreencopyFrame {
     uint32_t                   m_shmFormat    = 0;
     uint32_t                   m_dmabufFormat = 0;
     int                        m_shmStride    = 0;
-    CBox                       m_box          = {};
+    Hyprutils::Math::CBox      m_box          = {};
 
     // if we have a pending perm, hold the buffer.
     CFramebuffer m_tempFb;

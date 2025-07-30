@@ -18,17 +18,17 @@ class CPointerConstraint {
     CPointerConstraint(SP<CZwpConfinedPointerV1> resource_, SP<CWLSurfaceResource> surf, wl_resource* region, zwpPointerConstraintsV1Lifetime lifetime_);
     ~CPointerConstraint();
 
-    bool           good();
+    bool                      good();
 
-    void           deactivate();
-    void           activate();
-    bool           isActive();
+    void                      deactivate();
+    void                      activate();
+    bool                      isActive();
 
-    SP<CWLSurface> owner();
+    SP<CWLSurface>            owner();
 
-    CRegion        logicConstraintRegion();
-    bool           isLocked();
-    Vector2D       logicPositionHint();
+    Hyprutils::Math::CRegion  logicConstraintRegion();
+    bool                      isLocked();
+    Hyprutils::Math::Vector2D logicPositionHint();
 
   private:
     SP<CZwpLockedPointerV1>         m_resourceLocked;
@@ -36,10 +36,10 @@ class CPointerConstraint {
 
     WP<CWLSurface>                  m_hlSurface;
 
-    CRegion                         m_region;
+    Hyprutils::Math::CRegion        m_region;
     bool                            m_hintSet             = false;
-    Vector2D                        m_positionHint        = {-1, -1};
-    Vector2D                        m_cursorPosOnActivate = {-1, -1};
+    Hyprutils::Math::Vector2D       m_positionHint        = {-1, -1};
+    Hyprutils::Math::Vector2D       m_cursorPosOnActivate = {-1, -1};
     bool                            m_active              = false;
     bool                            m_locked              = false;
     bool                            m_dead                = false;

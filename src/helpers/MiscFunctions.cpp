@@ -24,6 +24,7 @@
 #include <hyprutils/os/Process.hpp>
 using namespace Hyprutils::String;
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Math;
 
 #if defined(__DragonFly__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
 #include <sys/sysctl.h>

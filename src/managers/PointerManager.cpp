@@ -23,6 +23,7 @@
 
 using namespace Hyprutils::Utils;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CPointerManager::CPointerManager() {
     m_hooks.monitorAdded = g_pHookSystem->hookDynamic("monitorAdded", [this](void* self, SCallbackInfo& info, std::any data) {

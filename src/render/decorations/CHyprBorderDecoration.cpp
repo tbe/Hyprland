@@ -7,6 +7,7 @@
 #include "../../managers/HookSystemManager.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CHyprBorderDecoration::CHyprBorderDecoration(PHLWINDOW pWindow) : IHyprWindowDecoration(pWindow), m_window(pWindow) {
     ;

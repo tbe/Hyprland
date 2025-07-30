@@ -22,7 +22,7 @@ struct SDwindleNodeData {
 
     bool                             splitTop = false; // for preserve_split
 
-    CBox                             box = {0};
+    Hyprutils::Math::CBox            box = {0};
 
     WORKSPACEID                      workspaceID = WORKSPACE_INVALID;
 
@@ -44,25 +44,25 @@ struct SDwindleNodeData {
 
 class CHyprDwindleLayout : public IHyprLayout {
   public:
-    virtual void                     onWindowCreatedTiling(PHLWINDOW, eDirection direction = DIRECTION_DEFAULT);
-    virtual void                     onWindowRemovedTiling(PHLWINDOW);
-    virtual bool                     isWindowTiled(PHLWINDOW);
-    virtual void                     recalculateMonitor(const MONITORID&);
-    virtual void                     recalculateWindow(PHLWINDOW);
-    virtual void                     onBeginDragWindow();
-    virtual void                     resizeActiveWindow(const Vector2D&, eRectCorner corner = CORNER_NONE, PHLWINDOW pWindow = nullptr);
-    virtual void                     fullscreenRequestForWindow(PHLWINDOW pWindow, const eFullscreenMode CURRENT_EFFECTIVE_MODE, const eFullscreenMode EFFECTIVE_MODE);
-    virtual std::any                 layoutMessage(SLayoutMessageHeader, std::string);
-    virtual SWindowRenderLayoutHints requestRenderHints(PHLWINDOW);
-    virtual void                     switchWindows(PHLWINDOW, PHLWINDOW);
-    virtual void                     moveWindowTo(PHLWINDOW, const std::string& dir, bool silent);
-    virtual void                     alterSplitRatio(PHLWINDOW, float, bool);
-    virtual std::string              getLayoutName();
-    virtual void                     replaceWindowDataWith(PHLWINDOW from, PHLWINDOW to);
-    virtual Vector2D                 predictSizeForNewWindowTiled();
+    virtual void                      onWindowCreatedTiling(PHLWINDOW, eDirection direction = DIRECTION_DEFAULT);
+    virtual void                      onWindowRemovedTiling(PHLWINDOW);
+    virtual bool                      isWindowTiled(PHLWINDOW);
+    virtual void                      recalculateMonitor(const MONITORID&);
+    virtual void                      recalculateWindow(PHLWINDOW);
+    virtual void                      onBeginDragWindow();
+    virtual void                      resizeActiveWindow(const Hyprutils::Math::Vector2D&, eRectCorner corner = CORNER_NONE, PHLWINDOW pWindow = nullptr);
+    virtual void                      fullscreenRequestForWindow(PHLWINDOW pWindow, const eFullscreenMode CURRENT_EFFECTIVE_MODE, const eFullscreenMode EFFECTIVE_MODE);
+    virtual std::any                  layoutMessage(SLayoutMessageHeader, std::string);
+    virtual SWindowRenderLayoutHints  requestRenderHints(PHLWINDOW);
+    virtual void                      switchWindows(PHLWINDOW, PHLWINDOW);
+    virtual void                      moveWindowTo(PHLWINDOW, const std::string& dir, bool silent);
+    virtual void                      alterSplitRatio(PHLWINDOW, float, bool);
+    virtual std::string               getLayoutName();
+    virtual void                      replaceWindowDataWith(PHLWINDOW from, PHLWINDOW to);
+    virtual Hyprutils::Math::Vector2D predictSizeForNewWindowTiled();
 
-    virtual void                     onEnable();
-    virtual void                     onDisable();
+    virtual void                      onEnable();
+    virtual void                      onDisable();
 
   private:
     std::list<SDwindleNodeData> m_dwindleNodesData;
@@ -74,21 +74,21 @@ class CHyprDwindleLayout : public IHyprLayout {
         bool yExtent = false;
     } m_pseudoDragFlags;
 
-    std::optional<Vector2D> m_overrideFocalPoint; // for onWindowCreatedTiling.
+    std::optional<Hyprutils::Math::Vector2D> m_overrideFocalPoint; // for onWindowCreatedTiling.
 
-    int                     getNodesOnWorkspace(const WORKSPACEID&);
-    void                    applyNodeDataToWindow(SDwindleNodeData*, bool force = false);
-    void                    calculateWorkspace(const PHLWORKSPACE& pWorkspace);
-    SDwindleNodeData*       getNodeFromWindow(PHLWINDOW);
-    SDwindleNodeData*       getFirstNodeOnWorkspace(const WORKSPACEID&);
-    SDwindleNodeData*       getClosestNodeOnWorkspace(const WORKSPACEID&, const Vector2D&);
-    SDwindleNodeData*       getMasterNodeOnWorkspace(const WORKSPACEID&);
+    int                                      getNodesOnWorkspace(const WORKSPACEID&);
+    void                                     applyNodeDataToWindow(SDwindleNodeData*, bool force = false);
+    void                                     calculateWorkspace(const PHLWORKSPACE& pWorkspace);
+    SDwindleNodeData*                        getNodeFromWindow(PHLWINDOW);
+    SDwindleNodeData*                        getFirstNodeOnWorkspace(const WORKSPACEID&);
+    SDwindleNodeData*                        getClosestNodeOnWorkspace(const WORKSPACEID&, const Hyprutils::Math::Vector2D&);
+    SDwindleNodeData*                        getMasterNodeOnWorkspace(const WORKSPACEID&);
 
-    void                    toggleSplit(PHLWINDOW);
-    void                    swapSplit(PHLWINDOW);
-    void                    moveToRoot(PHLWINDOW, bool stable = true);
+    void                                     toggleSplit(PHLWINDOW);
+    void                                     swapSplit(PHLWINDOW);
+    void                                     moveToRoot(PHLWINDOW, bool stable = true);
 
-    eDirection              m_overrideDirection = DIRECTION_DEFAULT;
+    eDirection                               m_overrideDirection = DIRECTION_DEFAULT;
 
     friend struct SDwindleNodeData;
 };

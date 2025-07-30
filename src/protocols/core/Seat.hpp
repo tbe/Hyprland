@@ -46,12 +46,12 @@ class CWLTouchResource {
     CWLTouchResource(SP<CWlTouch> resource_, SP<CWLSeatResource> owner_);
 
     bool                good();
-    void                sendDown(SP<CWLSurfaceResource> surface, uint32_t timeMs, int32_t id, const Vector2D& local);
+    void                sendDown(SP<CWLSurfaceResource> surface, uint32_t timeMs, int32_t id, const Hyprutils::Math::Vector2D& local);
     void                sendUp(uint32_t timeMs, int32_t id);
-    void                sendMotion(uint32_t timeMs, int32_t id, const Vector2D& local);
+    void                sendMotion(uint32_t timeMs, int32_t id, const Hyprutils::Math::Vector2D& local);
     void                sendFrame();
     void                sendCancel();
-    void                sendShape(int32_t id, const Vector2D& shape);
+    void                sendShape(int32_t id, const Hyprutils::Math::Vector2D& shape);
     void                sendOrientation(int32_t id, double angle);
 
     WP<CWLSeatResource> m_owner;
@@ -73,9 +73,9 @@ class CWLPointerResource {
 
     bool                good();
     int                 version();
-    void                sendEnter(SP<CWLSurfaceResource> surface, const Vector2D& local);
+    void                sendEnter(SP<CWLSurfaceResource> surface, const Hyprutils::Math::Vector2D& local);
     void                sendLeave();
-    void                sendMotion(uint32_t timeMs, const Vector2D& local);
+    void                sendMotion(uint32_t timeMs, const Hyprutils::Math::Vector2D& local);
     void                sendButton(uint32_t timeMs, uint32_t button, wl_pointer_button_state state);
     void                sendAxis(uint32_t timeMs, wl_pointer_axis axis, double value);
     void                sendFrame();

@@ -1,6 +1,8 @@
 #include "ClearPassElement.hpp"
 #include "../OpenGL.hpp"
 
+using namespace Hyprutils::Math;
+
 CClearPassElement::CClearPassElement(const CClearPassElement::SClearData& data_) : m_data(data_) {
     ;
 }

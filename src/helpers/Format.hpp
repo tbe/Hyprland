@@ -9,15 +9,15 @@ using DRMFormat = uint32_t;
 using SHMFormat = uint32_t;
 
 struct SPixelFormat {
-    DRMFormat drmFormat        = 0; /* DRM_FORMAT_INVALID */
-    bool      flipRB           = false;
-    int       glInternalFormat = 0;
-    int       glFormat         = 0;
-    int       glType           = 0;
-    bool      withAlpha        = true;
-    DRMFormat alphaStripped    = 0; /* DRM_FORMAT_INVALID */
-    uint32_t  bytesPerBlock    = 0;
-    Vector2D  blockSize;
+    DRMFormat                 drmFormat        = 0; /* DRM_FORMAT_INVALID */
+    bool                      flipRB           = false;
+    int                       glInternalFormat = 0;
+    int                       glFormat         = 0;
+    int                       glType           = 0;
+    bool                      withAlpha        = true;
+    DRMFormat                 alphaStripped    = 0; /* DRM_FORMAT_INVALID */
+    uint32_t                  bytesPerBlock    = 0;
+    Hyprutils::Math::Vector2D blockSize;
 };
 
 using SDRMFormat = Aquamarine::SDRMFormat;

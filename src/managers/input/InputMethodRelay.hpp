@@ -30,7 +30,7 @@ class CInputMethodRelay {
 
     void               removePopup(CInputPopup*);
 
-    CInputPopup*       popupFromCoords(const Vector2D& point);
+    CInputPopup*       popupFromCoords(const Hyprutils::Math::Vector2D& point);
     CInputPopup*       popupFromSurface(const SP<CWLSurfaceResource> surface);
 
     void               updateAllPopups();

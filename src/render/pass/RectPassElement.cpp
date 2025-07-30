@@ -1,6 +1,8 @@
 #include "RectPassElement.hpp"
 #include "../OpenGL.hpp"
 
+using namespace Hyprutils::Math;
+
 CRectPassElement::CRectPassElement(const CRectPassElement::SRectData& data_) : m_data(data_) {
     ;
 }

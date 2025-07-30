@@ -7,6 +7,7 @@
 #include <cstring>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CInputMethodKeyboardGrabV2::CInputMethodKeyboardGrabV2(SP<CZwpInputMethodKeyboardGrabV2> resource_, SP<CInputMethodV2> owner_) : m_resource(resource_), m_owner(owner_) {
     if UNLIKELY (!m_resource->resource())

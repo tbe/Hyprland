@@ -2,6 +2,8 @@
 #include "../OpenGL.hpp"
 #include "../decorations/CHyprDropShadowDecoration.hpp"
 
+using namespace Hyprutils::Math;
+
 CShadowPassElement::CShadowPassElement(const CShadowPassElement::SShadowData& data_) : m_data(data_) {
     ;
 }

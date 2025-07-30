@@ -9,19 +9,19 @@ class CFramebuffer {
     CFramebuffer();
     ~CFramebuffer();
 
-    bool         alloc(int w, int h, uint32_t format = GL_RGBA);
-    void         addStencil(SP<CTexture> tex);
-    void         bind();
-    void         unbind();
-    void         release();
-    void         reset();
-    bool         isAllocated();
-    SP<CTexture> getTexture();
-    SP<CTexture> getStencilTex();
-    GLuint       getFBID();
+    bool                      alloc(int w, int h, uint32_t format = GL_RGBA);
+    void                      addStencil(SP<CTexture> tex);
+    void                      bind();
+    void                      unbind();
+    void                      release();
+    void                      reset();
+    bool                      isAllocated();
+    SP<CTexture>              getTexture();
+    SP<CTexture>              getStencilTex();
+    GLuint                    getFBID();
 
-    Vector2D     m_size;
-    DRMFormat    m_drmFormat = 0 /* DRM_FORMAT_INVALID */;
+    Hyprutils::Math::Vector2D m_size;
+    DRMFormat                 m_drmFormat = 0 /* DRM_FORMAT_INVALID */;
 
   private:
     SP<CTexture> m_tex;

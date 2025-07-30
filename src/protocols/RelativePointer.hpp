@@ -10,7 +10,7 @@ class CRelativePointer {
   public:
     CRelativePointer(SP<CZwpRelativePointerV1> resource_);
 
-    void       sendRelativeMotion(uint64_t time, const Vector2D& delta, const Vector2D& deltaUnaccel);
+    void       sendRelativeMotion(uint64_t time, const Hyprutils::Math::Vector2D& delta, const Hyprutils::Math::Vector2D& deltaUnaccel);
 
     bool       good();
     wl_client* client();
@@ -26,7 +26,7 @@ class CRelativePointerProtocol : public IWaylandProtocol {
 
     virtual void bindManager(wl_client* client, void* data, uint32_t ver, uint32_t id);
 
-    void         sendRelativeMotion(uint64_t time, const Vector2D& delta, const Vector2D& deltaUnaccel);
+    void         sendRelativeMotion(uint64_t time, const Hyprutils::Math::Vector2D& delta, const Hyprutils::Math::Vector2D& deltaUnaccel);
 
   private:
     void onManagerResourceDestroy(wl_resource* res);

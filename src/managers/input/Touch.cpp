@@ -11,6 +11,8 @@
 #include "../HookSystemManager.hpp"
 #include "debug/Log.hpp"
 
+using namespace Hyprutils::Math;
+
 void CInputManager::onTouchDown(ITouch::SDownEvent e) {
     m_lastInputTouch = true;
 

@@ -19,19 +19,19 @@ enum eOrientation : uint8_t {
 };
 
 struct SMasterNodeData {
-    bool         isMaster   = false;
-    float        percMaster = 0.5f;
+    bool                      isMaster   = false;
+    float                     percMaster = 0.5f;
 
-    PHLWINDOWREF pWindow;
+    PHLWINDOWREF              pWindow;
 
-    Vector2D     position;
-    Vector2D     size;
+    Hyprutils::Math::Vector2D position;
+    Hyprutils::Math::Vector2D size;
 
-    float        percSize = 1.f; // size multiplier for resizing children
+    float                     percSize = 1.f; // size multiplier for resizing children
 
-    WORKSPACEID  workspaceID = WORKSPACE_INVALID;
+    WORKSPACEID               workspaceID = WORKSPACE_INVALID;
 
-    bool         ignoreFullscreenChecks = false;
+    bool                      ignoreFullscreenChecks = false;
 
     //
     bool operator==(const SMasterNodeData& rhs) const {
@@ -51,24 +51,24 @@ struct SMasterWorkspaceData {
 
 class CHyprMasterLayout : public IHyprLayout {
   public:
-    virtual void                     onWindowCreatedTiling(PHLWINDOW, eDirection direction = DIRECTION_DEFAULT);
-    virtual void                     onWindowRemovedTiling(PHLWINDOW);
-    virtual bool                     isWindowTiled(PHLWINDOW);
-    virtual void                     recalculateMonitor(const MONITORID&);
-    virtual void                     recalculateWindow(PHLWINDOW);
-    virtual void                     resizeActiveWindow(const Vector2D&, eRectCorner corner = CORNER_NONE, PHLWINDOW pWindow = nullptr);
-    virtual void                     fullscreenRequestForWindow(PHLWINDOW pWindow, const eFullscreenMode CURRENT_EFFECTIVE_MODE, const eFullscreenMode EFFECTIVE_MODE);
-    virtual std::any                 layoutMessage(SLayoutMessageHeader, std::string);
-    virtual SWindowRenderLayoutHints requestRenderHints(PHLWINDOW);
-    virtual void                     switchWindows(PHLWINDOW, PHLWINDOW);
-    virtual void                     moveWindowTo(PHLWINDOW, const std::string& dir, bool silent);
-    virtual void                     alterSplitRatio(PHLWINDOW, float, bool);
-    virtual std::string              getLayoutName();
-    virtual void                     replaceWindowDataWith(PHLWINDOW from, PHLWINDOW to);
-    virtual Vector2D                 predictSizeForNewWindowTiled();
+    virtual void                      onWindowCreatedTiling(PHLWINDOW, eDirection direction = DIRECTION_DEFAULT);
+    virtual void                      onWindowRemovedTiling(PHLWINDOW);
+    virtual bool                      isWindowTiled(PHLWINDOW);
+    virtual void                      recalculateMonitor(const MONITORID&);
+    virtual void                      recalculateWindow(PHLWINDOW);
+    virtual void                      resizeActiveWindow(const Hyprutils::Math::Vector2D&, eRectCorner corner = CORNER_NONE, PHLWINDOW pWindow = nullptr);
+    virtual void                      fullscreenRequestForWindow(PHLWINDOW pWindow, const eFullscreenMode CURRENT_EFFECTIVE_MODE, const eFullscreenMode EFFECTIVE_MODE);
+    virtual std::any                  layoutMessage(SLayoutMessageHeader, std::string);
+    virtual SWindowRenderLayoutHints  requestRenderHints(PHLWINDOW);
+    virtual void                      switchWindows(PHLWINDOW, PHLWINDOW);
+    virtual void                      moveWindowTo(PHLWINDOW, const std::string& dir, bool silent);
+    virtual void                      alterSplitRatio(PHLWINDOW, float, bool);
+    virtual std::string               getLayoutName();
+    virtual void                      replaceWindowDataWith(PHLWINDOW from, PHLWINDOW to);
+    virtual Hyprutils::Math::Vector2D predictSizeForNewWindowTiled();
 
-    virtual void                     onEnable();
-    virtual void                     onDisable();
+    virtual void                      onEnable();
+    virtual void                      onDisable();
 
   private:
     std::list<SMasterNodeData>        m_masterNodesData;

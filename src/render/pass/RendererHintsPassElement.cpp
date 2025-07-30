@@ -1,6 +1,8 @@
 #include "RendererHintsPassElement.hpp"
 #include "../OpenGL.hpp"
 
+using namespace Hyprutils::Math;
+
 CRendererHintsPassElement::CRendererHintsPassElement(const CRendererHintsPassElement::SData& data_) : m_data(data_) {
     ;
 }

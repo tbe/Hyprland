@@ -10,6 +10,8 @@
 #include "../../Compositor.hpp"
 #include "../../protocols/core/Compositor.hpp"
 
+using namespace Hyprutils::Math;
+
 bool CRenderPass::empty() const {
     return false;
 }

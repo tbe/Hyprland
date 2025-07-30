@@ -4,6 +4,7 @@
 #include "core/Compositor.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CPointerGestureSwipe::CPointerGestureSwipe(SP<CZwpPointerGestureSwipeV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!m_resource->resource())

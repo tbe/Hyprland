@@ -29,25 +29,25 @@ struct SWlrManagerOutputState {
 
     WP<COutputMode> mode;
     struct {
-        Vector2D size;
-        uint32_t refresh = 0;
+        Hyprutils::Math::Vector2D size;
+        uint32_t                  refresh = 0;
     } customMode;
-    Vector2D            position;
-    wl_output_transform transform    = WL_OUTPUT_TRANSFORM_NORMAL;
-    float               scale        = 1.F;
-    bool                adaptiveSync = false;
-    bool                enabled      = true;
+    Hyprutils::Math::Vector2D position;
+    wl_output_transform       transform    = WL_OUTPUT_TRANSFORM_NORMAL;
+    float                     scale        = 1.F;
+    bool                      adaptiveSync = false;
+    bool                      enabled      = true;
 };
 
 struct SWlrManagerSavedOutputState {
-    uint32_t            committedProperties = 0;
-    Vector2D            resolution;
-    uint32_t            refresh = 0;
-    Vector2D            position;
-    wl_output_transform transform    = WL_OUTPUT_TRANSFORM_NORMAL;
-    float               scale        = 1.F;
-    bool                adaptiveSync = false;
-    bool                enabled      = true;
+    uint32_t                  committedProperties = 0;
+    Hyprutils::Math::Vector2D resolution;
+    uint32_t                  refresh = 0;
+    Hyprutils::Math::Vector2D position;
+    wl_output_transform       transform    = WL_OUTPUT_TRANSFORM_NORMAL;
+    float                     scale        = 1.F;
+    bool                      adaptiveSync = false;
+    bool                      enabled      = true;
 };
 
 class COutputManager {

@@ -6,6 +6,8 @@
 #include <xf86drm.h>
 #include <drm_fourcc.h>
 
+using namespace Hyprutils::Math;
+
 /*
     DRM formats are LE, while OGL is BE. The two primary formats
     will be flipped, so we will set flipRB which will later use swizzle

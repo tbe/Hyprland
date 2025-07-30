@@ -44,9 +44,9 @@ class CTablet : public IHID {
 
         uint32_t                    timeMs      = 0;
         uint32_t                    updatedAxes = 0; // eTabletToolAxes
-        Vector2D                    axis;
-        Vector2D                    axisDelta;
-        Vector2D                    tilt;
+        Hyprutils::Math::Vector2D   axis;
+        Hyprutils::Math::Vector2D   axisDelta;
+        Hyprutils::Math::Vector2D   tilt;
         double                      pressure   = 0;
         double                      distance   = 0;
         double                      rotation   = 0;
@@ -59,7 +59,7 @@ class CTablet : public IHID {
         SP<CTablet>                 tablet;
 
         uint32_t                    timeMs = 0;
-        Vector2D                    proximity;
+        Hyprutils::Math::Vector2D   proximity;
         bool                        in = false;
     };
 
@@ -68,7 +68,7 @@ class CTablet : public IHID {
         SP<CTablet>                 tablet;
 
         uint32_t                    timeMs = 0;
-        Vector2D                    tip;
+        Hyprutils::Math::Vector2D   tip;
         bool                        in = false;
     };
 
@@ -88,13 +88,13 @@ class CTablet : public IHID {
         CSignalT<SButtonEvent>    button;
     } m_tabletEvents;
 
-    WP<CTablet> m_self;
+    WP<CTablet>           m_self;
 
-    bool        m_relativeInput = false;
-    bool        m_absolutePos   = false;
-    std::string m_boundOutput   = "";
-    CBox        m_activeArea;
-    CBox        m_boundBox;
+    bool                  m_relativeInput = false;
+    bool                  m_absolutePos   = false;
+    std::string           m_boundOutput   = "";
+    Hyprutils::Math::CBox m_activeArea;
+    Hyprutils::Math::CBox m_boundBox;
 
   private:
     CTablet(SP<Aquamarine::ITablet> tablet);
@@ -199,13 +199,13 @@ class CTabletTool : public IHID {
     void                        setSurface(SP<CWLSurfaceResource>);
 
     WP<CTabletTool>             m_self;
-    Vector2D                    m_tilt;
+    Hyprutils::Math::Vector2D   m_tilt;
     bool                        m_active           = false; // true if in proximity
     uint32_t                    m_toolCapabilities = 0;
 
     bool                        m_isDown = false;
     std::vector<uint32_t>       m_buttonsDown;
-    Vector2D                    m_absolutePos; // last known absolute position.
+    Hyprutils::Math::Vector2D   m_absolutePos; // last known absolute position.
 
   private:
     CTabletTool(SP<Aquamarine::ITabletTool> tool);

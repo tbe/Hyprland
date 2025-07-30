@@ -10,6 +10,7 @@
 
 using namespace Hyprutils::Animation;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CHyprError::CHyprError() {
     g_pAnimationManager->createAnimation(0.f, m_fadeOpacity, g_pConfigManager->getAnimationPropertyConfig("fadeIn"), AVARDAMAGE_NONE);

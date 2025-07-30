@@ -7,6 +7,7 @@
 #include "../helpers/Monitor.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 void CLayerShellResource::SState::reset() {
     anchor        = 0;

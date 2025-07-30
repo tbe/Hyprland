@@ -19,22 +19,22 @@ class CSubsurface {
 
     ~CSubsurface() = default;
 
-    Vector2D        coordsRelativeToParent();
-    Vector2D        coordsGlobal();
+    Hyprutils::Math::Vector2D coordsRelativeToParent();
+    Hyprutils::Math::Vector2D coordsGlobal();
 
-    Vector2D        size();
+    Hyprutils::Math::Vector2D size();
 
-    void            onCommit();
-    void            onDestroy();
-    void            onNewSubsurface(SP<CWLSubsurfaceResource> pSubsurface);
-    void            onMap();
-    void            onUnmap();
+    void                      onCommit();
+    void                      onDestroy();
+    void                      onNewSubsurface(SP<CWLSubsurfaceResource> pSubsurface);
+    void                      onMap();
+    void                      onUnmap();
 
-    bool            visible();
+    bool                      visible();
 
-    void            recheckDamageForSubsurfaces();
+    void                      recheckDamageForSubsurfaces();
 
-    WP<CSubsurface> m_self;
+    WP<CSubsurface>           m_self;
 
   private:
     CSubsurface() = default;
@@ -49,8 +49,8 @@ class CSubsurface {
 
     WP<CWLSubsurfaceResource> m_subsurface;
     SP<CWLSurface>            m_wlSurface;
-    Vector2D                  m_lastSize     = {};
-    Vector2D                  m_lastPosition = {};
+    Hyprutils::Math::Vector2D m_lastSize     = {};
+    Hyprutils::Math::Vector2D m_lastPosition = {};
 
     // if nullptr, means it's a dummy node
     WP<CSubsurface>              m_parent;

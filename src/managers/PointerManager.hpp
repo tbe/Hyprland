@@ -34,12 +34,12 @@ class CPointerManager {
     void detachTablet(SP<CTablet> tablet);
 
     // only clamps to the layout.
-    void warpTo(const Vector2D& logical);
-    void move(const Vector2D& deltaLogical);
-    void warpAbsolute(Vector2D abs, SP<IHID> dev);
+    void warpTo(const Hyprutils::Math::Vector2D& logical);
+    void move(const Hyprutils::Math::Vector2D& deltaLogical);
+    void warpAbsolute(Hyprutils::Math::Vector2D abs, SP<IHID> dev);
 
-    void setCursorBuffer(SP<Aquamarine::IBuffer> buf, const Vector2D& hotspot, const float& scale);
-    void setCursorSurface(SP<CWLSurface> buf, const Vector2D& hotspot);
+    void setCursorBuffer(SP<Aquamarine::IBuffer> buf, const Hyprutils::Math::Vector2D& hotspot, const float& scale);
+    void setCursorSurface(SP<CWLSurface> buf, const Hyprutils::Math::Vector2D& hotspot);
     void resetCursorImage(bool apply = true);
 
     void lockSoftwareForMonitor(PHLMONITOR pMonitor);
@@ -48,8 +48,8 @@ class CPointerManager {
     void unlockSoftwareAll();
     bool softwareLockedFor(PHLMONITOR pMonitor);
 
-    void renderSoftwareCursorsFor(PHLMONITOR pMonitor, const Time::steady_tp& now, CRegion& damage /* logical */, std::optional<Vector2D> overridePos = {} /* monitor-local */,
-                                  bool forceRender = false);
+    void renderSoftwareCursorsFor(PHLMONITOR pMonitor, const Time::steady_tp& now, Hyprutils::Math::CRegion& damage /* logical */,
+                                  std::optional<Hyprutils::Math::Vector2D> overridePos = {} /* monitor-local */, bool forceRender = false);
 
     // this is needed e.g. during screensharing where
     // the software cursors aren't locked during the cursor move, but they
@@ -57,13 +57,13 @@ class CPointerManager {
     void damageCursor(PHLMONITOR pMonitor);
 
     //
-    Vector2D position();
-    Vector2D cursorSizeLogical();
-    void     storeMovement(uint64_t time, const Vector2D& delta, const Vector2D& deltaUnaccel);
-    void     setStoredMovement(uint64_t time, const Vector2D& delta, const Vector2D& deltaUnaccel);
-    void     sendStoredMovement();
+    Hyprutils::Math::Vector2D position();
+    Hyprutils::Math::Vector2D cursorSizeLogical();
+    void                      storeMovement(uint64_t time, const Hyprutils::Math::Vector2D& delta, const Hyprutils::Math::Vector2D& deltaUnaccel);
+    void                      setStoredMovement(uint64_t time, const Hyprutils::Math::Vector2D& delta, const Hyprutils::Math::Vector2D& deltaUnaccel);
+    void                      sendStoredMovement();
 
-    void     recheckEnteredOutputs();
+    void                      recheckEnteredOutputs();
 
   private:
     void recheckPointerPosition();
@@ -75,18 +75,18 @@ class CPointerManager {
     void damageIfSoftware();
 
     // closest valid point to a given one
-    Vector2D closestValid(const Vector2D& pos);
+    Hyprutils::Math::Vector2D closestValid(const Hyprutils::Math::Vector2D& pos);
 
     // returns the thing in device coordinates. Is NOT offset by the hotspot, relies on set_cursor with hotspot.
-    Vector2D getCursorPosForMonitor(PHLMONITOR pMonitor);
+    Hyprutils::Math::Vector2D getCursorPosForMonitor(PHLMONITOR pMonitor);
     // returns the thing in logical coordinates of the monitor
-    CBox getCursorBoxLogicalForMonitor(PHLMONITOR pMonitor);
+    Hyprutils::Math::CBox getCursorBoxLogicalForMonitor(PHLMONITOR pMonitor);
     // returns the thing in global coords
-    CBox         getCursorBoxGlobal();
+    Hyprutils::Math::CBox     getCursorBoxGlobal();
 
-    Vector2D     transformedHotspot(PHLMONITOR pMonitor);
+    Hyprutils::Math::Vector2D transformedHotspot(PHLMONITOR pMonitor);
 
-    SP<CTexture> getCurrentCursorTexture();
+    SP<CTexture>              getCurrentCursorTexture();
 
     struct SPointerListener {
         CHyprSignalListener destroy;
@@ -135,27 +135,27 @@ class CPointerManager {
     std::vector<SP<STabletListener>> m_tabletListeners;
 
     struct {
-        std::vector<CBox> monitorBoxes;
+        std::vector<Hyprutils::Math::CBox> monitorBoxes;
     } m_currentMonitorLayout;
 
     struct {
-        SP<Aquamarine::IBuffer> pBuffer;
-        SP<CTexture>            bufferTex;
-        WP<CWLSurface>          surface;
+        SP<Aquamarine::IBuffer>   pBuffer;
+        SP<CTexture>              bufferTex;
+        WP<CWLSurface>            surface;
 
-        Vector2D                hotspot;
-        Vector2D                size;
-        float                   scale = 1.F;
+        Hyprutils::Math::Vector2D hotspot;
+        Hyprutils::Math::Vector2D size;
+        float                     scale = 1.F;
 
-        CHyprSignalListener     destroySurface;
-        CHyprSignalListener     commitSurface;
+        CHyprSignalListener       destroySurface;
+        CHyprSignalListener       commitSurface;
     } m_currentCursorImage; // TODO: support various sizes per-output so we can have pixel-perfect cursors
 
-    Vector2D m_pointerPos = {0, 0};
+    Hyprutils::Math::Vector2D m_pointerPos = {0, 0};
 
-    uint64_t m_storedTime    = 0;
-    Vector2D m_storedDelta   = {0, 0};
-    Vector2D m_storedUnaccel = {0, 0};
+    uint64_t                  m_storedTime    = 0;
+    Hyprutils::Math::Vector2D m_storedDelta   = {0, 0};
+    Hyprutils::Math::Vector2D m_storedUnaccel = {0, 0};
 
     struct SMonitorPointerState {
         SMonitorPointerState(const PHLMONITOR& m) : monitor(m) {}
@@ -165,7 +165,7 @@ class CPointerManager {
 
         int                     softwareLocks  = 0;
         bool                    hardwareFailed = false;
-        CBox                    box; // logical
+        Hyprutils::Math::CBox   box; // logical
         bool                    entered        = false;
         bool                    hwApplied      = false;
         bool                    cursorRendered = false;

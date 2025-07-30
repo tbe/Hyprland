@@ -17,16 +17,16 @@ class CLayerSurface {
   public:
     ~CLayerSurface();
 
-    void                    applyRules();
-    void                    startAnimation(bool in, bool instant = false);
-    bool                    isFadedOut();
-    int                     popupsCount();
+    void                                  applyRules();
+    void                                  startAnimation(bool in, bool instant = false);
+    bool                                  isFadedOut();
+    int                                   popupsCount();
 
-    PHLANIMVAR<Vector2D>    m_realPosition;
-    PHLANIMVAR<Vector2D>    m_realSize;
-    PHLANIMVAR<float>       m_alpha;
+    PHLANIMVAR<Hyprutils::Math::Vector2D> m_realPosition;
+    PHLANIMVAR<Hyprutils::Math::Vector2D> m_realSize;
+    PHLANIMVAR<float>                     m_alpha;
 
-    WP<CLayerShellResource> m_layerSurface;
+    WP<CLayerShellResource>               m_layerSurface;
 
     // the header providing the enum type cannot be imported here
     int                        m_interactivity = 0;
@@ -57,8 +57,8 @@ class CLayerSurface {
 
     PHLLSREF                   m_self;
 
-    CBox                       m_geometry = {0, 0, 0, 0};
-    Vector2D                   m_position;
+    Hyprutils::Math::CBox      m_geometry = {0, 0, 0, 0};
+    Hyprutils::Math::Vector2D  m_position;
     std::string                m_namespace = "";
     UP<CPopup>                 m_popupHead;
 

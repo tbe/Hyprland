@@ -3,6 +3,8 @@
 #include "../../managers/HookSystemManager.hpp"
 #include "../../managers/LayoutManager.hpp"
 
+using namespace Hyprutils::Math;
+
 CDecorationPositioner::CDecorationPositioner() {
     static auto P = g_pHookSystem->hookDynamic("closeWindow", [this](void* call, SCallbackInfo& info, std::any data) {
         auto PWINDOW = std::any_cast<PHLWINDOW>(data);

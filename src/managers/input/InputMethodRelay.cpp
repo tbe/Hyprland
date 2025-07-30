@@ -7,6 +7,8 @@
 #include "../../protocols/core/Compositor.hpp"
 #include "../../managers/HookSystemManager.hpp"
 
+using namespace Hyprutils::Math;
+
 CInputMethodRelay::CInputMethodRelay() {
     static auto P =
         g_pHookSystem->hookDynamic("keyboardFocus", [&](void* self, SCallbackInfo& info, std::any param) { onKeyboardFocus(std::any_cast<SP<CWLSurfaceResource>>(param)); });

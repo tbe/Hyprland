@@ -2,6 +2,7 @@
 #include "OpenGL.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CFramebuffer::CFramebuffer() {
     ;

@@ -20,14 +20,14 @@ class CWLSurfaceResource;
 class CXDGDialogV1Resource;
 
 struct SXDGPositionerState {
-    Vector2D requestedSize;
-    CBox     anchorRect;
-    CEdges   anchor;
-    CEdges   gravity;
+    Hyprutils::Math::Vector2D requestedSize;
+   Hyprutils::Math::CBox     anchorRect;
+   Hyprutils::Math::CEdges   anchor;
+   Hyprutils::Math::CEdges   gravity;
     uint32_t constraintAdjustment = 0;
-    Vector2D offset;
+    Hyprutils::Math::Vector2D offset;
     bool     reactive = false;
-    Vector2D parentSize;
+    Hyprutils::Math::Vector2D parentSize;
 
     void     setAnchor(xdgPositionerAnchor edges);
     void     setGravity(xdgPositionerGravity edges);
@@ -37,7 +37,7 @@ class CXDGPositionerRules {
   public:
     CXDGPositionerRules(SP<CXDGPositionerResource> positioner);
 
-    CBox getPosition(CBox constraint, const Vector2D& parentPos);
+   Hyprutils::Math::CBox getPosition(Hyprutils::Math::CBox constraint, const Hyprutils::Math::Vector2D& parentPos);
 
   private:
     SXDGPositionerState m_state;
@@ -52,7 +52,7 @@ class CXDGPopupResource {
 
     bool                         good();
 
-    void                         applyPositioning(const CBox& availableBox, const Vector2D& t1coord /* relative to box */);
+    void                         applyPositioning(const Hyprutils::Math::CBox& availableBox, const Hyprutils::Math::Vector2D& t1coord /* relative to box */);
 
     WP<CXDGSurfaceResource>      m_surface;
     WP<CXDGSurfaceResource>      m_parent;
@@ -60,7 +60,7 @@ class CXDGPopupResource {
 
     bool                         m_taken = false;
 
-    CBox                         m_geometry;
+   Hyprutils::Math::CBox                         m_geometry;
 
     struct {
         CSignalT<> reposition;
@@ -69,7 +69,7 @@ class CXDGPopupResource {
     } m_events;
 
     // schedules a configure event
-    void configure(const CBox& box);
+    void configure(const Hyprutils::Math::CBox& box);
 
     void done();
     void repositioned();
@@ -79,7 +79,7 @@ class CXDGPopupResource {
 
     uint32_t            m_lastRepositionToken = 0;
 
-    Vector2D            accumulateParentOffset();
+    Hyprutils::Math::Vector2D            accumulateParentOffset();
 
     CXDGPositionerRules m_positionerRules;
 };
@@ -98,11 +98,11 @@ class CXDGToplevelResource {
 
     bool                            good();
 
-    Vector2D                        layoutMinSize();
-    Vector2D                        layoutMaxSize();
+    Hyprutils::Math::Vector2D                        layoutMinSize();
+    Hyprutils::Math::Vector2D                        layoutMaxSize();
 
     // schedule a configure event
-    uint32_t setSize(const Vector2D& size);
+    uint32_t setSize(const Hyprutils::Math::Vector2D& size);
     uint32_t setMaximized(bool maximized);
     uint32_t setFullscreen(bool fullscreen);
     uint32_t setActive(bool active);
@@ -129,13 +129,13 @@ class CXDGToplevelResource {
     } m_state;
 
     struct {
-        Vector2D                      size;
+        Hyprutils::Math::Vector2D                      size;
         std::vector<xdgToplevelState> states;
     } m_pendingApply;
 
     struct {
-        Vector2D minSize = {1, 1};
-        Vector2D maxSize = {1337420, 694200};
+        Hyprutils::Math::Vector2D minSize = {1, 1};
+        Hyprutils::Math::Vector2D maxSize = {1337420, 694200};
     } m_pending, m_current;
 
     WP<CXDGToplevelResource>              m_parent;
@@ -182,7 +182,7 @@ class CXDGSurfaceResource {
     WP<CXDGSurfaceResource>        m_self;
 
     struct {
-        CBox geometry;
+       Hyprutils::Math::CBox geometry;
     } m_pending, m_current;
 
     struct {

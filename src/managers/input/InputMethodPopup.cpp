@@ -7,6 +7,9 @@
 #include "../../helpers/Monitor.hpp"
 #include "../../render/Renderer.hpp"
 
+
+using namespace Hyprutils::Math;
+
 CInputPopup::CInputPopup(SP<CInputMethodPopupV2> popup_) : m_popup(popup_) {
     m_listeners.commit  = popup_->m_events.commit.listen([this] { onCommit(); });
     m_listeners.map     = popup_->m_events.map.listen([this] { onMap(); });

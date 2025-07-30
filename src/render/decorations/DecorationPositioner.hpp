@@ -37,7 +37,7 @@ struct SDecorationPositioningInfo {
     eDecorationPositioningPolicy policy   = DECORATION_POSITION_ABSOLUTE;
     uint32_t                     edges    = 0;  // enum eDecorationEdges
     uint32_t                     priority = 10; // priority, decos will be evaluated high -> low
-    SBoxExtents                  desiredExtents;
+    Hyprutils::Math::SBoxExtents desiredExtents;
     bool                         reserved = false; // if true, geometry will use reserved area
 };
 
@@ -51,25 +51,25 @@ DECORATION_POSITION_STICKY:
     - ephemeral is sent
 */
 struct SDecorationPositioningReply {
-    CBox assignedGeometry;
-    bool ephemeral = false; // if true, means it's a result of an animation and will change soon.
+    Hyprutils::Math::CBox assignedGeometry;
+    bool                  ephemeral = false; // if true, means it's a result of an animation and will change soon.
 };
 
 class CDecorationPositioner {
   public:
     CDecorationPositioner();
 
-    Vector2D getEdgeDefinedPoint(uint32_t edges, PHLWINDOW pWindow);
+    Hyprutils::Math::Vector2D getEdgeDefinedPoint(uint32_t edges, PHLWINDOW pWindow);
 
     // called on resize, or insert/removal of a new deco
-    void        onWindowUpdate(PHLWINDOW pWindow);
-    void        uncacheDecoration(IHyprWindowDecoration* deco);
-    SBoxExtents getWindowDecorationReserved(PHLWINDOW pWindow);
-    SBoxExtents getWindowDecorationExtents(PHLWINDOW pWindow, bool inputOnly = false);
-    CBox        getBoxWithIncludedDecos(PHLWINDOW pWindow);
-    void        repositionDeco(IHyprWindowDecoration* deco);
-    CBox        getWindowDecorationBox(IHyprWindowDecoration* deco);
-    void        forceRecalcFor(PHLWINDOW pWindow);
+    void                         onWindowUpdate(PHLWINDOW pWindow);
+    void                         uncacheDecoration(IHyprWindowDecoration* deco);
+    Hyprutils::Math::SBoxExtents getWindowDecorationReserved(PHLWINDOW pWindow);
+    Hyprutils::Math::SBoxExtents getWindowDecorationExtents(PHLWINDOW pWindow, bool inputOnly = false);
+    Hyprutils::Math::CBox        getBoxWithIncludedDecos(PHLWINDOW pWindow);
+    void                         repositionDeco(IHyprWindowDecoration* deco);
+    Hyprutils::Math::CBox        getWindowDecorationBox(IHyprWindowDecoration* deco);
+    void                         forceRecalcFor(PHLWINDOW pWindow);
 
   private:
     struct SWindowPositioningData {
@@ -81,10 +81,10 @@ class CDecorationPositioner {
     };
 
     struct SWindowData {
-        Vector2D    lastWindowSize = {};
-        SBoxExtents reserved       = {};
-        SBoxExtents extents        = {};
-        bool        needsRecalc    = false;
+        Hyprutils::Math::Vector2D    lastWindowSize = {};
+        Hyprutils::Math::SBoxExtents reserved       = {};
+        Hyprutils::Math::SBoxExtents extents        = {};
+        bool                         needsRecalc    = false;
     };
 
     std::map<PHLWINDOWREF, SWindowData>     m_windowDatas;

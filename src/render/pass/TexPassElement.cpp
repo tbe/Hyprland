@@ -3,6 +3,7 @@
 
 #include <hyprutils/utils/ScopeGuard.hpp>
 using namespace Hyprutils::Utils;
+using namespace Hyprutils::Math;
 
 CTexPassElement::CTexPassElement(const SRenderData& data) : m_data(data) {
     ;

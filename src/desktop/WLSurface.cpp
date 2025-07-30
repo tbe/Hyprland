@@ -5,6 +5,8 @@
 #include "../protocols/LayerShell.hpp"
 #include "../render/Renderer.hpp"
 
+using namespace Hyprutils::Math;
+
 void CWLSurface::assign(SP<CWLSurfaceResource> pSurface) {
     m_resource = pSurface;
     init();

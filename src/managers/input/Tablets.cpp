@@ -6,6 +6,8 @@
 #include "../../managers/SeatManager.hpp"
 #include "../../protocols/PointerConstraints.hpp"
 
+using namespace Hyprutils::Math;
+
 static void unfocusTool(SP<CTabletTool> tool) {
     if (!tool->getSurface())
         return;

@@ -4,6 +4,7 @@
 #include "../helpers/fs/FsUtils.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CXWayland::CXWayland(const bool wantsEnabled) {
 #ifndef NO_XWAYLAND

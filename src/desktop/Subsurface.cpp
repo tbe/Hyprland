@@ -7,6 +7,8 @@
 #include "../render/Renderer.hpp"
 #include "../managers/input/InputManager.hpp"
 
+using namespace Hyprutils::Math;
+
 UP<CSubsurface> CSubsurface::create(PHLWINDOW pOwner) {
     auto subsurface            = UP<CSubsurface>(new CSubsurface());
     subsurface->m_windowParent = pOwner;

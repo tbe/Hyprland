@@ -1,6 +1,8 @@
 #include "FramebufferElement.hpp"
 #include "../OpenGL.hpp"
 
+using namespace Hyprutils::Math;
+
 CFramebufferElement::CFramebufferElement(const CFramebufferElement::SFramebufferElementData& data_) : m_data(data_) {
     ;
 }

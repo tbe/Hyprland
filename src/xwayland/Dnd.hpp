@@ -61,9 +61,9 @@ class CX11DataDevice : public IDataDevice {
     virtual SP<CWLDataDeviceResource> getWayland();
     virtual SP<CX11DataDevice>        getX11();
     virtual void                      sendDataOffer(SP<IDataOffer> offer);
-    virtual void                      sendEnter(uint32_t serial, SP<CWLSurfaceResource> surf, const Vector2D& local, SP<IDataOffer> offer);
+    virtual void                      sendEnter(uint32_t serial, SP<CWLSurfaceResource> surf, const Hyprutils::Math::Vector2D& local, SP<IDataOffer> offer);
     virtual void                      sendLeave();
-    virtual void                      sendMotion(uint32_t timeMs, const Vector2D& local);
+    virtual void                      sendMotion(uint32_t timeMs, const Hyprutils::Math::Vector2D& local);
     virtual void                      sendDrop();
     virtual void                      sendSelection(SP<IDataOffer> offer);
     virtual eDataSourceType           type();
@@ -77,8 +77,8 @@ class CX11DataDevice : public IDataDevice {
     xcb_window_t getProxyWindow(xcb_window_t window);
     void         sendDndEvent(xcb_window_t targetWindow, xcb_atom_t type, xcb_client_message_data_t& data);
 #endif
-    WP<CXWaylandSurface> m_lastSurface;
-    WP<IDataOffer>       m_lastOffer;
-    Vector2D             m_lastSurfaceCoords;
-    uint32_t             m_lastTime = 0;
+    WP<CXWaylandSurface>      m_lastSurface;
+    WP<IDataOffer>            m_lastOffer;
+    Hyprutils::Math::Vector2D m_lastSurfaceCoords;
+    uint32_t                  m_lastTime = 0;
 };

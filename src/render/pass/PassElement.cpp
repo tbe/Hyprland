@@ -1,5 +1,7 @@
 #include "PassElement.hpp"
 
+using namespace Hyprutils::Math;
+
 std::optional<CBox> IPassElement::boundingBox() {
     return std::nullopt;
 }

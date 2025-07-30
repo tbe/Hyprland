@@ -23,7 +23,7 @@ class CHyprMonitorDebugOverlay {
     std::deque<float>                              m_lastAnimationTicks;
     std::chrono::high_resolution_clock::time_point m_lastFrame;
     PHLMONITORREF                                  m_monitor;
-    CBox                                           m_lastDrawnBox;
+    Hyprutils::Math::CBox                          m_lastDrawnBox;
 
     friend class CHyprRenderer;
 };

@@ -26,15 +26,15 @@ class CHyprBorderDecoration : public IHyprWindowDecoration {
     virtual std::string                getDisplayName();
 
   private:
-    SBoxExtents  m_extents;
-    SBoxExtents  m_reportedExtents;
+    Hyprutils::Math::SBoxExtents m_extents;
+    Hyprutils::Math::SBoxExtents m_reportedExtents;
 
-    PHLWINDOWREF m_window;
+    PHLWINDOWREF                 m_window;
 
-    CBox         m_assignedGeometry = {0};
+    Hyprutils::Math::CBox        m_assignedGeometry = {0};
 
-    int          m_lastBorderSize = -1;
+    int                          m_lastBorderSize = -1;
 
-    CBox         assignedBoxGlobal();
-    bool         doesntWantBorders();
+    Hyprutils::Math::CBox        assignedBoxGlobal();
+    bool                         doesntWantBorders();
 };

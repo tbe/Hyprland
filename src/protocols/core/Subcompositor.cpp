@@ -3,6 +3,7 @@
 #include <algorithm>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CWLSubsurfaceResource::CWLSubsurfaceResource(SP<CWlSubsurface> resource_, SP<CWLSurfaceResource> surface_, SP<CWLSurfaceResource> parent_) :
     m_surface(surface_), m_parent(parent_), m_resource(resource_) {

@@ -10,6 +10,7 @@
 #include <cstring>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CTabletPadStripV2Resource::CTabletPadStripV2Resource(SP<CZwpTabletPadStripV2> resource_, uint32_t id_) : m_id(id_), m_resource(resource_) {
     if UNLIKELY (!good())

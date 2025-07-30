@@ -4,6 +4,8 @@
 #include "../helpers/Format.hpp"
 #include <cstring>
 
+using namespace Hyprutils::Math;
+
 CTexture::CTexture() = default;
 
 CTexture::~CTexture() {

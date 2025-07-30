@@ -4,6 +4,7 @@
 #include <algorithm>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CRelativePointer::CRelativePointer(SP<CZwpRelativePointerV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!resource_->resource())

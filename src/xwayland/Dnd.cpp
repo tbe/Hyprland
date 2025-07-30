@@ -8,6 +8,7 @@
 #include "../protocols/core/Compositor.hpp"
 
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Math;
 
 #define PROPERTY_FORMAT_32BIT 32
 #define PROPERTY_LENGTH       1

@@ -9,6 +9,8 @@
 #include "../managers/input/InputManager.hpp"
 #include "../managers/LayoutManager.hpp"
 
+using namespace Hyprutils::Math;
+
 SMasterNodeData* CHyprMasterLayout::getNodeFromWindow(PHLWINDOW pWindow) {
     for (auto& nd : m_masterNodesData) {
         if (nd.pWindow.lock() == pWindow)

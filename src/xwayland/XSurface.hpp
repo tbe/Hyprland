@@ -43,20 +43,20 @@ class CXWaylandSurface {
     WP<CXWaylandSurfaceResource> m_resource;
 
     struct {
-        CSignalT<>     stateChanged;    // maximized, fs, minimized, etc.
-        CSignalT<>     metadataChanged; // title, appid
-        CSignalT<>     destroy;
+        CSignalT<>                      stateChanged;    // maximized, fs, minimized, etc.
+        CSignalT<>                      metadataChanged; // title, appid
+        CSignalT<>                      destroy;
 
-        CSignalT<>     resourceChange; // associated / dissociated
+        CSignalT<>                      resourceChange; // associated / dissociated
 
-        CSignalT<>     setGeometry;
-        CSignalT<CBox> configureRequest;
+        CSignalT<>                      setGeometry;
+        CSignalT<Hyprutils::Math::CBox> configureRequest;
 
-        CSignalT<>     map;
-        CSignalT<>     unmap;
-        CSignalT<>     commit;
+        CSignalT<>                      map;
+        CSignalT<>                      unmap;
+        CSignalT<>                      commit;
 
-        CSignalT<>     activate;
+        CSignalT<>                      activate;
     } m_events;
 
     struct {
@@ -74,7 +74,7 @@ class CXWaylandSurface {
     uint64_t                          m_wlSerial    = 0;
     uint32_t                          m_lastPingSeq = 0;
     pid_t                             m_pid         = 0;
-    CBox                              m_geometry;
+    Hyprutils::Math::CBox             m_geometry;
     bool                              m_overrideRedirect = false;
     bool                              m_withdrawn        = false;
     bool                              m_fullscreen       = false;
@@ -95,7 +95,7 @@ class CXWaylandSurface {
     bool                              m_transient = false;
 
     bool                              wantsFocus();
-    void                              configure(const CBox& box);
+    void                              configure(const Hyprutils::Math::CBox& box);
     void                              activate(bool activate);
     void                              setFullscreen(bool fs);
     void                              setMinimized(bool mz);
@@ -104,7 +104,7 @@ class CXWaylandSurface {
     void                              ping();
 
   private:
-    CXWaylandSurface(uint32_t xID, CBox geometry, bool OR);
+    CXWaylandSurface(uint32_t xID, Hyprutils::Math::CBox geometry, bool OR);
 
     void ensureListeners();
     void map();

@@ -59,7 +59,7 @@ class CToplevelExportFrame {
     uint32_t                           m_shmFormat    = 0;
     uint32_t                           m_dmabufFormat = 0;
     int                                m_shmStride    = 0;
-    CBox                               m_box          = {};
+    Hyprutils::Math::CBox              m_box          = {};
 
     void                               copy(CHyprlandToplevelExportFrameV1* pFrame, wl_resource* buffer, int32_t ignoreDamage);
     bool                               copyDmabuf(const Time::steady_tp& now);

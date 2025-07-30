@@ -34,6 +34,7 @@
 
 using namespace Hyprutils::String;
 using namespace Hyprutils::Animation;
+using namespace Hyprutils::Math;
 using enum NContentType::eContentType;
 
 PHLWINDOW CWindow::create(SP<CXWaylandSurface> surface) {

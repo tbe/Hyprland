@@ -17,16 +17,16 @@ class IPointer : public IHID {
     virtual SP<Aquamarine::IPointer> aq()        = 0;
 
     struct SMotionEvent {
-        uint32_t     timeMs = 0;
-        Vector2D     delta, unaccel;
-        bool         mouse = false;
-        SP<IPointer> device;
+        uint32_t                  timeMs = 0;
+        Hyprutils::Math::Vector2D delta, unaccel;
+        bool                      mouse = false;
+        SP<IPointer>              device;
     };
 
     struct SMotionAbsoluteEvent {
-        uint32_t timeMs = 0;
-        Vector2D absolute; // 0.0 - 1.0
-        SP<IHID> device;
+        uint32_t                  timeMs = 0;
+        Hyprutils::Math::Vector2D absolute; // 0.0 - 1.0
+        SP<IHID>                  device;
     };
 
     struct SButtonEvent {
@@ -52,9 +52,9 @@ class IPointer : public IHID {
     };
 
     struct SSwipeUpdateEvent {
-        uint32_t timeMs  = 0;
-        uint32_t fingers = 0;
-        Vector2D delta;
+        uint32_t                  timeMs  = 0;
+        uint32_t                  fingers = 0;
+        Hyprutils::Math::Vector2D delta;
     };
 
     struct SSwipeEndEvent {
@@ -68,10 +68,10 @@ class IPointer : public IHID {
     };
 
     struct SPinchUpdateEvent {
-        uint32_t timeMs  = 0;
-        uint32_t fingers = 0;
-        Vector2D delta;
-        double   scale = 1.0, rotation = 0.0;
+        uint32_t                  timeMs  = 0;
+        uint32_t                  fingers = 0;
+        Hyprutils::Math::Vector2D delta;
+        double                    scale = 1.0, rotation = 0.0;
     };
 
     struct SPinchEndEvent {

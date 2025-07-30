@@ -50,24 +50,24 @@ class CHyprRenderer {
     CHyprRenderer();
     ~CHyprRenderer();
 
-    void renderMonitor(PHLMONITOR pMonitor, bool commit = true);
-    void arrangeLayersForMonitor(const MONITORID&);
-    void damageSurface(SP<CWLSurfaceResource>, double, double, double scale = 1.0);
-    void damageWindow(PHLWINDOW, bool forceFull = false);
-    void damageBox(const CBox&, bool skipFrameSchedule = false);
-    void damageBox(const int& x, const int& y, const int& w, const int& h);
-    void damageRegion(const CRegion&);
-    void damageMonitor(PHLMONITOR);
-    void damageMirrorsWith(PHLMONITOR, const CRegion&);
-    bool shouldRenderWindow(PHLWINDOW, PHLMONITOR);
-    bool shouldRenderWindow(PHLWINDOW);
-    void ensureCursorRenderingMode();
-    bool shouldRenderCursor();
-    void setCursorHidden(bool hide);
-    void calculateUVForSurface(PHLWINDOW, SP<CWLSurfaceResource>, PHLMONITOR pMonitor, bool main = false, const Vector2D& projSize = {}, const Vector2D& projSizeUnscaled = {},
-                               bool fixMisalignedFSV1 = false);
+    void                            renderMonitor(PHLMONITOR pMonitor, bool commit = true);
+    void                            arrangeLayersForMonitor(const MONITORID&);
+    void                            damageSurface(SP<CWLSurfaceResource>, double, double, double scale = 1.0);
+    void                            damageWindow(PHLWINDOW, bool forceFull = false);
+    void                            damageBox(const Hyprutils::Math::CBox&, bool skipFrameSchedule = false);
+    void                            damageBox(const int& x, const int& y, const int& w, const int& h);
+    void                            damageRegion(const Hyprutils::Math::CRegion&);
+    void                            damageMonitor(PHLMONITOR);
+    void                            damageMirrorsWith(PHLMONITOR, const Hyprutils::Math::CRegion&);
+    bool                            shouldRenderWindow(PHLWINDOW, PHLMONITOR);
+    bool                            shouldRenderWindow(PHLWINDOW);
+    void                            ensureCursorRenderingMode();
+    bool                            shouldRenderCursor();
+    void                            setCursorHidden(bool hide);
+    void                            calculateUVForSurface(PHLWINDOW, SP<CWLSurfaceResource>, PHLMONITOR pMonitor, bool main = false, const Hyprutils::Math::Vector2D& projSize = {},
+                                                          const Hyprutils::Math::Vector2D& projSizeUnscaled = {}, bool fixMisalignedFSV1 = false);
     std::tuple<float, float, float> getRenderTimes(PHLMONITOR pMonitor); // avg max min
-    void                            renderLockscreen(PHLMONITOR pMonitor, const Time::steady_tp& now, const CBox& geometry);
+    void                            renderLockscreen(PHLMONITOR pMonitor, const Time::steady_tp& now, const Hyprutils::Math::CBox& geometry);
     void                            recheckSolitaryForMonitor(PHLMONITOR pMonitor);
     void                            setCursorSurface(SP<CWLSurface> surf, int hotspotX, int hotspotY, bool force = false);
     void                            setCursorFromName(const std::string& name, bool force = false);
@@ -85,21 +85,22 @@ class CHyprRenderer {
 
     // if RENDER_MODE_NORMAL, provided damage will be written to.
     // otherwise, it will be the one used.
-    bool beginRender(PHLMONITOR pMonitor, CRegion& damage, eRenderMode mode = RENDER_MODE_NORMAL, SP<IHLBuffer> buffer = {}, CFramebuffer* fb = nullptr, bool simple = false);
-    void endRender(const std::function<void()>& renderingDoneCallback = {});
+    bool          beginRender(PHLMONITOR pMonitor, Hyprutils::Math::CRegion& damage, eRenderMode mode = RENDER_MODE_NORMAL, SP<IHLBuffer> buffer = {}, CFramebuffer* fb = nullptr,
+                              bool simple = false);
+    void          endRender(const std::function<void()>& renderingDoneCallback = {});
 
-    bool m_bBlockSurfaceFeedback = false;
-    bool m_bRenderingSnapshot    = false;
-    PHLMONITORREF                   m_mostHzMonitor;
-    bool                            m_directScanoutBlocked = false;
+    bool          m_bBlockSurfaceFeedback = false;
+    bool          m_bRenderingSnapshot    = false;
+    PHLMONITORREF m_mostHzMonitor;
+    bool          m_directScanoutBlocked = false;
 
-    void                            setSurfaceScanoutMode(SP<CWLSurfaceResource> surface, PHLMONITOR monitor); // nullptr monitor resets
-    void                            initiateManualCrash();
+    void          setSurfaceScanoutMode(SP<CWLSurfaceResource> surface, PHLMONITOR monitor); // nullptr monitor resets
+    void          initiateManualCrash();
 
-    bool                            m_crashingInProgress = false;
-    float                           m_crashingDistort    = 0.5f;
-    wl_event_source*                m_crashingLoop       = nullptr;
-    wl_event_source*                m_cursorTicker       = nullptr;
+    bool          m_crashingInProgress             = false;
+    float         m_crashingDistort                = 0.5f;
+    wl_event_source*                m_crashingLoop = nullptr;
+    wl_event_source*                m_cursorTicker = nullptr;
 
     CTimer                          m_renderTimer;
 
@@ -115,11 +116,12 @@ class CHyprRenderer {
     CRenderPass m_renderPass = {};
 
   private:
-    void arrangeLayerArray(PHLMONITOR, const std::vector<PHLLSREF>&, bool, CBox*);
-    void renderWorkspace(PHLMONITOR pMonitor, PHLWORKSPACE pWorkspace, const Time::steady_tp& now, const CBox& geometry);
+    void arrangeLayerArray(PHLMONITOR, const std::vector<PHLLSREF>&, bool, Hyprutils::Math::CBox*);
+    void renderWorkspace(PHLMONITOR pMonitor, PHLWORKSPACE pWorkspace, const Time::steady_tp& now, const Hyprutils::Math::CBox& geometry);
     void renderWorkspaceWindowsFullscreen(PHLMONITOR, PHLWORKSPACE, const Time::steady_tp&); // renders workspace windows (fullscreen) (tiled, floating, pinned, but no special)
     void renderWorkspaceWindows(PHLMONITOR, PHLWORKSPACE, const Time::steady_tp&);           // renders workspace windows (no fullscreen) (tiled, floating, pinned, but no special)
-    void renderAllClientsForWorkspace(PHLMONITOR pMonitor, PHLWORKSPACE pWorkspace, const Time::steady_tp& now, const Vector2D& translate = {0, 0}, const float& scale = 1.f);
+    void renderAllClientsForWorkspace(PHLMONITOR pMonitor, PHLWORKSPACE pWorkspace, const Time::steady_tp& now, const Hyprutils::Math::Vector2D& translate = {0, 0},
+                                      const float& scale = 1.f);
     void renderWindow(PHLWINDOW, PHLMONITOR, const Time::steady_tp&, bool, eRenderPassMode, bool ignorePosition = false, bool standalone = false);
     void renderLayer(PHLLS, PHLMONITOR, const Time::steady_tp&, bool popups = false, bool lockscreen = false);
     void renderSessionLockSurface(WP<SSessionLockSurface>, PHLMONITOR, const Time::steady_tp&);

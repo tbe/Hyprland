@@ -18,27 +18,27 @@ class CPopup {
 
     ~CPopup();
 
-    SP<CWLSurface> getT1Owner();
-    Vector2D       coordsRelativeToParent();
-    Vector2D       coordsGlobal();
+    SP<CWLSurface>            getT1Owner();
+    Hyprutils::Math::Vector2D coordsRelativeToParent();
+    Hyprutils::Math::Vector2D coordsGlobal();
 
-    Vector2D       size();
+    Hyprutils::Math::Vector2D size();
 
-    void           onNewPopup(SP<CXDGPopupResource> popup);
-    void           onDestroy();
-    void           onMap();
-    void           onUnmap();
-    void           onCommit(bool ignoreSiblings = false);
-    void           onReposition();
+    void                      onNewPopup(SP<CXDGPopupResource> popup);
+    void                      onDestroy();
+    void                      onMap();
+    void                      onUnmap();
+    void                      onCommit(bool ignoreSiblings = false);
+    void                      onReposition();
 
-    void           recheckTree();
+    void                      recheckTree();
 
-    bool           visible();
-    bool           inert() const;
+    bool                      visible();
+    bool                      inert() const;
 
     // will also loop over this node
     void       breadthfirst(std::function<void(WP<CPopup>, void*)> fn, void* data);
-    WP<CPopup> at(const Vector2D& globalCoords, bool allowsInput = false);
+    WP<CPopup> at(const Hyprutils::Math::Vector2D& globalCoords, bool allowsInput = false);
 
     //
     SP<CWLSurface> m_wlSurface;
@@ -53,16 +53,16 @@ class CPopup {
     PHLLSREF     m_layerOwner;
 
     // T2 owners
-    WP<CPopup>            m_parent;
+    WP<CPopup>                m_parent;
 
-    WP<CXDGPopupResource> m_resource;
+    WP<CXDGPopupResource>     m_resource;
 
-    Vector2D              m_lastSize = {};
-    Vector2D              m_lastPos  = {};
+    Hyprutils::Math::Vector2D m_lastSize = {};
+    Hyprutils::Math::Vector2D m_lastPos  = {};
 
-    bool                  m_requestedReposition = false;
+    bool                      m_requestedReposition = false;
 
-    bool                  m_inert = false;
+    bool                      m_inert = false;
 
     //
     std::vector<UP<CPopup>> m_children;
@@ -78,12 +78,12 @@ class CPopup {
         CHyprSignalListener reposition;
     } m_listeners;
 
-    void        initAllSignals();
-    void        reposition();
-    void        recheckChildrenRecursive();
-    void        sendScale();
+    void                      initAllSignals();
+    void                      reposition();
+    void                      recheckChildrenRecursive();
+    void                      sendScale();
 
-    Vector2D    localToGlobal(const Vector2D& rel);
-    Vector2D    t1ParentCoords();
-    static void bfHelper(std::vector<WP<CPopup>> const& nodes, std::function<void(WP<CPopup>, void*)> fn, void* data);
+    Hyprutils::Math::Vector2D localToGlobal(const Hyprutils::Math::Vector2D& rel);
+    Hyprutils::Math::Vector2D t1ParentCoords();
+    static void               bfHelper(std::vector<WP<CPopup>> const& nodes, std::function<void(WP<CPopup>, void*)> fn, void* data);
 };

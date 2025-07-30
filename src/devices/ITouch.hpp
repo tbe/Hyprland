@@ -14,10 +14,10 @@ class ITouch : public IHID {
     virtual SP<Aquamarine::ITouch> aq()        = 0;
 
     struct SDownEvent {
-        uint32_t   timeMs  = 0;
-        int32_t    touchID = 0;
-        Vector2D   pos;
-        SP<ITouch> device;
+        uint32_t                  timeMs  = 0;
+        int32_t                   touchID = 0;
+        Hyprutils::Math::Vector2D pos;
+        SP<ITouch>                device;
     };
 
     struct SUpEvent {
@@ -26,9 +26,9 @@ class ITouch : public IHID {
     };
 
     struct SMotionEvent {
-        uint32_t timeMs  = 0;
-        int32_t  touchID = 0;
-        Vector2D pos;
+        uint32_t                  timeMs  = 0;
+        int32_t                   touchID = 0;
+        Hyprutils::Math::Vector2D pos;
     };
 
     struct SCancelEvent {

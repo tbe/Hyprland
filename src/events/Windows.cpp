@@ -24,6 +24,7 @@
 #include <hyprutils/string/String.hpp>
 using namespace Hyprutils::String;
 using namespace Hyprutils::Animation;
+using namespace Hyprutils::Math;
 
 // ------------------------------------------------------------ //
 //  __          _______ _   _ _____   ______          _______   //

@@ -19,6 +19,7 @@
 #include <cstring>
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 using namespace NColorManagement;
 
 class CDefaultSurfaceRole : public ISurfaceRole {

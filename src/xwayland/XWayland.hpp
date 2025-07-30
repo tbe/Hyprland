@@ -22,7 +22,7 @@ class CXWayland {
 #endif
     bool enabled();
 
-    void setCursor(unsigned char* pixData, uint32_t stride, const Vector2D& size, const Vector2D& hotspot);
+    void setCursor(unsigned char* pixData, uint32_t stride, const Hyprutils::Math::Vector2D& size, const Hyprutils::Math::Vector2D& hotspot);
 
   private:
     bool m_enabled = false;

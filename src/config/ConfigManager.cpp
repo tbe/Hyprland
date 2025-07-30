@@ -48,9 +48,11 @@
 #include <hyprutils/string/String.hpp>
 #include <filesystem>
 #include <memory>
+
 using namespace Hyprutils::String;
 using namespace Hyprutils::Animation;
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 using enum NContentType::eContentType;
 
 //NOLINTNEXTLINE

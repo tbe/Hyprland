@@ -9,6 +9,7 @@
 #include "../helpers/MiscFunctions.hpp"
 
 using namespace Hyprutils::Memory;
+using namespace Hyprutils::Math;
 
 CHyprlandCTMControlResource::CHyprlandCTMControlResource(UP<CHyprlandCtmControlManagerV1>&& resource_) : m_resource(std::move(resource_)) {
     if UNLIKELY (!good())
