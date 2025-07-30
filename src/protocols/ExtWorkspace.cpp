@@ -7,6 +7,8 @@
 #include <utility>
 #include "core/Output.hpp"
 
+using namespace Hyprutils::Memory;
+
 CExtWorkspaceGroupResource::CExtWorkspaceGroupResource(WP<CExtWorkspaceManagerResource> manager, UP<CExtWorkspaceGroupHandleV1> resource, PHLMONITORREF monitor) :
     m_monitor(std::move(monitor)), m_manager(std::move(manager)), m_resource(std::move(resource)) {
     if (!good())

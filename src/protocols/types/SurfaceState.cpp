@@ -3,6 +3,8 @@
 #include "protocols/types/Buffer.hpp"
 #include "render/Texture.hpp"
 
+using namespace Hyprutils::Memory;
+
 Vector2D SSurfaceState::sourceSize() {
     if UNLIKELY (!texture)
         return {};

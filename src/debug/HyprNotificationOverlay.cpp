@@ -8,6 +8,8 @@
 #include "../managers/HookSystemManager.hpp"
 #include "../render/Renderer.hpp"
 
+using namespace Hyprutils::Memory;
+
 static inline auto iconBackendFromLayout(PangoLayout* layout) {
     // preference: Nerd > FontAwesome > text
     auto eIconBackendChecks = std::array<eIconBackend, 2>{ICONS_BACKEND_NF, ICONS_BACKEND_FA};

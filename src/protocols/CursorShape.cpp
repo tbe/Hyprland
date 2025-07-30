@@ -2,6 +2,8 @@
 #include <algorithm>
 #include "../helpers/CursorShapes.hpp"
 
+using namespace Hyprutils::Memory;
+
 CCursorShapeProtocol::CCursorShapeProtocol(const wl_interface* iface, const int& ver, const std::string& name) : IWaylandProtocol(iface, ver, name) {
     ;
 }

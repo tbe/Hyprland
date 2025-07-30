@@ -5,6 +5,8 @@
 #include "../managers/HookSystemManager.hpp"
 #include "core/Output.hpp"
 
+using namespace Hyprutils::Memory;
+
 #define OUTPUT_MANAGER_VERSION                   3
 #define OUTPUT_DONE_DEPRECATED_SINCE_VERSION     3
 #define OUTPUT_DESCRIPTION_MUTABLE_SINCE_VERSION 3

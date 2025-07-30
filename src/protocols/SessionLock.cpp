@@ -8,6 +8,8 @@
 #include "../helpers/Monitor.hpp"
 #include "../render/Renderer.hpp"
 
+using namespace Hyprutils::Memory;
+
 CSessionLockSurface::CSessionLockSurface(SP<CExtSessionLockSurfaceV1> resource_, SP<CWLSurfaceResource> surface_, PHLMONITOR pMonitor_, WP<CSessionLock> owner_) :
     m_resource(resource_), m_sessionLock(owner_), m_surface(surface_), m_monitor(pMonitor_) {
     if UNLIKELY (!m_resource->resource())

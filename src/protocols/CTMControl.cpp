@@ -8,6 +8,8 @@
 #include "../helpers/Monitor.hpp"
 #include "../helpers/MiscFunctions.hpp"
 
+using namespace Hyprutils::Memory;
+
 CHyprlandCTMControlResource::CHyprlandCTMControlResource(UP<CHyprlandCtmControlManagerV1>&& resource_) : m_resource(std::move(resource_)) {
     if UNLIKELY (!good())
         return;

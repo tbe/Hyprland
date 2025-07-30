@@ -2,6 +2,8 @@
 #include "core/Output.hpp"
 #include "../helpers/Monitor.hpp"
 
+using namespace Hyprutils::Memory;
+
 COutputPower::COutputPower(SP<CZwlrOutputPowerV1> resource_, PHLMONITOR pMonitor_) : m_resource(resource_), m_monitor(pMonitor_) {
     if UNLIKELY (!m_resource->resource())
         return;

@@ -5,6 +5,8 @@
 #include "core/Compositor.hpp"
 #include "../managers/HookSystemManager.hpp"
 
+using namespace Hyprutils::Memory;
+
 CTearingControlProtocol::CTearingControlProtocol(const wl_interface* iface, const int& ver, const std::string& name) : IWaylandProtocol(iface, ver, name) {
     static auto P =
         g_pHookSystem->hookDynamic("destroyWindow", [this](void* self, SCallbackInfo& info, std::any param) { this->onWindowDestroy(std::any_cast<PHLWINDOW>(param)); });

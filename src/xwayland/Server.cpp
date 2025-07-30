@@ -25,6 +25,7 @@
 #include "../Compositor.hpp"
 #include "../managers/CursorManager.hpp"
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 // Constants
 constexpr int          SOCKET_DIR_PERMISSIONS = 0755;

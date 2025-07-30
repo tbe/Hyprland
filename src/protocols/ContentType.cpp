@@ -2,6 +2,8 @@
 #include "content-type-v1.hpp"
 #include "protocols/types/ContentType.hpp"
 
+using namespace Hyprutils::Memory;
+
 CContentTypeManager::CContentTypeManager(SP<CWpContentTypeManagerV1> resource) : m_resource(resource) {
     if UNLIKELY (!good())
         return;

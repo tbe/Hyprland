@@ -4,6 +4,7 @@
 #include "core/Seat.hpp"
 #include "../config/ConfigValue.hpp"
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CPrimarySelectionOffer::CPrimarySelectionOffer(SP<CZwpPrimarySelectionOfferV1> resource_, SP<IDataSource> source_) : m_source(source_), m_resource(resource_) {
     if UNLIKELY (!good())

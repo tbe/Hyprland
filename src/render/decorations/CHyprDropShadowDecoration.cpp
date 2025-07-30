@@ -5,6 +5,8 @@
 #include "../pass/ShadowPassElement.hpp"
 #include "../Renderer.hpp"
 
+using namespace Hyprutils::Memory;
+
 CHyprDropShadowDecoration::CHyprDropShadowDecoration(PHLWINDOW pWindow) : IHyprWindowDecoration(pWindow), m_window(pWindow) {
     ;
 }

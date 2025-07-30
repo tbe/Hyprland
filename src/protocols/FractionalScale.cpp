@@ -2,6 +2,8 @@
 #include <algorithm>
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CFractionalScaleProtocol::CFractionalScaleProtocol(const wl_interface* iface, const int& ver, const std::string& name) : IWaylandProtocol(iface, ver, name) {
     ;
 }

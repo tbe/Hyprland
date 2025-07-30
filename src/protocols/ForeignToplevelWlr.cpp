@@ -7,6 +7,8 @@
 #include "../managers/HookSystemManager.hpp"
 #include "../managers/EventManager.hpp"
 
+using namespace Hyprutils::Memory;
+
 CForeignToplevelHandleWlr::CForeignToplevelHandleWlr(SP<CZwlrForeignToplevelHandleV1> resource_, PHLWINDOW pWindow_) : m_resource(resource_), m_window(pWindow_) {
     if UNLIKELY (!resource_->resource())
         return;

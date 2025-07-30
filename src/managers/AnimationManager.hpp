@@ -20,7 +20,7 @@ class CHyprAnimationManager : public Hyprutils::Animation::CAnimationManager {
     template <Animable VarType>
     void createAnimation(const VarType& v, PHLANIMVAR<VarType>& pav, SP<SAnimationPropertyConfig> pConfig, eAVarDamagePolicy policy) {
         constexpr const eAnimatedVarType EAVTYPE = typeToeAnimatedVarType<VarType>;
-        const auto                       PAV     = makeShared<CAnimatedVariable<VarType>>();
+        const auto                       PAV     = Hyprutils::Memory::makeShared<CAnimatedVariable<VarType>>();
 
         PAV->create(EAVTYPE, static_cast<Hyprutils::Animation::CAnimationManager*>(this), PAV, v);
         PAV->setConfig(pConfig);

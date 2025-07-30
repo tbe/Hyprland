@@ -4,6 +4,8 @@
 #include "core/Compositor.hpp"
 #include <algorithm>
 
+using namespace Hyprutils::Memory;
+
 CXDGActivationToken::CXDGActivationToken(SP<CXdgActivationTokenV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!resource_->resource())
         return;

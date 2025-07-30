@@ -6,6 +6,7 @@
 #include "types/ColorManagement.hpp"
 #include <cstdint>
 
+using namespace Hyprutils::Memory;
 using namespace NColorManagement;
 
 CColorManager::CColorManager(SP<CWpColorManagerV1> resource) : m_resource(resource) {

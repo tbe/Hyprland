@@ -3,6 +3,8 @@
 #include "../Compositor.hpp"
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CKeyboardShortcutsInhibitor::CKeyboardShortcutsInhibitor(SP<CZwpKeyboardShortcutsInhibitorV1> resource_, SP<CWLSurfaceResource> surf) : m_resource(resource_), m_surface(surf) {
     if UNLIKELY (!m_resource->resource())
         return;

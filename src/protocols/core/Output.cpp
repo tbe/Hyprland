@@ -3,6 +3,8 @@
 #include "../../Compositor.hpp"
 #include "../../helpers/Monitor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CWLOutputResource::CWLOutputResource(SP<CWlOutput> resource_, PHLMONITOR pMonitor) : m_monitor(pMonitor), m_resource(resource_) {
     if UNLIKELY (!good())
         return;

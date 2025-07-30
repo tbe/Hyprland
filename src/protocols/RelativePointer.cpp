@@ -3,6 +3,8 @@
 #include "core/Seat.hpp"
 #include <algorithm>
 
+using namespace Hyprutils::Memory;
+
 CRelativePointer::CRelativePointer(SP<CZwpRelativePointerV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!resource_->resource())
         return;

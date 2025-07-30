@@ -2,8 +2,6 @@
 
 #include <hyprutils/memory/WeakPtr.hpp>
 
-using namespace Hyprutils::Memory;
-
 template <typename T>
 using SP = Hyprutils::Memory::CSharedPointer<T>;
 template <typename T>

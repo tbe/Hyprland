@@ -1,6 +1,8 @@
 #include "IdleNotify.hpp"
 #include "../managers/eventLoop/EventLoopManager.hpp"
 
+using namespace Hyprutils::Memory;
+
 static int onTimer(SP<CEventLoopTimer> self, void* data) {
 
     const auto NOTIF = (CExtIdleNotification*)data;

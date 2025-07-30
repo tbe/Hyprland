@@ -15,6 +15,7 @@
 #include "../../render/Renderer.hpp"
 #include "../../xwayland/Dnd.hpp"
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CWLDataOfferResource::CWLDataOfferResource(SP<CWlDataOffer> resource_, SP<IDataSource> source_) : m_source(source_), m_resource(resource_) {
     if UNLIKELY (!good())

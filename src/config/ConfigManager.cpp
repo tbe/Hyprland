@@ -50,6 +50,7 @@
 #include <memory>
 using namespace Hyprutils::String;
 using namespace Hyprutils::Animation;
+using namespace Hyprutils::Memory;
 using enum NContentType::eContentType;
 
 //NOLINTNEXTLINE

@@ -14,6 +14,8 @@
 #include <algorithm>
 #include <hyprutils/math/Vector2D.hpp>
 
+using namespace Hyprutils::Memory;
+
 CToplevelExportClient::CToplevelExportClient(SP<CHyprlandToplevelExportManagerV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!good())
         return;

@@ -1,6 +1,8 @@
 #include "ServerDecorationKDE.hpp"
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CServerDecorationKDE::CServerDecorationKDE(SP<COrgKdeKwinServerDecoration> resource_, SP<CWLSurfaceResource> surf) : m_resource(resource_) {
     if UNLIKELY (!good())
         return;

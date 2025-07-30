@@ -29,6 +29,7 @@
 #include <hyprutils/os/FileDescriptor.hpp>
 using namespace Hyprutils::String;
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 #include <sys/ioctl.h>
 #include <fcntl.h>

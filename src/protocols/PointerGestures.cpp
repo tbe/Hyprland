@@ -3,6 +3,8 @@
 #include "core/Seat.hpp"
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CPointerGestureSwipe::CPointerGestureSwipe(SP<CZwpPointerGestureSwipeV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!m_resource->resource())
         return;

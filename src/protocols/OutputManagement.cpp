@@ -5,6 +5,7 @@
 #include "../managers/HookSystemManager.hpp"
 #include "../config/ConfigManager.hpp"
 
+using namespace Hyprutils::Memory;
 using namespace Aquamarine;
 
 COutputManager::COutputManager(SP<CZwlrOutputManagerV1> resource_) : m_resource(resource_) {

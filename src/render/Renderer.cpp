@@ -40,6 +40,7 @@
 #include <hyprutils/utils/ScopeGuard.hpp>
 using namespace Hyprutils::Utils;
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 using enum NContentType::eContentType;
 using namespace NColorManagement;
 

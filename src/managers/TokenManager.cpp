@@ -1,6 +1,8 @@
 #include "TokenManager.hpp"
 #include <uuid/uuid.h>
 
+using namespace Hyprutils::Memory;
+
 CUUIDToken::CUUIDToken(const std::string& uuid_, std::any data_, Time::steady_dur expires) : m_data(data_), m_uuid(uuid_) {
     m_expiresAt = Time::steadyNow() + expires;
 }

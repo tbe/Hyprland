@@ -76,6 +76,7 @@
 #include <xf86drm.h>
 
 using namespace Hyprutils::String;
+using namespace Hyprutils::Memory;
 using namespace Aquamarine;
 using enum NContentType::eContentType;
 using namespace NColorManagement;

@@ -4,6 +4,8 @@
 #include "../managers/EventManager.hpp"
 #include "../Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CXDGSystemBellManagerResource::CXDGSystemBellManagerResource(UP<CXdgSystemBellV1>&& resource) : m_resource(std::move(resource)) {
     if UNLIKELY (!good())
         return;

@@ -1,6 +1,8 @@
 #include "XDGDecoration.hpp"
 #include <algorithm>
 
+using namespace Hyprutils::Memory;
+
 CXDGDecoration::CXDGDecoration(SP<CZxdgToplevelDecorationV1> resource_, wl_resource* toplevel) : m_resource(resource_), m_toplevelResource(toplevel) {
     if UNLIKELY (!m_resource->resource())
         return;

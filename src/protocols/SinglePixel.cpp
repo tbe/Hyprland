@@ -3,6 +3,8 @@
 #include <limits>
 #include "render/Renderer.hpp"
 
+using namespace Hyprutils::Memory;
+
 CSinglePixelBuffer::CSinglePixelBuffer(uint32_t id, wl_client* client, CHyprColor col_) {
     LOGM(LOG, "New single-pixel buffer with color 0x{:x}", col_.getAsHex());
 

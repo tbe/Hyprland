@@ -1,6 +1,8 @@
 #include "XDGTag.hpp"
 #include "XDGShell.hpp"
 
+using namespace Hyprutils::Memory;
+
 CXDGToplevelTagManagerResource::CXDGToplevelTagManagerResource(UP<CXdgToplevelTagManagerV1>&& resource) : m_resource(std::move(resource)) {
     if UNLIKELY (!good())
         return;

@@ -9,6 +9,8 @@
 #include "./managers/eventLoop/EventLoopManager.hpp"
 #include <algorithm>
 
+using namespace Hyprutils::Memory;
+
 SSessionLockSurface::SSessionLockSurface(SP<CSessionLockSurface> surface_) : surface(surface_) {
     pWlrSurface = surface->surface();
 

@@ -6,6 +6,7 @@
 
 #include <fcntl.h>
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CXDataSource::CXDataSource(SXSelection& sel_) : m_selection(sel_) {
     xcb_get_property_cookie_t cookie = xcb_get_property(g_pXWayland->m_wm->getConnection(),

@@ -2,6 +2,8 @@
 #include "core/Compositor.hpp"
 #include <algorithm>
 
+using namespace Hyprutils::Memory;
+
 CXWaylandSurfaceResource::CXWaylandSurfaceResource(SP<CXwaylandSurfaceV1> resource_, SP<CWLSurfaceResource> surface_) : m_surface(surface_), m_resource(resource_) {
     if UNLIKELY (!good())
         return;

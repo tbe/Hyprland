@@ -6,6 +6,7 @@
 #include "xx-color-management-v4.hpp"
 
 using namespace NColorManagement;
+using namespace Hyprutils::Memory;
 
 static wpColorManagerV1TransferFunction getWPTransferFunction(xxColorManagerV4TransferFunction tf) {
     switch (tf) {

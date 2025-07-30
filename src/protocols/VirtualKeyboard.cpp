@@ -3,6 +3,7 @@
 #include "../devices/IKeyboard.hpp"
 #include "../helpers/time/Time.hpp"
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CVirtualKeyboardV1Resource::CVirtualKeyboardV1Resource(SP<CZwpVirtualKeyboardV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!good())

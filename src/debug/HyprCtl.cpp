@@ -28,6 +28,7 @@
 #include <hyprutils/os/FileDescriptor.hpp>
 using namespace Hyprutils::String;
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 #include <aquamarine/input/Input.hpp>
 
 #include "../config/ConfigDataValues.hpp"

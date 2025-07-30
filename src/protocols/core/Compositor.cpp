@@ -18,6 +18,7 @@
 #include "render/Texture.hpp"
 #include <cstring>
 
+using namespace Hyprutils::Memory;
 using namespace NColorManagement;
 
 class CDefaultSurfaceRole : public ISurfaceRole {

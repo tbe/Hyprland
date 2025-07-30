@@ -6,6 +6,8 @@
 #include "../render/Renderer.hpp"
 #include "../managers/AnimationManager.hpp"
 
+using namespace Hyprutils::Memory;
+
 CHyprDebugOverlay::CHyprDebugOverlay() {
     m_texture = makeShared<CTexture>();
 }

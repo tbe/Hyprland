@@ -15,6 +15,7 @@
 #include "../Compositor.hpp"
 
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 static std::optional<dev_t> devIDFromFD(int fd) {
     struct stat stat;

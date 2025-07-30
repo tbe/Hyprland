@@ -1,6 +1,8 @@
 #include "VirtualPointer.hpp"
 #include "core/Output.hpp"
 
+using namespace Hyprutils::Memory;
+
 CVirtualPointerV1Resource::CVirtualPointerV1Resource(SP<CZwlrVirtualPointerV1> resource_, PHLMONITORREF boundOutput_) : m_boundOutput(boundOutput_), m_resource(resource_) {
     if UNLIKELY (!good())
         return;

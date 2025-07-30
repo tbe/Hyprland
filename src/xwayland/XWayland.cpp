@@ -3,6 +3,8 @@
 #include "../debug/Log.hpp"
 #include "../helpers/fs/FsUtils.hpp"
 
+using namespace Hyprutils::Memory;
+
 CXWayland::CXWayland(const bool wantsEnabled) {
 #ifndef NO_XWAYLAND
     // Disable Xwayland and clean up if the user disabled it.

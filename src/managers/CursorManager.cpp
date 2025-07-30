@@ -6,6 +6,8 @@
 #include "../managers/HookSystemManager.hpp"
 #include "../helpers/Monitor.hpp"
 
+using namespace Hyprutils::Memory;
+
 static int cursorAnimTimer(SP<CEventLoopTimer> self, void* data) {
     const auto cursorMgr = reinterpret_cast<CCursorManager*>(data);
     cursorMgr->tickAnimatedCursor();

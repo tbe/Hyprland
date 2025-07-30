@@ -4,6 +4,8 @@
 #include "alpha-modifier-v1.hpp"
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CAlphaModifier::CAlphaModifier(UP<CWpAlphaModifierSurfaceV1>&& resource, SP<CWLSurfaceResource> surface) : m_surface(surface) {
     setResource(std::move(resource));
 }

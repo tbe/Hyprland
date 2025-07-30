@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <cstring>
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CEventManager::CEventManager() : m_socketFD(socket(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC | SOCK_NONBLOCK, 0)) {
     if (!m_socketFD.isValid()) {

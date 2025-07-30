@@ -13,6 +13,8 @@
 #include <string>
 #include <filesystem>
 
+using namespace Hyprutils::Memory;
+
 static void help() {
     std::println("usage: Hyprland [arg [...]].\n");
     std::println(R"(Arguments:

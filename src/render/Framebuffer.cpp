@@ -1,6 +1,8 @@
 #include "Framebuffer.hpp"
 #include "OpenGL.hpp"
 
+using namespace Hyprutils::Memory;
+
 CFramebuffer::CFramebuffer() {
     ;
 }

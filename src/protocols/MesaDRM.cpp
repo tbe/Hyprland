@@ -5,6 +5,8 @@
 #include "types/WLBuffer.hpp"
 #include "../render/OpenGL.hpp"
 
+using namespace Hyprutils::Memory;
+
 CMesaDRMBufferResource::CMesaDRMBufferResource(uint32_t id, wl_client* client, Aquamarine::SDMABUFAttrs attrs_) {
     LOGM(LOG, "Creating a Mesa dmabuf, with id {}: size {}, fmt {}, planes {}", id, attrs_.size, attrs_.format, attrs_.planes);
     for (int i = 0; i < attrs_.planes; ++i) {

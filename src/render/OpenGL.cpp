@@ -33,6 +33,7 @@
 #include "./shaders/Shaders.hpp"
 
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 using namespace NColorManagement;
 
 const std::vector<const char*> ASSET_PATHS = {

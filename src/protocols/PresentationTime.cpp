@@ -6,6 +6,8 @@
 #include "core/Output.hpp"
 #include <aquamarine/output/Output.hpp>
 
+using namespace Hyprutils::Memory;
+
 CQueuedPresentationData::CQueuedPresentationData(SP<CWLSurfaceResource> surf) : m_surface(surf) {
     ;
 }

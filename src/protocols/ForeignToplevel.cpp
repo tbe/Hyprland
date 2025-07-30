@@ -2,6 +2,8 @@
 #include "../Compositor.hpp"
 #include "../managers/HookSystemManager.hpp"
 
+using namespace Hyprutils::Memory;
+
 CForeignToplevelHandle::CForeignToplevelHandle(SP<CExtForeignToplevelHandleV1> resource_, PHLWINDOW pWindow_) : m_resource(resource_), m_window(pWindow_) {
     if UNLIKELY (!resource_->resource())
         return;

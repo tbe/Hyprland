@@ -7,6 +7,8 @@
 #include <cstdint>
 #include <wayland-server.h>
 
+using namespace Hyprutils::Memory;
+
 CFocusGrabSurfaceState::CFocusGrabSurfaceState(CFocusGrab* grab, SP<CWLSurfaceResource> surface) {
     m_listeners.destroy = surface->m_events.destroy.listen([grab, surface] { grab->eraseSurface(surface); });
 }

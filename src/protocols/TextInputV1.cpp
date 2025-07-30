@@ -2,6 +2,8 @@
 
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CTextInputV1::~CTextInputV1() {
     m_events.destroy.emit();
 }

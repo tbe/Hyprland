@@ -2,6 +2,7 @@
 #include "../Compositor.hpp"
 #include <sys/socket.h>
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 static int onListenFdEvent(int fd, uint32_t mask, void* data) {
     auto sc = (CSecurityContext*)data;

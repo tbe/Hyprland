@@ -18,6 +18,8 @@ extern "C" {
 #include <memory>
 #include <variant>
 
+using namespace Hyprutils::Memory;
+
 // clang-format off
 static std::vector<uint32_t> HYPR_XCURSOR_PIXELS = {
     0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x1b001816, 0x01000101, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,

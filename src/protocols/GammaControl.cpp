@@ -5,6 +5,7 @@
 #include "../protocols/core/Output.hpp"
 #include "../render/Renderer.hpp"
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CGammaControl::CGammaControl(SP<CZwlrGammaControlV1> resource_, wl_resource* output) : m_resource(resource_) {
     if UNLIKELY (!resource_->resource())

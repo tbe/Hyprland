@@ -6,6 +6,8 @@
 #include "core/Output.hpp"
 #include "../helpers/Monitor.hpp"
 
+using namespace Hyprutils::Memory;
+
 void CLayerShellResource::SState::reset() {
     anchor        = 0;
     exclusive     = 0;

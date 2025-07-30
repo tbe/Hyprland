@@ -6,6 +6,8 @@
 #include "../Renderer.hpp"
 #include "../../managers/HookSystemManager.hpp"
 
+using namespace Hyprutils::Memory;
+
 CHyprBorderDecoration::CHyprBorderDecoration(PHLWINDOW pWindow) : IHyprWindowDecoration(pWindow), m_window(pWindow) {
     ;
 }

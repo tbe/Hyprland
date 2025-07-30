@@ -1,6 +1,8 @@
 #include "GlobalShortcuts.hpp"
 #include "../helpers/time/Time.hpp"
 
+using namespace Hyprutils::Memory;
+
 CShortcutClient::CShortcutClient(SP<CHyprlandGlobalShortcutsManagerV1> resource_) : m_resource(resource_) {
     if UNLIKELY (!good())
         return;

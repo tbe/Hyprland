@@ -1,6 +1,8 @@
 #include "IdleInhibit.hpp"
 #include "core/Compositor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CIdleInhibitor::CIdleInhibitor(SP<CIdleInhibitorResource> resource_, SP<CWLSurfaceResource> surf_) : m_resource(resource_), m_surface(surf_) {
     ;
 }

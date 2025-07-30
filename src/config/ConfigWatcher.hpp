@@ -30,4 +30,4 @@ class CConfigWatcher {
     Hyprutils::OS::CFileDescriptor                m_inotifyFd;
 };
 
-inline UP<CConfigWatcher> g_pConfigWatcher = makeUnique<CConfigWatcher>();
+inline UP<CConfigWatcher> g_pConfigWatcher = Hyprutils::Memory::makeUnique<CConfigWatcher>();

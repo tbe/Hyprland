@@ -10,6 +10,7 @@
 #include "../xwayland/XSurface.hpp"
 
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 static constexpr auto TIMER_TIMEOUT = std::chrono::milliseconds(1500);
 

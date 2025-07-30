@@ -8,6 +8,8 @@
 #include "../render/Renderer.hpp"
 #include "../helpers/Monitor.hpp"
 
+using namespace Hyprutils::Memory;
+
 CPointerConstraint::CPointerConstraint(SP<CZwpLockedPointerV1> resource_, SP<CWLSurfaceResource> surf, wl_resource* region_, zwpPointerConstraintsV1Lifetime lifetime_) :
     m_resourceLocked(resource_), m_locked(true), m_lifetime(lifetime_) {
     if UNLIKELY (!resource_->resource())

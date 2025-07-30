@@ -8,6 +8,7 @@
 #include <aquamarine/backend/DRM.hpp>
 #include <fcntl.h>
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 CDRMLeaseResource::CDRMLeaseResource(SP<CWpDrmLeaseV1> resource_, SP<CDRMLeaseRequestResource> request) : m_resource(resource_) {
     if UNLIKELY (!good())

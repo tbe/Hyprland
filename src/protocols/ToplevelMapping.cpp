@@ -3,6 +3,8 @@
 #include "ForeignToplevelWlr.hpp"
 #include "ForeignToplevel.hpp"
 
+using namespace Hyprutils::Memory;
+
 CToplevelWindowMappingHandle::CToplevelWindowMappingHandle(SP<CHyprlandToplevelWindowMappingHandleV1> resource_) : m_resource(resource_) {}
 
 CToplevelMappingManager::CToplevelMappingManager(SP<CHyprlandToplevelMappingManagerV1> resource_) : m_resource(resource_) {

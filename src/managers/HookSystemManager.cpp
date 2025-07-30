@@ -2,6 +2,8 @@
 
 #include "../plugins/PluginSystem.hpp"
 
+using namespace Hyprutils::Memory;
+
 CHookSystemManager::CHookSystemManager() {
     ; //
 }

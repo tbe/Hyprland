@@ -4,6 +4,8 @@
 #include "../Compositor.hpp"
 #include <algorithm>
 
+using namespace Hyprutils::Memory;
+
 CXDGDialogV1Resource::CXDGDialogV1Resource(SP<CXdgDialogV1> resource_, SP<CXDGToplevelResource> toplevel_) : m_resource(resource_), m_toplevel(toplevel_) {
     if UNLIKELY (!good())
         return;

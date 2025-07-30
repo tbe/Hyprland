@@ -12,6 +12,7 @@
 
 #include <aquamarine/backend/Backend.hpp>
 using namespace Hyprutils::OS;
+using namespace Hyprutils::Memory;
 
 #define TIMESPEC_NSEC_PER_SEC 1000000000L
 

@@ -8,6 +8,7 @@
 #include "../../config/ConfigValue.hpp"
 
 using namespace Hyprutils::String;
+using namespace Hyprutils::Memory;
 
 #if defined(__DragonFly__) || defined(__FreeBSD__) || defined(__NetBSD__)
 #include <sys/sysctl.h>

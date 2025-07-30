@@ -73,6 +73,8 @@
 #include <aquamarine/backend/Backend.hpp>
 #include <hyprutils/memory/UniquePtr.hpp>
 
+using namespace Hyprutils::Memory;
+
 // ********************************************************************************************
 // * IMPORTANT: make sure to .reset() any protocol UP's you create! (put reset in destructor) *
 // * otherwise Hyprland might crash when exiting.                                             *

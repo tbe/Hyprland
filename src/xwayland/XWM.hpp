@@ -207,7 +207,7 @@ class CXWM {
     SXSelection                               m_clipboard;
     SXSelection                               m_primarySelection;
     SXSelection                               m_dndSelection;
-    SP<CX11DataDevice>                        m_dndDataDevice = makeShared<CX11DataDevice>();
+    SP<CX11DataDevice>                        m_dndDataDevice = Hyprutils::Memory::makeShared<CX11DataDevice>();
     std::vector<SP<CX11DataOffer>>            m_dndDataOffers;
 
     inline xcb_connection_t*                  getConnection() {
